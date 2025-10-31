@@ -60,24 +60,26 @@ export const HeroCarousel = () => {
             alt={slide.alt}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-primary/20 to-primary/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/40 to-transparent" />
         </div>
       ))}
 
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading text-primary-foreground mb-6 drop-shadow-lg">
-          Experience Authentic Kerala Ayurveda
-        </h1>
-        <p className="text-lg md:text-xl text-primary-foreground/95 mb-8 max-w-2xl drop-shadow-md">
-          Traditional healing wisdom meets personalized care for your complete wellness journey
-        </p>
-        <Button
-          onClick={scrollToForm}
-          size="lg"
-          className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-lg text-base md:text-lg px-8 py-6"
-        >
-          Book Your Consultation
-        </Button>
+      <div className="absolute inset-0 flex items-center px-4 md:px-8 lg:px-16">
+        <div className="max-w-2xl animate-fade-in">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading text-primary-foreground mb-6 drop-shadow-lg leading-tight">
+            Experience Authentic Kerala Ayurveda
+          </h1>
+          <p className="text-lg md:text-xl text-primary-foreground/95 mb-8 drop-shadow-md">
+            Traditional healing wisdom meets personalized care for your complete wellness journey
+          </p>
+          <Button
+            onClick={scrollToForm}
+            size="lg"
+            className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-lg text-base md:text-lg px-8 py-6 hover-scale"
+          >
+            Book Your Consultation
+          </Button>
+        </div>
       </div>
 
       <button
