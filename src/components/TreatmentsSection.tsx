@@ -88,6 +88,53 @@ export const TreatmentsSection = () => {
             );
           })}
         </div>
+
+        {/* What Makes Us Unique - Animated Scroll */}
+        <div className="mt-16 overflow-hidden">
+          <h3 className="text-xl md:text-2xl font-heading text-foreground mb-6 max-w-md">
+            What Makes KAL Treatments Unique
+          </h3>
+          <div className="relative">
+            <div className="flex gap-8 animate-scroll">
+              {/* First set */}
+              {[
+                "Doctor Guided Classical and Proprietary Treatments",
+                "Oils Heated to the optimal temperatures - the way body accepts best",
+                "Authentic and Personalised products for maximum benefits",
+                "Chaturhasta Abhyanga - Two therapists, four hands for deeper relaxation",
+                "Guided therapeutic Positions - For Promoting Balanced Circulation and Head to Toe Healing",
+                "Gentle Finishing Ritual - to leave you grounded and refreshed - and prevent any post treatment issues"
+              ].map((point, index) => (
+                <div
+                  key={`point-1-${index}`}
+                  className="flex-shrink-0 bg-card/50 border border-border/50 rounded-lg px-6 py-3 backdrop-blur-sm"
+                >
+                  <p className="text-sm text-foreground whitespace-nowrap">
+                    <span className="text-primary font-semibold">{index + 1}.</span> {point}
+                  </p>
+                </div>
+              ))}
+              {/* Duplicate set for seamless loop */}
+              {[
+                "Doctor Guided Classical and Proprietary Treatments",
+                "Oils Heated to the optimal temperatures - the way body accepts best",
+                "Authentic and Personalised products for maximum benefits",
+                "Chaturhasta Abhyanga - Two therapists, four hands for deeper relaxation",
+                "Guided therapeutic Positions - For Promoting Balanced Circulation and Head to Toe Healing",
+                "Gentle Finishing Ritual - to leave you grounded and refreshed - and prevent any post treatment issues"
+              ].map((point, index) => (
+                <div
+                  key={`point-2-${index}`}
+                  className="flex-shrink-0 bg-card/50 border border-border/50 rounded-lg px-6 py-3 backdrop-blur-sm"
+                >
+                  <p className="text-sm text-foreground whitespace-nowrap">
+                    <span className="text-primary font-semibold">{index + 1}.</span> {point}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
