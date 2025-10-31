@@ -27,10 +27,10 @@ const doctors = [
 ];
 
 const therapists = [
-  { image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=400&fit=crop" },
-  { image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop" },
-  { image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&h=400&fit=crop" },
-  { image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop" },
+  { name: "Ananya Krishnan", image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=400&fit=crop" },
+  { name: "Rohit Nair", image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop" },
+  { name: "Kavya Reddy", image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&h=400&fit=crop" },
+  { name: "Aditya Sharma", image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop" },
 ];
 
 export const CareTeamSection = () => {
@@ -128,15 +128,15 @@ export const CareTeamSection = () => {
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {therapists.map((therapist, index) => (
-              <div
-                key={index}
-                className="aspect-square rounded-lg overflow-hidden shadow-[var(--shadow-card)] hover:shadow-xl transition-all"
-              >
-                <img
-                  src={therapist.image}
-                  alt={`Therapist ${index + 1}`}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                />
+              <div key={index} className="text-center">
+                <div className="aspect-square rounded-lg overflow-hidden shadow-[var(--shadow-card)] hover:shadow-xl transition-all mb-3">
+                  <img
+                    src={therapist.image}
+                    alt={therapist.name}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <p className="font-heading text-foreground">{therapist.name}</p>
               </div>
             ))}
           </div>
