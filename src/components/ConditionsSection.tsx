@@ -1,26 +1,52 @@
-import { Activity, Heart } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Users, ActivitySquare, Heart, Bone, Stethoscope, Baby, BabyIcon, Brain, Activity } from "lucide-react";
 
 const conditions = [
   {
-    icon: Activity,
-    title: "Illness-led Conditions",
-    description: "Curative treatments for specific health concerns",
-    examples: ["PCOS", "Indigestion", "Gut Health", "Joint Pain", "Chronic Conditions"],
-    color: "from-accent/10 to-accent/5",
+    icon: Users,
+    title: "PCOS",
+    description: "Hormonal balance treatments addressing the root causes of PCOS through personalized Ayurvedic care.",
+  },
+  {
+    icon: ActivitySquare,
+    title: "Indigestion",
+    description: "Natural remedies to restore digestive health and eliminate discomfort through traditional therapies.",
   },
   {
     icon: Heart,
-    title: "Lifestyle & Package Care",
-    description: "Holistic care for life's important journeys",
-    examples: ["Prenatal Care", "Postnatal Care", "Stress Management", "Lifestyle Correction"],
-    color: "from-secondary/20 to-secondary/10",
+    title: "Gut Health",
+    description: "Comprehensive gut healing programs using authentic Ayurvedic principles and herbal formulations.",
+  },
+  {
+    icon: Bone,
+    title: "Joint Pain",
+    description: "Therapeutic treatments to reduce inflammation and restore mobility naturally and effectively.",
+  },
+  {
+    icon: Stethoscope,
+    title: "Chronic Conditions",
+    description: "Long-term management of chronic ailments through holistic Ayurvedic approaches and lifestyle changes.",
+  },
+  {
+    icon: Baby,
+    title: "Prenatal Care",
+    description: "Nurturing support for expecting mothers with traditional therapies for a healthy pregnancy journey.",
+  },
+  {
+    icon: BabyIcon,
+    title: "Postnatal Care",
+    description: "Restorative treatments for new mothers focusing on recovery, strength, and emotional wellbeing.",
+  },
+  {
+    icon: Brain,
+    title: "Stress Management",
+    description: "Holistic stress relief through meditation, herbal remedies, and Ayurvedic relaxation therapies.",
+  },
+  {
+    icon: Activity,
+    title: "Lifestyle Correction",
+    description: "Personalized guidance to transform daily habits and achieve lasting health and vitality.",
   },
 ];
-
-const scrollToForm = () => {
-  document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" });
-};
 
 export const ConditionsSection = () => {
   return (
@@ -30,43 +56,28 @@ export const ConditionsSection = () => {
           <h2 className="text-3xl md:text-5xl font-heading text-foreground mb-4">
             Conditions We Treat
           </h2>
-          <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
-            Whether you seek healing or rejuvenation, we offer personalized care for your wellness journey
+          <p className="text-muted-foreground text-base md:text-lg max-w-3xl mx-auto">
+            We offer comprehensive Ayurvedic care for a wide range of health conditions. Explore our specialized treatments designed for your unique wellness needs.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {conditions.map((condition, index) => {
             const Icon = condition.icon;
             return (
               <div
                 key={index}
-                className={`bg-gradient-to-br ${condition.color} rounded-lg p-8 shadow-[var(--shadow-card)] hover:shadow-xl transition-all duration-300 border border-border`}
+                className="bg-card rounded-lg p-6 shadow-[var(--shadow-card)] hover:shadow-xl transition-all duration-300 border border-border hover:border-primary/30"
               >
-                <div className="bg-primary text-primary-foreground w-14 h-14 rounded-full flex items-center justify-center mb-6">
-                  <Icon className="w-7 h-7" />
+                <div className="bg-accent/10 text-accent w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                  <Icon className="w-6 h-6" />
                 </div>
-                <h3 className="text-2xl font-heading text-foreground mb-3">
+                <h3 className="text-xl font-heading text-accent mb-3">
                   {condition.title}
                 </h3>
-                <p className="text-muted-foreground mb-6">
+                <p className="text-muted-foreground text-sm leading-relaxed">
                   {condition.description}
                 </p>
-                <ul className="space-y-2 mb-6">
-                  {condition.examples.map((example, idx) => (
-                    <li key={idx} className="flex items-center text-foreground">
-                      <span className="w-1.5 h-1.5 bg-accent rounded-full mr-3" />
-                      {example}
-                    </li>
-                  ))}
-                </ul>
-                <Button
-                  onClick={scrollToForm}
-                  variant="outline"
-                  className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-                >
-                  Learn More
-                </Button>
               </div>
             );
           })}
