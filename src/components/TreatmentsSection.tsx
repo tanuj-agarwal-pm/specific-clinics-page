@@ -53,6 +53,9 @@ export const TreatmentsSection = () => {
           {/* Left side - Content */}
           <div>
             <div className="mb-8 max-w-md">
+              <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-4">
+                Our Treatments
+              </h2>
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
                 Your care is shaped by our team of therapists and practitioners who work collaboratively, online and in-person, so nothing gets missed.
               </p>
@@ -90,14 +93,11 @@ export const TreatmentsSection = () => {
           </div>
 
           {/* Right side - Background Image */}
-          <div className="relative h-[600px] lg:h-[800px] hidden lg:block">
-            <div
-              className="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl"
-              style={{
-                backgroundImage: `url(${treatmentBg})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
+          <div className="relative h-[400px] lg:h-[800px]">
+            <img
+              src={treatmentBg}
+              alt="Ayurvedic treatment"
+              className="w-full h-full object-cover rounded-2xl shadow-2xl"
             />
           </div>
         </div>
