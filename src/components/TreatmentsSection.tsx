@@ -95,24 +95,43 @@ export const TreatmentsSection = () => {
             What Makes Our Treatments Unique
           </h3>
           <div className="relative -z-10">
-            <div className="flex gap-6 animate-scroll-fast">
-              {/* Repeat the set 3 times for smooth infinite scroll */}
-              {Array(3).fill([
-                "Doctor-guided classical and proprietary treatments with personalised and authentic Kerala Ayurveda products for maximum benefits",
-                "Oils heated to the optimal temperatures - the way body accepts best",
-                "Chaturhasta Abhyanga - two therapists, four hands for deeper relaxation",
-                "Guided therapeutic positions - for promoting balanced circulation and head to toe healing",
-                "Gentle finishing ritual - to leave you grounded and refreshed - and prevent any post treatment issues"
-              ]).flat().map((point, index) => (
-                <div
-                  key={`point-${index}`}
-                  className="flex-shrink-0 w-64 bg-card/50 border border-border/50 rounded-lg px-5 py-4 backdrop-blur-sm"
-                >
-                  <p className="text-sm text-foreground leading-relaxed">
-                    {point}
-                  </p>
-                </div>
-              ))}
+            <div className="flex animate-scroll-fast" style={{ willChange: 'transform' }}>
+              <div className="flex gap-6">
+                {[
+                  "Doctor-guided classical and proprietary treatments with personalised and authentic Kerala Ayurveda products for maximum benefits",
+                  "Oils heated to the optimal temperatures - the way body accepts best",
+                  "Chaturhasta Abhyanga - two therapists, four hands for deeper relaxation",
+                  "Guided therapeutic positions - for promoting balanced circulation and head to toe healing",
+                  "Gentle finishing ritual - to leave you grounded and refreshed - and prevent any post treatment issues"
+                ].map((point, index) => (
+                  <div
+                    key={`g1-${index}`}
+                    className="flex-shrink-0 w-64 bg-card/50 border border-border/50 rounded-lg px-5 py-4 backdrop-blur-sm"
+                  >
+                    <p className="text-sm text-foreground leading-relaxed">
+                      {point}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              <div className="flex gap-6" aria-hidden="true">
+                {[
+                  "Doctor-guided classical and proprietary treatments with personalised and authentic Kerala Ayurveda products for maximum benefits",
+                  "Oils heated to the optimal temperatures - the way body accepts best",
+                  "Chaturhasta Abhyanga - two therapists, four hands for deeper relaxation",
+                  "Guided therapeutic positions - for promoting balanced circulation and head to toe healing",
+                  "Gentle finishing ritual - to leave you grounded and refreshed - and prevent any post treatment issues"
+                ].map((point, index) => (
+                  <div
+                    key={`g2-${index}`}
+                    className="flex-shrink-0 w-64 bg-card/50 border border-border/50 rounded-lg px-5 py-4 backdrop-blur-sm"
+                  >
+                    <p className="text-sm text-foreground leading-relaxed">
+                      {point}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
