@@ -1,0 +1,79 @@
+import { UserCheck, FileText, Sparkles } from "lucide-react";
+
+const steps = [
+  {
+    icon: UserCheck,
+    title: "Consultation",
+    description:
+      "Meet with our experienced doctor who diagnoses the root cause through traditional Ayurvedic assessment methods including pulse diagnosis and dosha evaluation.",
+  },
+  {
+    icon: FileText,
+    title: "Personalized Plan",
+    description:
+      "Based on your unique constitution and imbalances, the doctor prescribes customized treatments and medicines tailored to your specific needs.",
+  },
+  {
+    icon: Sparkles,
+    title: "Authentic Care",
+    description:
+      "Experience treatments using original Kerala Ayurveda products at our clinic. For extended care, visit Ayurvedagram, our authentic wellness resort.",
+  },
+];
+
+export const ApproachSection = () => {
+  return (
+    <section className="py-16 md:py-24 px-4 bg-gradient-to-b from-background to-muted">
+      <div className="container mx-auto max-w-7xl">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-5xl font-heading text-foreground mb-4">
+            Our Approach
+          </h2>
+          <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
+            Traditional Kerala Ayurveda wisdom combined with personalized care
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8 md:gap-12 relative">
+          {/* Connection lines for desktop */}
+          <div className="hidden md:block absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent" />
+
+          {steps.map((step, index) => {
+            const Icon = step.icon;
+            return (
+              <div key={index} className="relative">
+                <div className="flex flex-col items-center text-center">
+                  {/* Step number and icon */}
+                  <div className="relative mb-6">
+                    <div className="w-24 h-24 rounded-full bg-primary flex items-center justify-center shadow-lg relative z-10">
+                      <Icon className="w-10 h-10 text-primary-foreground" />
+                    </div>
+                    <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-heading font-bold text-lg">
+                      {index + 1}
+                    </div>
+                  </div>
+
+                  <h3 className="text-2xl font-heading text-foreground mb-4">
+                    {step.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="mt-12 text-center p-8 rounded-lg bg-card border border-primary/20">
+          <p className="text-foreground text-lg md:text-xl font-medium mb-2">
+            Heritage of Authentic Kerala Ayurveda
+          </p>
+          <p className="text-muted-foreground">
+            Every treatment is rooted in centuries-old wisdom, backed by our commitment to authenticity and your wellbeing
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
