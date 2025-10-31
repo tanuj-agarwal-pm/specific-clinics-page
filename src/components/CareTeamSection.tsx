@@ -122,7 +122,7 @@ export const CareTeamSection = () => {
         </div>
 
         {/* Therapists */}
-        <div>
+        <div className="bg-secondary -mx-4 px-4 py-12 md:py-16 rounded-lg">
           <h3 className="text-2xl font-heading text-foreground mb-6 text-center">
             Our Therapists
           </h3>
