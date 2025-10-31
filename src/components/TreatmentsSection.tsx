@@ -61,7 +61,7 @@ export const TreatmentsSection = () => {
           >
             Most Popular Treatments
           </h2>
-          <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-sm md:max-w-md">
+          <p className="text-base md:text-lg text-white md:text-muted-foreground leading-relaxed mb-8 max-w-sm md:max-w-md">
             Your care is shaped by our highly experienced team of doctors and therapists who work together to ensure you walk out feeling healed.
           </p>
         </div>
