@@ -1,19 +1,37 @@
-import { Leaf } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Droplets, Flower2, Heart, Sparkles, Leaf, Wind } from "lucide-react";
+import treatmentBg from "@/assets/hero-treatment.jpg";
 
 const treatments = [
-  "Panchakarma Therapy",
-  "Abhyanga (Full Body Massage)",
-  "Shirodhara (Oil Therapy)",
-  "PPS (Podikizhi, Pizhichil, Shastikashali)",
-  "Kati Basti (Lower Back Treatment)",
-  "Greeva Basti (Neck Treatment)",
-  "Janu Basti (Knee Treatment)",
-  "Nasya (Nasal Therapy)",
-  "Udvartana (Herbal Powder Massage)",
-  "Elakizhi (Herbal Poultice)",
-  "Njavara Kizhi (Rice Therapy)",
-  "Thalapothichil (Head Pack)",
+  {
+    icon: Droplets,
+    title: "Panchakarma Therapy",
+    description: "Complete detoxification and rejuvenation through five traditional cleansing procedures for deep healing.",
+  },
+  {
+    icon: Flower2,
+    title: "Abhyanga",
+    description: "Traditional full body massage with warm herbal oils to improve circulation and release tension.",
+  },
+  {
+    icon: Heart,
+    title: "Shirodhara",
+    description: "Continuous stream of warm oil on the forehead to calm the mind and balance the nervous system.",
+  },
+  {
+    icon: Sparkles,
+    title: "Therapeutic Basti",
+    description: "Specialized treatments including Kati, Greeva, and Janu Basti for targeted pain relief and healing.",
+  },
+  {
+    icon: Leaf,
+    title: "Herbal Therapies",
+    description: "Udvartana, Elakizhi, and Njavara Kizhi using traditional herbal preparations for wellness.",
+  },
+  {
+    icon: Wind,
+    title: "Nasya & Head Treatments",
+    description: "Nasal therapy and Thalapothichil to clear respiratory passages and nourish the mind.",
+  },
 ];
 
 const scrollToForm = () => {
@@ -22,39 +40,63 @@ const scrollToForm = () => {
 
 export const TreatmentsSection = () => {
   return (
-    <section className="py-16 md:py-24 px-4 bg-card">
-      <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-heading text-foreground mb-4">
-            Our Treatments
-          </h2>
-          <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
-            Authentic Kerala Ayurveda procedures designed for your wellness
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
-          {treatments.map((treatment, index) => (
-            <div
-              key={index}
-              className="flex items-center gap-3 p-4 rounded-lg bg-background border border-border hover:border-primary transition-all hover:shadow-md"
-            >
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                <Leaf className="w-5 h-5 text-primary" />
-              </div>
-              <span className="text-foreground font-medium">{treatment}</span>
+    <section className="relative py-16 md:py-24 bg-background overflow-hidden">
+      <div className="container mx-auto max-w-7xl px-4">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          {/* Left side - Content */}
+          <div className="order-2 lg:order-1">
+            <div className="mb-8">
+              <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-4">
+                Our Treatments
+              </h2>
+              <p className="text-muted-foreground text-base md:text-lg">
+                Your care is shaped by our team of therapists and practitioners who work collaboratively, online and in-person, so nothing gets missed.
+              </p>
             </div>
-          ))}
-        </div>
 
-        <div className="text-center">
-          <Button
-            onClick={scrollToForm}
-            size="lg"
-            className="bg-primary text-primary-foreground hover:bg-accent"
-          >
-            Book Your Treatment
-          </Button>
+            {/* Treatment Grid */}
+            <div className="grid sm:grid-cols-2 gap-4">
+              {treatments.map((treatment, index) => {
+                const Icon = treatment.icon;
+                return (
+                  <div
+                    key={index}
+                    className="bg-card rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-border"
+                  >
+                    <div className="mb-4">
+                      <Icon className="w-8 h-8 text-accent" />
+                    </div>
+                    <h3 className="text-lg font-heading text-foreground mb-2">
+                      {treatment.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                      {treatment.description}
+                    </p>
+                    <button
+                      onClick={scrollToForm}
+                      className="text-accent hover:text-accent/80 text-sm font-medium uppercase tracking-wide transition-colors"
+                    >
+                      Learn More →
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Right side - Background Image */}
+          <div className="order-1 lg:order-2 relative h-[400px] lg:h-[700px]">
+            <div
+              className="absolute inset-0 rounded-2xl overflow-hidden shadow-xl"
+              style={{
+                backgroundImage: `url(${treatmentBg})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-background/20" />
+            </div>
+          </div>
         </div>
       </div>
     </section>
