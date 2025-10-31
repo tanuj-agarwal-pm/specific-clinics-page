@@ -122,8 +122,8 @@ export const CareTeamSection = () => {
         </div>
 
         {/* Therapists */}
-        <div className="bg-secondary -mx-4 px-4 py-12 md:py-16 rounded-lg">
-          <h3 className="text-2xl font-heading text-foreground mb-6 text-center">
+        <div className="bg-primary -mx-[50vw] left-1/2 relative right-1/2 w-screen px-4 py-12 md:py-16">
+          <h3 className="text-2xl font-heading text-primary-foreground mb-6 text-center">
             Our Therapists
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
