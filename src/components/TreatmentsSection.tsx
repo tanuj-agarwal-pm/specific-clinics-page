@@ -98,9 +98,8 @@ export const TreatmentsSection = () => {
             <div className="flex gap-6 animate-scroll-fast">
               {/* First set */}
               {[
-                "Doctor Guided Classical and Proprietary Treatments",
+                "Doctor-Guided Classical and Proprietary Treatments with Personalised and Authentic Kerala Ayurveda Products for maximum benefits",
                 "Oils Heated to the optimal temperatures - the way body accepts best",
-                "Authentic and Personalised products for maximum benefits",
                 "Chaturhasta Abhyanga - Two therapists, four hands for deeper relaxation",
                 "Guided therapeutic Positions - For Promoting Balanced Circulation and Head to Toe Healing",
                 "Gentle Finishing Ritual - to leave you grounded and refreshed - and prevent any post treatment issues"
@@ -116,9 +115,8 @@ export const TreatmentsSection = () => {
               ))}
               {/* Duplicate set for seamless loop */}
               {[
-                "Doctor Guided Classical and Proprietary Treatments",
+                "Doctor-Guided Classical and Proprietary Treatments with Personalised and Authentic Kerala Ayurveda Products for maximum benefits",
                 "Oils Heated to the optimal temperatures - the way body accepts best",
-                "Authentic and Personalised products for maximum benefits",
                 "Chaturhasta Abhyanga - Two therapists, four hands for deeper relaxation",
                 "Guided therapeutic Positions - For Promoting Balanced Circulation and Head to Toe Healing",
                 "Gentle Finishing Ritual - to leave you grounded and refreshed - and prevent any post treatment issues"
