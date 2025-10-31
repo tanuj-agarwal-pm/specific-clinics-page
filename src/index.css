@@ -120,10 +120,10 @@ All colors MUST be HSL.
   }
 }
 
-.animate-scroll {
-  animation: scroll 40s linear infinite;
+.animate-scroll-fast {
+  animation: scroll 25s linear infinite;
 }
 
-.animate-scroll:hover {
+.animate-scroll-fast:hover {
   animation-play-state: paused;
 }

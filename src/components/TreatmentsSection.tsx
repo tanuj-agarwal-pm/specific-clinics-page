@@ -92,10 +92,10 @@ export const TreatmentsSection = () => {
         {/* What Makes Us Unique - Animated Scroll */}
         <div className="mt-16 overflow-hidden">
           <h3 className="text-xl md:text-2xl font-heading text-foreground mb-6 max-w-md">
-            What Makes KAL Treatments Unique
+            What Makes Our Treatments Unique
           </h3>
-          <div className="relative">
-            <div className="flex gap-8 animate-scroll">
+          <div className="relative -z-10">
+            <div className="flex gap-6 animate-scroll-fast">
               {/* First set */}
               {[
                 "Doctor Guided Classical and Proprietary Treatments",
@@ -107,10 +107,10 @@ export const TreatmentsSection = () => {
               ].map((point, index) => (
                 <div
                   key={`point-1-${index}`}
-                  className="flex-shrink-0 bg-card/50 border border-border/50 rounded-lg px-6 py-3 backdrop-blur-sm"
+                  className="flex-shrink-0 w-64 bg-card/50 border border-border/50 rounded-lg px-5 py-4 backdrop-blur-sm"
                 >
-                  <p className="text-sm text-foreground whitespace-nowrap">
-                    <span className="text-primary font-semibold">{index + 1}.</span> {point}
+                  <p className="text-sm text-foreground leading-relaxed">
+                    {point}
                   </p>
                 </div>
               ))}
@@ -125,10 +125,10 @@ export const TreatmentsSection = () => {
               ].map((point, index) => (
                 <div
                   key={`point-2-${index}`}
-                  className="flex-shrink-0 bg-card/50 border border-border/50 rounded-lg px-6 py-3 backdrop-blur-sm"
+                  className="flex-shrink-0 w-64 bg-card/50 border border-border/50 rounded-lg px-5 py-4 backdrop-blur-sm"
                 >
-                  <p className="text-sm text-foreground whitespace-nowrap">
-                    <span className="text-primary font-semibold">{index + 1}.</span> {point}
+                  <p className="text-sm text-foreground leading-relaxed">
+                    {point}
                   </p>
                 </div>
               ))}
