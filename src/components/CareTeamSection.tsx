@@ -45,7 +45,7 @@ export const CareTeamSection = () => {
   };
 
   return (
-    <section className="py-16 md:py-24 px-4 bg-card">
+    <section className="pt-16 md:pt-24 pb-0 px-4 bg-card">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-heading text-foreground mb-4">

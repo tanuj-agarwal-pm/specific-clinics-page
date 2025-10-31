@@ -51,7 +51,7 @@ export const TestimonialsSection = () => {
   }, []);
 
   return (
-    <section className="py-16 md:py-24 px-4 relative overflow-hidden">
+    <section className="pt-0 pb-16 md:pb-24 px-4 relative overflow-hidden">
       {/* Background image with overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center"
