@@ -67,12 +67,12 @@ export const ConditionsSection = () => {
             return (
               <div
                 key={index}
-                className="bg-card rounded-lg p-6 shadow-[var(--shadow-card)] hover:shadow-xl transition-all duration-300 border border-border hover:border-primary/30"
+                className="bg-card rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-border"
               >
-                <div className="bg-accent/10 text-accent w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                  <Icon className="w-6 h-6" />
+                <div className="bg-accent/10 text-accent w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                  <Icon className="w-8 h-8" />
                 </div>
-                <h3 className="text-xl font-heading text-accent mb-3">
+                <h3 className="text-lg font-heading text-accent mb-2">
                   {condition.title}
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
