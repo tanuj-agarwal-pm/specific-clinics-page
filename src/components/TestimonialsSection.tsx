@@ -57,9 +57,9 @@ export const TestimonialsSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 items-center">
           {/* Credentials - Left Side */}
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 md:col-span-2">
             {credentials.map((cred, index) => {
               const Icon = cred.icon;
               return (
@@ -80,7 +80,7 @@ export const TestimonialsSection = () => {
           </div>
 
           {/* Testimonials - Right Side */}
-          <div>
+          <div className="md:col-span-3">
             <Card className="p-8 md:p-12 shadow-[var(--shadow-card)] relative overflow-hidden" style={{ borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%" }}>
               <div className="absolute top-4 left-4 text-6xl text-primary/10 font-heading">"</div>
               <div className="relative">
