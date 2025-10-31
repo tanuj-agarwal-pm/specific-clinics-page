@@ -62,7 +62,7 @@ export const TreatmentsSection = () => {
             Most Popular Treatments
           </h2>
           <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-sm md:max-w-md">
-            Your care is shaped by our team of therapists and practitioners who work collaboratively, online and in-person, so nothing gets missed.
+            Your care is shaped by our highly experienced team of doctors and therapists who work together to ensure you walk out feeling healed.
           </p>
         </div>
 
