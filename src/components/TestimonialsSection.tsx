@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Star, Award, Users, Calendar } from "lucide-react";
+import { Star, Award, Users } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 const testimonials = [
@@ -33,7 +33,6 @@ const credentials = [
   { icon: Star, label: "4.9/5 on Google", value: "500+ Reviews" },
   { icon: Award, label: "15+ Years", value: "Excellence in Care" },
   { icon: Users, label: "10,000+", value: "Patients Treated" },
-  { icon: Calendar, label: "Traditional", value: "Kerala Methods" },
 ];
 
 export const TestimonialsSection = () => {
@@ -106,7 +105,7 @@ export const TestimonialsSection = () => {
         </div>
 
         {/* Credentials */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {credentials.map((cred, index) => {
             const Icon = cred.icon;
             return (
