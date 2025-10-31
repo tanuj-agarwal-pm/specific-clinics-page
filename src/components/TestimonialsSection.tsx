@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Star, Award, Users, Heart, Brain, Baby, Bone } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import testimonialsBg from "@/assets/testimonials-bg.jpg";
 
 const testimonials = [
   {
@@ -50,8 +51,15 @@ export const TestimonialsSection = () => {
   }, []);
 
   return (
-    <section className="py-16 md:py-24 px-4 bg-white">
-      <div className="container mx-auto max-w-7xl">
+    <section className="py-16 md:py-24 px-4 relative overflow-hidden">
+      {/* Background image with overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${testimonialsBg})` }}
+      />
+      <div className="absolute inset-0 bg-white/85" />
+      
+      <div className="container mx-auto max-w-7xl relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-heading text-foreground mb-4">
             What Our Patients Say
