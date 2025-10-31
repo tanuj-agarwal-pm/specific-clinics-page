@@ -1,4 +1,4 @@
-import { Activity, Sparkles, Heart } from "lucide-react";
+import { Activity, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const conditions = [
@@ -8,13 +8,6 @@ const conditions = [
     description: "Curative treatments for specific health concerns",
     examples: ["PCOS", "Indigestion", "Gut Health", "Joint Pain", "Chronic Conditions"],
     color: "from-accent/10 to-accent/5",
-  },
-  {
-    icon: Sparkles,
-    title: "Rejuvenation Therapies",
-    description: "Wellness and detoxification treatments",
-    examples: ["Abhyanga Massage", "Panchakarma", "Shirodhara", "Detox Programs"],
-    color: "from-primary/10 to-primary/5",
   },
   {
     icon: Heart,
@@ -42,7 +35,7 @@ export const ConditionsSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {conditions.map((condition, index) => {
             const Icon = condition.icon;
             return (
