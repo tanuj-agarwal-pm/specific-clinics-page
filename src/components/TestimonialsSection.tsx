@@ -85,7 +85,7 @@ export const TestimonialsSection = () => {
 
           {/* Testimonials - Right Side */}
           <div className="md:col-span-3">
-            <Card className="p-8 md:p-12 shadow-[var(--shadow-card)] relative overflow-visible border-4 border-primary" style={{ borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%" }}>
+            <Card className="p-8 md:p-12 shadow-[var(--shadow-card)] relative overflow-visible border-2 border-primary" style={{ borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%" }}>
               {/* Icon on border - changes with current testimonial */}
               {testimonials.map((testimonial, index) => {
                 const TestimonialIcon = testimonial.icon;
