@@ -116,12 +116,12 @@ All colors MUST be HSL.
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(calc(-100% / 3));
   }
 }
 
 .animate-scroll-fast {
-  animation: scroll 25s linear infinite;
+  animation: scroll 30s linear infinite;
 }
 
 .animate-scroll-fast:hover {

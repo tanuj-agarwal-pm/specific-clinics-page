@@ -96,33 +96,16 @@ export const TreatmentsSection = () => {
           </h3>
           <div className="relative -z-10">
             <div className="flex gap-6 animate-scroll-fast">
-              {/* First set */}
-              {[
+              {/* Repeat the set 3 times for smooth infinite scroll */}
+              {Array(3).fill([
                 "Doctor-Guided Classical and Proprietary Treatments with Personalised and Authentic Kerala Ayurveda Products for maximum benefits",
                 "Oils Heated to the optimal temperatures - the way body accepts best",
                 "Chaturhasta Abhyanga - Two therapists, four hands for deeper relaxation",
                 "Guided therapeutic Positions - For Promoting Balanced Circulation and Head to Toe Healing",
                 "Gentle Finishing Ritual - to leave you grounded and refreshed - and prevent any post treatment issues"
-              ].map((point, index) => (
+              ]).flat().map((point, index) => (
                 <div
-                  key={`point-1-${index}`}
-                  className="flex-shrink-0 w-64 bg-card/50 border border-border/50 rounded-lg px-5 py-4 backdrop-blur-sm"
-                >
-                  <p className="text-sm text-foreground leading-relaxed">
-                    {point}
-                  </p>
-                </div>
-              ))}
-              {/* Duplicate set for seamless loop */}
-              {[
-                "Doctor-Guided Classical and Proprietary Treatments with Personalised and Authentic Kerala Ayurveda Products for maximum benefits",
-                "Oils Heated to the optimal temperatures - the way body accepts best",
-                "Chaturhasta Abhyanga - Two therapists, four hands for deeper relaxation",
-                "Guided therapeutic Positions - For Promoting Balanced Circulation and Head to Toe Healing",
-                "Gentle Finishing Ritual - to leave you grounded and refreshed - and prevent any post treatment issues"
-              ].map((point, index) => (
-                <div
-                  key={`point-2-${index}`}
+                  key={`point-${index}`}
                   className="flex-shrink-0 w-64 bg-card/50 border border-border/50 rounded-lg px-5 py-4 backdrop-blur-sm"
                 >
                   <p className="text-sm text-foreground leading-relaxed">
