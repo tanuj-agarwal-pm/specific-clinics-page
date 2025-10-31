@@ -66,6 +66,27 @@ export const HeroCarousel = () => {
           >
             Book Your Consultation
           </Button>
+          
+          <div className="flex flex-wrap gap-4 md:gap-6 mt-8">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary-foreground" />
+              <span className="text-primary-foreground text-sm md:text-base font-medium">
+                For Every Age & Concern
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary-foreground" />
+              <span className="text-primary-foreground text-sm md:text-base font-medium">
+                Treatment for the Root Causes
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary-foreground" />
+              <span className="text-primary-foreground text-sm md:text-base font-medium">
+                Healing Mind, Body, and Soul
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
