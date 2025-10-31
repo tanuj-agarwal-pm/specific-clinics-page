@@ -31,7 +31,7 @@ const testimonials = [
 
 const credentials = [
   { icon: Star, label: "4.9/5 on Google", value: "500+ Reviews" },
-  { icon: Award, label: "15+ Years", value: "Excellence in Care" },
+  { icon: Award, label: "75+ Years", value: "Excellence in Care" },
   { icon: Users, label: "10,000+", value: "Patients Treated" },
 ];
 
