@@ -35,13 +35,6 @@ const credentials = [
   { icon: Users, label: "10,000+", value: "Patients Treated" },
 ];
 
-const blobShapes = [
-  "60% 40% 30% 70% / 60% 30% 70% 40%",
-  "40% 60% 70% 30% / 50% 60% 40% 60%",
-  "70% 30% 50% 50% / 40% 70% 30% 60%",
-  "50% 50% 40% 60% / 70% 30% 60% 40%",
-];
-
 export const TestimonialsSection = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
@@ -88,10 +81,7 @@ export const TestimonialsSection = () => {
 
           {/* Testimonials - Right Side */}
           <div className="md:col-span-3">
-            <Card 
-              className="p-8 md:p-12 shadow-[var(--shadow-card)] relative overflow-hidden border-4 border-primary transition-all duration-500" 
-              style={{ borderRadius: blobShapes[currentTestimonial] }}
-            >
+            <Card className="p-8 md:p-12 shadow-[var(--shadow-card)] relative overflow-hidden" style={{ borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%" }}>
               <div className="absolute top-4 left-4 text-6xl text-primary/10 font-heading">"</div>
               <div className="relative">
                 {testimonials.map((testimonial, index) => (
