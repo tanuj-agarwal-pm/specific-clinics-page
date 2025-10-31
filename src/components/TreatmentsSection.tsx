@@ -41,7 +41,7 @@ export const TreatmentsSection = () => {
       className="relative py-16 md:py-24 bg-background overflow-hidden"
     >
       {/* Background Image - Absolute positioned on the right */}
-      <div className="absolute inset-y-0 right-0 w-full md:w-[52%] pointer-events-none">
+      <div className="absolute top-0 md:top-16 bottom-0 right-0 w-full md:w-[52%] pointer-events-none">
         <img
           src={treatmentBg}
           alt="Ayurvedic therapy session showing traditional treatment methods"
@@ -54,14 +54,14 @@ export const TreatmentsSection = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto max-w-7xl px-4">
-        <div className="max-w-xl md:max-w-2xl">
+        <div className="max-w-md md:max-w-lg">
           <h2 
             id="treatments-heading" 
             className="text-3xl md:text-4xl font-heading text-foreground mb-4"
           >
             Our Treatments
           </h2>
-          <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8">
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-sm md:max-w-md">
             Your care is shaped by our team of therapists and practitioners who work collaboratively, online and in-person, so nothing gets missed.
           </p>
         </div>
