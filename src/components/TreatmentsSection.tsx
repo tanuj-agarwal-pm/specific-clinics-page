@@ -98,11 +98,11 @@ export const TreatmentsSection = () => {
             <div className="flex gap-6 animate-scroll-fast">
               {/* Repeat the set 3 times for smooth infinite scroll */}
               {Array(3).fill([
-                "Doctor-Guided Classical and Proprietary Treatments with Personalised and Authentic Kerala Ayurveda Products for maximum benefits",
-                "Oils Heated to the optimal temperatures - the way body accepts best",
-                "Chaturhasta Abhyanga - Two therapists, four hands for deeper relaxation",
-                "Guided therapeutic Positions - For Promoting Balanced Circulation and Head to Toe Healing",
-                "Gentle Finishing Ritual - to leave you grounded and refreshed - and prevent any post treatment issues"
+                "Doctor-guided classical and proprietary treatments with personalised and authentic Kerala Ayurveda products for maximum benefits",
+                "Oils heated to the optimal temperatures - the way body accepts best",
+                "Chaturhasta Abhyanga - two therapists, four hands for deeper relaxation",
+                "Guided therapeutic positions - for promoting balanced circulation and head to toe healing",
+                "Gentle finishing ritual - to leave you grounded and refreshed - and prevent any post treatment issues"
               ]).flat().map((point, index) => (
                 <div
                   key={`point-${index}`}
