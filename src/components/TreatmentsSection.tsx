@@ -57,7 +57,7 @@ export const TreatmentsSection = () => {
         <div className="max-w-md md:max-w-lg">
           <h2 
             id="treatments-heading" 
-            className="text-3xl md:text-4xl font-heading text-foreground mb-4"
+            className="text-3xl md:text-5xl font-heading text-foreground mb-4"
           >
             Most Popular Treatments
           </h2>
