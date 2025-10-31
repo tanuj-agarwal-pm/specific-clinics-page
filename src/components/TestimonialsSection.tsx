@@ -46,7 +46,7 @@ export const TestimonialsSection = () => {
   }, []);
 
   return (
-    <section className="py-16 md:py-24 px-4 bg-background">
+    <section className="py-16 md:py-24 px-4 bg-white">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-heading text-foreground mb-4">
@@ -58,7 +58,7 @@ export const TestimonialsSection = () => {
         </div>
 
         {/* Testimonials Carousel */}
-        <div className="max-w-3xl mx-auto mb-16">
+        <div className="max-w-3xl mx-auto mb-12">
           <Card className="p-8 md:p-12 shadow-[var(--shadow-card)] relative overflow-hidden">
             <div className="absolute top-4 left-4 text-6xl text-primary/10 font-heading">"</div>
             <div className="relative">
@@ -105,21 +105,21 @@ export const TestimonialsSection = () => {
         </div>
 
         {/* Credentials */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {credentials.map((cred, index) => {
             const Icon = cred.icon;
             return (
               <div
                 key={index}
-                className="text-center p-6 rounded-lg bg-card border border-border shadow-[var(--shadow-card)] hover:shadow-xl transition-all"
+                className="text-center p-4 md:p-5 rounded-lg bg-primary shadow-[var(--shadow-card)] hover:shadow-xl transition-all"
               >
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary mb-4">
-                  <Icon className="w-6 h-6" />
+                <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/20 text-white mb-4">
+                  <Icon className="w-5 h-5" />
                 </div>
-                <p className="text-2xl font-heading text-foreground mb-1">
+                <p className="text-xl md:text-2xl font-heading text-white mb-1">
                   {cred.value}
                 </p>
-                <p className="text-sm text-muted-foreground">{cred.label}</p>
+                <p className="text-sm text-white/80">{cred.label}</p>
               </div>
             );
           })}
