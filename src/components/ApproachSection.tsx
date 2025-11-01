@@ -103,7 +103,7 @@ export const ApproachSection = () => {
                     <div 
                       className={`overflow-hidden relative z-10 border-4 transition-all duration-500 ease-in-out ${
                         isActive 
-                          ? `w-[7.5rem] h-[7.5rem] border-primary shadow-[0_0_30px_hsla(var(--primary)/0.35)] ${currentBlobShape}` 
+                          ? `w-36 h-36 border-primary shadow-[0_0_30px_hsla(var(--primary)/0.35)] ${currentBlobShape}` 
                           : `w-24 h-24 border-primary shadow-lg ${currentBlobShape}`
                       }`}
                     >
