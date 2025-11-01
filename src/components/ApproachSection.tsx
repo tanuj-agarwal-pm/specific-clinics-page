@@ -27,6 +27,7 @@ const steps = [
 export const ApproachSection = () => {
   const [activeStep, setActiveStep] = useState(0);
   const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -37,13 +38,18 @@ export const ApproachSection = () => {
   }, []);
 
   useEffect(() => {
-    // Scroll active step into view on mobile
-    if (stepRefs.current[activeStep]) {
-      stepRefs.current[activeStep]?.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-        inline: "center",
-      });
+    // Only auto-scroll on mobile within the container
+    if (window.innerWidth < 768 && scrollContainerRef.current && stepRefs.current[activeStep]) {
+      const container = scrollContainerRef.current;
+      const element = stepRefs.current[activeStep];
+      
+      if (element) {
+        const scrollLeft = element.offsetLeft - (container.offsetWidth / 2) + (element.offsetWidth / 2);
+        container.scrollTo({
+          left: scrollLeft,
+          behavior: "smooth"
+        });
+      }
     }
   }, [activeStep]);
 
@@ -67,7 +73,7 @@ export const ApproachSection = () => {
           <div className="md:hidden absolute top-[5.5rem] left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent z-0" />
 
           {/* Horizontal scroll on mobile, grid on desktop */}
-          <div className="flex md:grid md:grid-cols-3 gap-8 md:gap-12 overflow-x-auto overflow-y-visible md:overflow-visible snap-x snap-mandatory md:snap-none scrollbar-hide px-8 -mx-8 pt-10 md:pt-6 pb-6">
+          <div ref={scrollContainerRef} className="flex md:grid md:grid-cols-3 gap-8 md:gap-12 overflow-x-auto overflow-y-visible md:overflow-visible snap-x snap-mandatory md:snap-none scrollbar-hide px-8 -mx-8 pt-10 md:pt-6 pb-6">
             {steps.map((step, index) => {
               const isActive = activeStep === index;
               
