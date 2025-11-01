@@ -70,6 +70,25 @@ export const ApproachSection = () => {
           <div className="flex md:grid md:grid-cols-3 gap-8 md:gap-12 overflow-x-auto overflow-y-visible md:overflow-visible snap-x snap-mandatory md:snap-none scrollbar-hide px-8 -mx-8 pt-10 md:pt-6 pb-6">
             {steps.map((step, index) => {
               const isActive = activeStep === index;
+              
+              // Unique blob shapes for each step
+              const blobShapes = [
+                { // Step 1
+                  active: "rounded-[30%_70%_70%_30%/30%_30%_70%_70%]",
+                  inactive: "rounded-[35%_65%_65%_35%/35%_35%_65%_65%]"
+                },
+                { // Step 2
+                  active: "rounded-[60%_40%_30%_70%/60%_30%_70%_40%]",
+                  inactive: "rounded-[55%_45%_35%_65%/55%_35%_65%_45%]"
+                },
+                { // Step 3
+                  active: "rounded-[40%_60%_60%_40%/60%_40%_40%_60%]",
+                  inactive: "rounded-[45%_55%_55%_45%/55%_45%_45%_55%]"
+                }
+              ];
+              
+              const currentBlobShape = isActive ? blobShapes[index].active : blobShapes[index].inactive;
+              
               return (
                 <div 
                   key={index}
@@ -84,8 +103,8 @@ export const ApproachSection = () => {
                     <div 
                       className={`overflow-hidden relative z-10 border-4 transition-all duration-500 ease-in-out ${
                         isActive 
-                          ? "w-[7.5rem] h-[7.5rem] border-primary shadow-[0_0_30px_hsla(var(--primary)/0.35)] rounded-[30%_70%_70%_30%/30%_30%_70%_70%]" 
-                          : "w-24 h-24 border-primary shadow-lg rounded-[35%_65%_65%_35%/35%_35%_65%_65%]"
+                          ? `w-[7.5rem] h-[7.5rem] border-primary shadow-[0_0_30px_hsla(var(--primary)/0.35)] ${currentBlobShape}` 
+                          : `w-24 h-24 border-primary shadow-lg ${currentBlobShape}`
                       }`}
                     >
                       <img 
