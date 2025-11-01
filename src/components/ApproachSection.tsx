@@ -20,7 +20,7 @@ const steps = [
     image: careImg,
     title: "Authentic Care",
     description:
-      "Experience treatments using original Kerala Ayurveda products at our clinic. For extended care, visit Ayurvedagram, our authentic wellness resort.",
+      "Experience treatments using original Kerala Ayurveda products at our wellness centers and begin your healing journey with us.",
   },
 ];
 
