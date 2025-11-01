@@ -59,19 +59,19 @@ export const ApproachSection = () => {
           </p>
         </div>
 
-        <div className="relative py-8 -my-8 overflow-visible">
+        <div className="relative py-10 md:py-12 overflow-visible">
           {/* Connection lines for desktop */}
           <div className="hidden md:block absolute top-24 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent" />
 
           {/* Horizontal scroll on mobile, grid on desktop */}
-          <div className="flex md:grid md:grid-cols-3 gap-8 md:gap-12 overflow-x-auto overflow-y-visible md:overflow-visible snap-x snap-mandatory md:snap-none scrollbar-hide px-8 -mx-8 pt-6 pb-4">
+          <div className="flex md:grid md:grid-cols-3 gap-8 md:gap-12 overflow-x-auto overflow-y-visible md:overflow-visible snap-x snap-mandatory md:snap-none scrollbar-hide px-8 -mx-8 pt-10 md:pt-6 pb-6">
             {steps.map((step, index) => {
               const isActive = activeStep === index;
               return (
                 <div 
                   key={index}
                   ref={(el) => (stepRefs.current[index] = el)}
-                  className={`relative transition-all duration-500 ease-in-out snap-center flex-shrink-0 w-[80vw] md:w-auto px-6 scroll-ml-12 scroll-mr-12 overflow-visible transform-gpu ${
+                  className={`relative transition-all duration-500 ease-in-out snap-center flex-shrink-0 w-[80vw] md:w-auto px-6 scroll-ml-12 scroll-mr-12 overflow-visible transform-gpu isolate ${
                     isActive ? "scale-110" : "scale-100"
                   }`}
                 >
@@ -81,7 +81,7 @@ export const ApproachSection = () => {
                     <div 
                       className={`rounded-full overflow-hidden relative z-10 border-4 transition-all duration-500 ease-in-out ${
                         isActive 
-                          ? "w-32 h-32 border-primary shadow-[0_0_30px_hsla(var(--primary)/0.35)]" 
+                          ? "w-[7.5rem] h-[7.5rem] border-primary shadow-[0_0_30px_hsla(var(--primary)/0.35)]" 
                           : "w-24 h-24 border-primary shadow-lg"
                       }`}
                     >
@@ -91,7 +91,7 @@ export const ApproachSection = () => {
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <div className="absolute top-0 right-0 translate-x-[35%] -translate-y-[35%] md:translate-x-[25%] md:-translate-y-[25%] w-8 h-8 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-heading font-bold text-lg z-20">
+                    <div className="absolute top-0 right-0 translate-x-[32%] -translate-y-[32%] md:translate-x-[25%] md:-translate-y-[25%] w-7 h-7 md:w-8 md:h-8 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-heading font-bold text-base md:text-lg z-20">
                       {index + 1}
                     </div>
                   </div>
