@@ -59,19 +59,19 @@ export const ApproachSection = () => {
           </p>
         </div>
 
-        <div className="relative">
+        <div className="relative py-8 -my-8">
           {/* Connection lines for desktop */}
-          <div className="hidden md:block absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent" />
+          <div className="hidden md:block absolute top-24 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent" />
 
           {/* Horizontal scroll on mobile, grid on desktop */}
-          <div className="flex md:grid md:grid-cols-3 gap-8 md:gap-12 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none scrollbar-hide pb-4 md:pb-0">
+          <div className="flex md:grid md:grid-cols-3 gap-8 md:gap-12 overflow-x-auto overflow-y-visible md:overflow-visible snap-x snap-mandatory md:snap-none scrollbar-hide px-8 -mx-8 py-4">
             {steps.map((step, index) => {
               const isActive = activeStep === index;
               return (
                 <div 
                   key={index}
                   ref={(el) => (stepRefs.current[index] = el)}
-                  className={`relative transition-all duration-500 ease-in-out snap-center flex-shrink-0 w-[85vw] md:w-auto ${
+                  className={`relative transition-all duration-500 ease-in-out snap-center flex-shrink-0 w-[80vw] md:w-auto px-4 ${
                     isActive ? "scale-110" : "scale-100"
                   }`}
                 >
