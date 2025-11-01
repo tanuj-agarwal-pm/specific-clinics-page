@@ -1,16 +1,16 @@
 import { useState } from "react";
-import { MapPin, Phone, Mail, Calendar } from "lucide-react";
+import { Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
 export const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
     phone: "",
     date: "",
-    message: ""
+    time: "",
+    clinic: "Indiranagar, 12th Main Road"
   });
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,15 +22,15 @@ export const ContactSection = () => {
     }
 
     // Success message
-    toast.success("Thank you! We'll contact you shortly to confirm your appointment.");
+    toast.success("Thank you! We'll contact you shortly to confirm your consultation.");
 
     // Reset form
     setFormData({
       name: "",
-      email: "",
       phone: "",
       date: "",
-      message: ""
+      time: "",
+      clinic: "Indiranagar, 12th Main Road"
     });
   };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -73,30 +73,44 @@ export const ContactSection = () => {
                 <Input id="phone" name="phone" type="tel" required value={formData.phone} onChange={handleChange} placeholder="+91 98765 43210" className="w-full" />
               </div>
 
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                  Email Address
-                </label>
-                <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder="your.email@example.com" className="w-full" />
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="date" className="block text-sm font-medium text-foreground mb-2">
+                    Preferred Date
+                  </label>
+                  <Input id="date" name="date" type="date" value={formData.date} onChange={handleChange} className="w-full" />
+                </div>
+                <div>
+                  <label htmlFor="time" className="block text-sm font-medium text-foreground mb-2">
+                    Preferred Time
+                  </label>
+                  <Input id="time" name="time" type="time" value={formData.time} onChange={handleChange} className="w-full" />
+                </div>
               </div>
 
               <div>
-                <label htmlFor="date" className="block text-sm font-medium text-foreground mb-2">
-                  Preferred Date
+                <label htmlFor="clinic" className="block text-sm font-medium text-foreground mb-2">
+                  Preferred Clinic
                 </label>
-                <Input id="date" name="date" type="date" value={formData.date} onChange={handleChange} className="w-full" />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                  Message
-                </label>
-                <Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder="Tell us about your health concerns or questions..." rows={4} className="w-full" />
+                <Select value={formData.clinic} onValueChange={(value) => setFormData({ ...formData, clinic: value })}>
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="Select a clinic" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="HSR Layout, Sector 7">HSR Layout, Sector 7</SelectItem>
+                    <SelectItem value="Indiranagar, 12th Main Road">Indiranagar, 12th Main Road</SelectItem>
+                    <SelectItem value="Jayanagar, 4th Block">Jayanagar, 4th Block</SelectItem>
+                    <SelectItem value="Koramangala, 4th Block">Koramangala, 4th Block</SelectItem>
+                    <SelectItem value="Sarjapur">Sarjapur</SelectItem>
+                    <SelectItem value="Shivaji Nagar">Shivaji Nagar</SelectItem>
+                    <SelectItem value="Whitefield">Whitefield</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
 
               <Button type="submit" size="lg" className="w-full bg-primary text-primary-foreground hover:bg-accent">
                 <Calendar className="w-5 h-5 mr-2" />
-                Book Appointment
+                Request Consultation
               </Button>
             </form>
           </div>
