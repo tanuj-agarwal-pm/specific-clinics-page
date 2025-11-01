@@ -69,30 +69,30 @@ export const TestimonialsSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 items-center">
+        <div className="flex flex-col md:grid md:grid-cols-5 gap-8 md:gap-12 items-center">
           {/* Credentials - Left Side */}
-          <div className="flex flex-col gap-4 md:col-span-2">
+          <div className="flex flex-col gap-4 md:col-span-2 order-2 md:order-1">
             {credentials.map((cred, index) => {
               const Icon = cred.icon;
               return (
                 <div
                   key={index}
-                  className="text-center p-6 rounded-lg bg-primary shadow-[var(--shadow-card)] hover:shadow-xl transition-all"
+                  className="text-center p-4 md:p-6 rounded-lg bg-primary shadow-[var(--shadow-card)] hover:shadow-xl transition-all"
                 >
-                  <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/20 text-white mb-4">
-                    <Icon className="w-5 h-5" />
+                  <div className="inline-flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/20 text-white mb-2 md:mb-4">
+                    <Icon className="w-4 h-4 md:w-5 md:h-5" />
                   </div>
-                  <p className="text-xl md:text-2xl font-heading text-white mb-1">
+                  <p className="text-lg md:text-2xl font-heading text-white mb-1">
                     {cred.value}
                   </p>
-                  <p className="text-sm text-white/80">{cred.label}</p>
+                  <p className="text-xs md:text-sm text-white/80">{cred.label}</p>
                 </div>
               );
             })}
           </div>
 
           {/* Testimonials - Right Side */}
-          <div className="md:col-span-3">
+          <div className="md:col-span-3 order-1 md:order-2">
             <Card className="p-8 md:p-12 shadow-[var(--shadow-card)] relative overflow-visible border-2 border-primary" style={{ borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%" }}>
               {/* Icon on border - changes with current testimonial */}
               {testimonials.map((testimonial, index) => {
