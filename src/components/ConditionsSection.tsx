@@ -1,4 +1,4 @@
-import { Users, ActivitySquare, Heart, Bone, Stethoscope, Baby, BabyIcon, Brain, Activity } from "lucide-react";
+import { Users, ActivitySquare, Heart, Bone, Stethoscope, Baby, Brain, Activity, Moon } from "lucide-react";
 const conditions = [{
   icon: Users,
   title: "PCOS",
@@ -21,12 +21,12 @@ const conditions = [{
   description: "Long-term management of chronic ailments through holistic Ayurvedic approaches and lifestyle changes."
 }, {
   icon: Baby,
-  title: "Prenatal Care",
-  description: "Nurturing support for expecting mothers with traditional therapies for a healthy pregnancy journey."
+  title: "Maternal Care",
+  description: "Comprehensive support for mothers during pregnancy and postpartum with traditional Ayurvedic therapies."
 }, {
-  icon: BabyIcon,
-  title: "Postnatal Care",
-  description: "Restorative treatments for new mothers focusing on recovery, strength, and emotional wellbeing."
+  icon: Moon,
+  title: "Sleep Management",
+  description: "Natural solutions to improve sleep quality and address insomnia through Ayurvedic practices and herbs."
 }, {
   icon: Brain,
   title: "Stress Management",
