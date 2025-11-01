@@ -48,7 +48,7 @@ export const ApproachSection = () => {
   }, [activeStep]);
 
   return (
-    <section className="py-16 md:py-24 px-4 bg-gradient-to-b from-background to-muted">
+    <section className="py-16 md:py-24 px-4 bg-gradient-to-b from-background to-muted overflow-visible">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-heading text-foreground mb-4">
@@ -59,7 +59,7 @@ export const ApproachSection = () => {
           </p>
         </div>
 
-        <div className="relative py-8 -my-8">
+        <div className="relative py-8 -my-8 overflow-visible">
           {/* Connection lines for desktop */}
           <div className="hidden md:block absolute top-24 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent" />
 
@@ -71,17 +71,17 @@ export const ApproachSection = () => {
                 <div 
                   key={index}
                   ref={(el) => (stepRefs.current[index] = el)}
-                  className={`relative transition-all duration-500 ease-in-out snap-center flex-shrink-0 w-[80vw] md:w-auto px-4 ${
+                  className={`relative transition-all duration-500 ease-in-out snap-center flex-shrink-0 w-[80vw] md:w-auto px-6 scroll-ml-12 scroll-mr-12 ${
                     isActive ? "scale-110" : "scale-100"
                   }`}
                 >
                 <div className="flex flex-col items-center text-center">
                   {/* Step number and image */}
-                  <div className="relative mb-6">
+                  <div className="relative mb-6 pt-6 md:pt-0">
                     <div 
                       className={`rounded-full overflow-hidden relative z-10 border-4 transition-all duration-500 ease-in-out ${
                         isActive 
-                          ? "w-32 h-32 border-primary shadow-[0_0_30px_rgba(var(--primary),0.5)]" 
+                          ? "w-32 h-32 border-primary shadow-[0_0_30px_hsla(var(--primary)/0.35)]" 
                           : "w-24 h-24 border-primary shadow-lg"
                       }`}
                     >
