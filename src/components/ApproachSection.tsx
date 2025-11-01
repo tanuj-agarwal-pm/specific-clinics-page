@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import consultationImg from "@/assets/approach-consultation.jpg";
 import planImg from "@/assets/approach-plan.jpg";
 import careImg from "@/assets/approach-care.jpg";
@@ -24,6 +25,16 @@ const steps = [
 ];
 
 export const ApproachSection = () => {
+  const [activeStep, setActiveStep] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveStep((prev) => (prev + 1) % 3);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="py-16 md:py-24 px-4 bg-gradient-to-b from-background to-muted">
       <div className="container mx-auto max-w-7xl">
@@ -41,12 +52,24 @@ export const ApproachSection = () => {
           <div className="hidden md:block absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent" />
 
           {steps.map((step, index) => {
+            const isActive = activeStep === index;
             return (
-              <div key={index} className="relative">
+              <div 
+                key={index} 
+                className={`relative transition-all duration-500 ease-in-out ${
+                  isActive ? "scale-110" : "scale-100"
+                }`}
+              >
                 <div className="flex flex-col items-center text-center">
                   {/* Step number and image */}
                   <div className="relative mb-6">
-                    <div className="w-24 h-24 rounded-full overflow-hidden shadow-lg relative z-10 border-4 border-primary">
+                    <div 
+                      className={`rounded-full overflow-hidden relative z-10 border-4 transition-all duration-500 ease-in-out ${
+                        isActive 
+                          ? "w-32 h-32 border-primary shadow-[0_0_30px_rgba(var(--primary),0.5)]" 
+                          : "w-24 h-24 border-primary shadow-lg"
+                      }`}
+                    >
                       <img 
                         src={step.image} 
                         alt={step.title}
@@ -58,7 +81,9 @@ export const ApproachSection = () => {
                     </div>
                   </div>
 
-                  <h3 className="text-2xl font-heading text-foreground mb-4">
+                  <h3 className={`text-2xl font-heading text-foreground mb-4 transition-all duration-500 ${
+                    isActive ? "scale-105" : "scale-100"
+                  }`}>
                     {step.title}
                   </h3>
                   <p className="text-muted-foreground leading-relaxed">
