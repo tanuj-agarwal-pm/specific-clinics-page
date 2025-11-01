@@ -56,9 +56,7 @@ export const ContactSection = () => {
 
           {/* Contact Form */}
           <div className="bg-card p-8 rounded-lg shadow-[var(--shadow-card)] border border-border">
-            <h3 className="text-2xl font-heading text-foreground mb-6">
-              Book Your Consultation
-            </h3>
+            
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
