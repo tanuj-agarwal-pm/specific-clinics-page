@@ -122,7 +122,7 @@ export const CareTeamSection = () => {
         </div>
 
         {/* Therapists */}
-        <div className="bg-[#F2F5ED] -mx-[50vw] left-1/2 relative right-1/2 w-screen px-4 py-12 md:py-16">
+        <div className="bg-white dark:bg-slate-950 -mx-[50vw] left-1/2 relative right-1/2 w-screen px-4 py-12 md:py-16">
           <h3 className="text-2xl font-heading text-foreground mb-6 text-center">
             Our Therapists
           </h3>
