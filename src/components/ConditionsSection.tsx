@@ -1,16 +1,12 @@
-import { Users, ActivitySquare, Heart, Bone, Stethoscope, Baby, Brain, Activity, Moon } from "lucide-react";
+import { Users, ActivitySquare, Bone, Stethoscope, Baby, Brain, Activity, Moon } from "lucide-react";
 const conditions = [{
   icon: Users,
   title: "PCOS",
   description: "Hormonal balance treatments addressing the root causes of PCOS through personalized Ayurvedic care."
 }, {
   icon: ActivitySquare,
-  title: "Indigestion",
-  description: "Natural remedies to restore digestive health and eliminate discomfort through traditional therapies."
-}, {
-  icon: Heart,
-  title: "Gut Health",
-  description: "Comprehensive gut healing programs using authentic Ayurvedic principles and herbal formulations."
+  title: "Digestive & Gut Health",
+  description: "Comprehensive digestive care addressing indigestion, gut healing, and overall digestive wellness through Ayurvedic principles."
 }, {
   icon: Bone,
   title: "Joint Pain",
