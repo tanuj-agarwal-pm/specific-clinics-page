@@ -101,39 +101,6 @@ export const ContactSection = () => {
                 Book Appointment
               </Button>
             </form>
-
-            {/* Contact Info */}
-            <div className="mt-8 pt-8 border-t border-border space-y-4">
-              <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                <div>
-                  <p className="font-medium text-foreground">Our Location</p>
-                  <p className="text-sm text-muted-foreground">
-                    123 Ayurveda Lane, Kochi, Kerala 682001
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <Phone className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                <div>
-                  <p className="font-medium text-foreground">Call Us</p>
-                  <p className="text-sm text-muted-foreground">
-                    +91 98765 43210
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <Mail className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                <div>
-                  <p className="font-medium text-foreground">Email Us</p>
-                  <p className="text-sm text-muted-foreground">
-                    info@keralaayurvedaclinic.com
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
