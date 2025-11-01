@@ -82,10 +82,10 @@ export const ApproachSection = () => {
                   {/* Step number and image */}
                   <div className="relative mb-6">
                     <div 
-                      className={`rounded-full overflow-hidden relative z-10 border-4 transition-all duration-500 ease-in-out ${
+                      className={`overflow-hidden relative z-10 border-4 transition-all duration-500 ease-in-out ${
                         isActive 
-                          ? "w-[7.5rem] h-[7.5rem] border-primary shadow-[0_0_30px_hsla(var(--primary)/0.35)]" 
-                          : "w-24 h-24 border-primary shadow-lg"
+                          ? "w-[7.5rem] h-[7.5rem] border-primary shadow-[0_0_30px_hsla(var(--primary)/0.35)] rounded-[30%_70%_70%_30%/30%_30%_70%_70%]" 
+                          : "w-24 h-24 border-primary shadow-lg rounded-[35%_65%_65%_35%/35%_35%_65%_65%]"
                       }`}
                     >
                       <img 
