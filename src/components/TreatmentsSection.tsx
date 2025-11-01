@@ -57,11 +57,11 @@ export const TreatmentsSection = () => {
         <div className="max-w-md md:max-w-lg">
           <h2 
             id="treatments-heading" 
-            className="text-3xl md:text-5xl font-heading text-foreground mb-4"
+            className="text-3xl md:text-5xl font-heading text-foreground mb-4 text-center md:text-left"
           >
             Most Popular Treatments
           </h2>
-          <p className="text-base md:text-lg text-white md:text-muted-foreground leading-relaxed mb-8 max-w-sm md:max-w-md">
+          <p className="text-base md:text-lg text-primary md:text-muted-foreground leading-relaxed mb-8 max-w-sm md:max-w-md text-center md:text-left mx-auto md:mx-0">
             Your care is shaped by our highly experienced team of doctors and therapists who work together to ensure you walk out feeling healed.
           </p>
         </div>
