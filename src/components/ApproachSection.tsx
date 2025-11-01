@@ -60,8 +60,11 @@ export const ApproachSection = () => {
         </div>
 
         <div className="relative py-10 md:py-12 overflow-visible">
-          {/* Connection lines for desktop */}
+          {/* Connection line for desktop */}
           <div className="hidden md:block absolute top-24 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent" />
+          
+          {/* Connection line for mobile */}
+          <div className="md:hidden absolute top-[5.5rem] left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent z-0" />
 
           {/* Horizontal scroll on mobile, grid on desktop */}
           <div className="flex md:grid md:grid-cols-3 gap-8 md:gap-12 overflow-x-auto overflow-y-visible md:overflow-visible snap-x snap-mandatory md:snap-none scrollbar-hide px-8 -mx-8 pt-10 md:pt-6 pb-6">
