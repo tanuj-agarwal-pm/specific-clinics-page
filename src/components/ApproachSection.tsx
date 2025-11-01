@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import consultationImg from "@/assets/approach-consultation.jpg";
 import planImg from "@/assets/approach-plan.jpg";
 import careImg from "@/assets/approach-care.jpg";
@@ -26,6 +26,7 @@ const steps = [
 
 export const ApproachSection = () => {
   const [activeStep, setActiveStep] = useState(0);
+  const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -34,6 +35,17 @@ export const ApproachSection = () => {
 
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    // Scroll active step into view on mobile
+    if (stepRefs.current[activeStep]) {
+      stepRefs.current[activeStep]?.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center",
+      });
+    }
+  }, [activeStep]);
 
   return (
     <section className="py-16 md:py-24 px-4 bg-gradient-to-b from-background to-muted">
@@ -47,19 +59,22 @@ export const ApproachSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 md:gap-12 relative">
+        <div className="relative">
           {/* Connection lines for desktop */}
           <div className="hidden md:block absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent" />
 
-          {steps.map((step, index) => {
-            const isActive = activeStep === index;
-            return (
-              <div 
-                key={index} 
-                className={`relative transition-all duration-500 ease-in-out ${
-                  isActive ? "scale-110" : "scale-100"
-                }`}
-              >
+          {/* Horizontal scroll on mobile, grid on desktop */}
+          <div className="flex md:grid md:grid-cols-3 gap-8 md:gap-12 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none scrollbar-hide pb-4 md:pb-0">
+            {steps.map((step, index) => {
+              const isActive = activeStep === index;
+              return (
+                <div 
+                  key={index}
+                  ref={(el) => (stepRefs.current[index] = el)}
+                  className={`relative transition-all duration-500 ease-in-out snap-center flex-shrink-0 w-[85vw] md:w-auto ${
+                    isActive ? "scale-110" : "scale-100"
+                  }`}
+                >
                 <div className="flex flex-col items-center text-center">
                   {/* Step number and image */}
                   <div className="relative mb-6">
@@ -90,9 +105,10 @@ export const ApproachSection = () => {
                     {step.description}
                   </p>
                 </div>
-              </div>
-            );
-          })}
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         <div className="mt-12 text-center p-8 rounded-lg bg-card border border-primary/20">
