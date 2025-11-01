@@ -1,20 +1,22 @@
-import { UserCheck, FileText, Sparkles } from "lucide-react";
+import consultationImg from "@/assets/approach-consultation.jpg";
+import planImg from "@/assets/approach-plan.jpg";
+import careImg from "@/assets/approach-care.jpg";
 
 const steps = [
   {
-    icon: UserCheck,
+    image: consultationImg,
     title: "Consultation",
     description:
       "Meet with our experienced doctor who diagnoses the root cause through traditional Ayurvedic assessment methods including pulse diagnosis and dosha evaluation.",
   },
   {
-    icon: FileText,
+    image: planImg,
     title: "Personalized Plan",
     description:
       "Based on your unique constitution and imbalances, the doctor prescribes customized treatments and medicines tailored to your specific needs.",
   },
   {
-    icon: Sparkles,
+    image: careImg,
     title: "Authentic Care",
     description:
       "Experience treatments using original Kerala Ayurveda products at our clinic. For extended care, visit Ayurvedagram, our authentic wellness resort.",
@@ -39,14 +41,17 @@ export const ApproachSection = () => {
           <div className="hidden md:block absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent" />
 
           {steps.map((step, index) => {
-            const Icon = step.icon;
             return (
               <div key={index} className="relative">
                 <div className="flex flex-col items-center text-center">
-                  {/* Step number and icon */}
+                  {/* Step number and image */}
                   <div className="relative mb-6">
-                    <div className="w-24 h-24 rounded-full bg-primary flex items-center justify-center shadow-lg relative z-10">
-                      <Icon className="w-10 h-10 text-primary-foreground" />
+                    <div className="w-24 h-24 rounded-full overflow-hidden shadow-lg relative z-10 border-4 border-primary">
+                      <img 
+                        src={step.image} 
+                        alt={step.title}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-heading font-bold text-lg">
                       {index + 1}
