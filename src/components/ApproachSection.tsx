@@ -63,7 +63,7 @@ export const ApproachSection = () => {
           <div className="md:hidden absolute top-[5.5rem] left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent z-0" />
 
           {/* Horizontal scroll on mobile, grid on desktop */}
-          <div ref={scrollContainerRef} className="flex md:grid md:grid-cols-3 gap-8 md:gap-12 overflow-x-auto overflow-y-visible md:overflow-visible snap-x snap-mandatory md:snap-none scrollbar-hide px-8 -mx-8 pt-10 md:pt-6 pb-6">
+          <div ref={scrollContainerRef} className="flex md:grid md:grid-cols-4 gap-8 md:gap-8 overflow-x-auto overflow-y-visible md:overflow-visible snap-x snap-mandatory md:snap-none scrollbar-hide px-8 -mx-8 pt-10 md:pt-6 pb-6">
             {steps.map((step, index) => {
             const isActive = activeStep === index;
 
