@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import consultationImg from "@/assets/approach-consultation.jpg";
 import planImg from "@/assets/approach-plan.jpg";
 import careImg from "@/assets/approach-care.jpg";
+import lifestyleImg from "@/assets/approach-lifestyle.jpg";
 const steps = [{
   image: consultationImg,
   title: "Consultation",
@@ -14,6 +15,10 @@ const steps = [{
   image: careImg,
   title: "Authentic Care",
   description: "Experience treatments using original Kerala Ayurveda products at our wellness centers and begin your healing journey with us."
+}, {
+  image: lifestyleImg,
+  title: "Integrated in your life",
+  description: "Receive personalized food and routine guidance that seamlessly integrates into your daily life, ensuring lasting wellness through sustainable lifestyle changes."
 }];
 export const ApproachSection = () => {
   const [activeStep, setActiveStep] = useState(0);
@@ -21,7 +26,7 @@ export const ApproachSection = () => {
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveStep(prev => (prev + 1) % 3);
+      setActiveStep(prev => (prev + 1) % 4);
     }, 3000);
     return () => clearInterval(interval);
   }, []);
@@ -75,6 +80,10 @@ export const ApproachSection = () => {
               // Step 3
               active: "rounded-[40%_60%_60%_40%/60%_40%_40%_60%]",
               inactive: "rounded-[45%_55%_55%_45%/55%_45%_45%_55%]"
+            }, {
+              // Step 4
+              active: "rounded-[50%_50%_40%_60%/40%_60%_50%_50%]",
+              inactive: "rounded-[48%_52%_45%_55%/45%_55%_48%_52%]"
             }];
             const currentBlobShape = isActive ? blobShapes[index].active : blobShapes[index].inactive;
             return <div key={index} ref={el => stepRefs.current[index] = el} className={`relative transition-all duration-500 ease-in-out snap-center flex-shrink-0 w-[80vw] md:w-auto px-6 scroll-ml-12 scroll-mr-12 overflow-visible transform-gpu isolate ${isActive ? "scale-110" : "scale-100"}`}>
