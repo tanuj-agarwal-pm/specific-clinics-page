@@ -51,7 +51,8 @@ export const HeroCarousel = () => {
         </div>
       ))}
 
-      <div className="absolute inset-0 flex items-center px-4 md:px-8 lg:px-16">
+      <div className="absolute inset-0 flex items-center">
+        <div className="container mx-auto max-w-7xl px-4">
         <div className="max-w-2xl animate-fade-in">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading text-primary-foreground mb-6 drop-shadow-lg leading-tight">
             Experience Authentic Kerala Ayurveda
@@ -87,6 +88,7 @@ export const HeroCarousel = () => {
               </span>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </section>
