@@ -115,6 +115,16 @@ export const ContactSection = () => {
             </form>
           </div>
         </div>
+
+        {/* Other Cities */}
+        <div className="mt-12 text-center">
+          <p className="text-sm text-muted-foreground mb-3">
+            Also available in:
+          </p>
+          <p className="text-sm text-foreground/80 max-w-3xl mx-auto leading-relaxed">
+            Amritsar • Bengaluru • Chennai • Delhi • Ernakulam • Hyderabad • Kochi • Mumbai • Panipat • Pune • Thiruvananthapuram • Vizag
+          </p>
+        </div>
       </div>
     </section>;
 };
