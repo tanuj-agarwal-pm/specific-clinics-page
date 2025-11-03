@@ -96,7 +96,7 @@ export const TreatmentsSection = () => {
             What Makes Our Treatments Unique
           </h3>
           <div className="relative -z-10">
-            <div className="flex animate-scroll-fast" style={{ willChange: 'transform' }}>
+            <div className="flex gap-6 animate-scroll-fast" style={{ willChange: 'transform' }}>
               <div className="flex gap-6">
                 {[
                   "Doctor-guided classical and proprietary treatments with personalised and authentic Kerala Ayurveda products for maximum benefits",
