@@ -64,7 +64,7 @@ export const ContactOptionsModal = ({ open, onOpenChange }: ContactOptionsModalP
       <Drawer open={open} onOpenChange={onOpenChange}>
         <DrawerContent>
           <DrawerHeader>
-            <DrawerTitle>Contact Us</DrawerTitle>
+            <DrawerTitle>Got Questions?</DrawerTitle>
             <DrawerDescription>
               Our experts are right here to help you get started on your healing journey
             </DrawerDescription>
@@ -81,7 +81,7 @@ export const ContactOptionsModal = ({ open, onOpenChange }: ContactOptionsModalP
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle>Contact Us</DialogTitle>
+          <DialogTitle>Got Questions?</DialogTitle>
           <DialogDescription>
             Our experts are right here to help you get started on your healing journey
           </DialogDescription>
