@@ -9,28 +9,24 @@ const testimonials = [
     name: "Meera Sharma",
     condition: "PCOS Treatment",
     text: "After years of struggling, the personalized Ayurvedic treatment helped me regain balance. The doctors truly understand the root cause approach.",
-    rating: 5,
     icon: Heart,
   },
   {
     name: "Arjun Patel",
     condition: "Stress Management",
     text: "The Panchakarma therapy was transformative. I feel rejuvenated and the chronic stress that plagued me for years has significantly reduced.",
-    rating: 5,
     icon: Brain,
   },
   {
     name: "Divya Menon",
     condition: "Postnatal Care",
     text: "The postnatal care package was a blessing. Traditional treatments combined with modern care helped me recover beautifully after childbirth.",
-    rating: 5,
     icon: Baby,
   },
   {
     name: "Vikram Singh",
     condition: "Joint Pain Relief",
     text: "Years of joint pain made my life difficult. The authentic Kerala Ayurveda treatments have given me my mobility back. Truly grateful!",
-    rating: 5,
     icon: Bone,
   },
 ];
@@ -119,11 +115,6 @@ export const TestimonialsSection = () => {
                       index === currentTestimonial ? "opacity-100" : "opacity-0 absolute inset-0"
                     }`}
                   >
-                    <div className="flex gap-1 mb-4 justify-center">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 fill-accent text-accent" />
-                      ))}
-                    </div>
                     <p className="text-lg md:text-xl text-foreground text-center mb-6 italic">
                       {testimonial.text}
                     </p>
