@@ -55,8 +55,8 @@ export const TestimonialsSection = () => {
     <section className="pt-12 pb-16 md:pt-16 md:pb-24 px-4 relative overflow-hidden">
       {/* Background image with overlay */}
       <div 
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${testimonialsBg})` }}
+        className="absolute inset-0 bg-cover"
+        style={{ backgroundImage: `url(${testimonialsBg})`, backgroundPosition: 'center 35%' }}
       />
       <div className="absolute inset-0 bg-white/85" />
       
