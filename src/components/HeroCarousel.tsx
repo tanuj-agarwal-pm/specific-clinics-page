@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { ContactOptionsModal } from "@/components/ContactOptionsModal";
 import heroClinic from "@/assets/hero-clinic-interior.jpg";
 import heroTreatment from "@/assets/hero-treatment.jpg";
 import heroHerbs from "@/assets/hero-herbs.jpg";
@@ -21,6 +22,7 @@ const slides = [
 
 export const HeroCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [showContactOptions, setShowContactOptions] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -69,7 +71,7 @@ export const HeroCarousel = () => {
               Book Your Consultation
             </Button>
             <Button
-              onClick={scrollToForm}
+              onClick={() => setShowContactOptions(true)}
               size="lg"
               variant="outline"
               className="bg-white/10 text-primary-foreground border-primary-foreground/20 hover:bg-white/20 text-base md:text-lg px-8 py-6"
@@ -77,6 +79,11 @@ export const HeroCarousel = () => {
               Talk to Us
             </Button>
           </div>
+          
+          <ContactOptionsModal 
+            open={showContactOptions} 
+            onOpenChange={setShowContactOptions} 
+          />
           
           <div className="flex flex-wrap gap-4 md:gap-6 mt-8">
             <div className="flex items-center gap-2">
