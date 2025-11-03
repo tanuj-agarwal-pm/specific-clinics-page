@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Star, Award, Users, Heart, Brain, Baby, Bone } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { CTAButton } from "@/components/CTAButton";
 import testimonialsBg from "@/assets/testimonials-bg.jpg";
 
 const testimonials = [
@@ -153,6 +154,8 @@ export const TestimonialsSection = () => {
             </div>
           </div>
         </div>
+        
+        <CTAButton />
       </div>
     </section>
   );

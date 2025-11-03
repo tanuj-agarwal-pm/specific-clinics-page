@@ -1,4 +1,5 @@
 import { Users, ActivitySquare, Bone, Stethoscope, Baby, Brain, Activity, Moon } from "lucide-react";
+import { CTAButton } from "@/components/CTAButton";
 const conditions = [{
   icon: Users,
   title: "PCOS",
@@ -56,6 +57,8 @@ export const ConditionsSection = () => {
               </div>;
         })}
         </div>
+        
+        <CTAButton />
       </div>
     </section>;
 };
