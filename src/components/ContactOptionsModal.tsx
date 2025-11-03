@@ -66,7 +66,7 @@ export const ContactOptionsModal = ({ open, onOpenChange }: ContactOptionsModalP
           <DrawerHeader>
             <DrawerTitle>Contact Us</DrawerTitle>
             <DrawerDescription>
-              Choose how you'd like to get in touch with us
+              Our experts are right here to help you get started on your healing journey
             </DrawerDescription>
           </DrawerHeader>
           <div className="px-4 pb-8">
@@ -83,7 +83,7 @@ export const ContactOptionsModal = ({ open, onOpenChange }: ContactOptionsModalP
         <DialogHeader>
           <DialogTitle>Contact Us</DialogTitle>
           <DialogDescription>
-            Choose how you'd like to get in touch with us
+            Our experts are right here to help you get started on your healing journey
           </DialogDescription>
         </DialogHeader>
         <ContactOptionsContent />
