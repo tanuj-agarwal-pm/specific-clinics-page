@@ -1,13 +1,17 @@
 import { Button } from "@/components/ui/button";
 
-export const CTAButton = () => {
+interface CTAButtonProps {
+  align?: "center" | "left";
+}
+
+export const CTAButton = ({ align = "center" }: CTAButtonProps) => {
   const scrollToContact = () => {
     const contactSection = document.getElementById("contact-form");
     contactSection?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <div className="flex justify-center mt-12">
+    <div className={`flex ${align === "center" ? "justify-center" : "justify-start"} mt-12`}>
       <Button 
         onClick={scrollToContact}
         size="lg"

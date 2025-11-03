@@ -137,7 +137,7 @@ export const TreatmentsSection = () => {
           </div>
         </div>
         
-        <CTAButton />
+        <CTAButton align="left" />
       </div>
     </section>
   );
