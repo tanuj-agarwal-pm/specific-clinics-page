@@ -60,13 +60,23 @@ export const HeroCarousel = () => {
           <p className="text-lg md:text-xl text-primary-foreground/95 mb-8 drop-shadow-md">
             Traditional healing wisdom meets personalized care for your complete wellness journey
           </p>
-          <Button
-            onClick={scrollToForm}
-            size="lg"
-            className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-lg text-base md:text-lg px-8 py-6 hover-scale"
-          >
-            Book Your Consultation
-          </Button>
+          <div className="flex flex-wrap gap-4">
+            <Button
+              onClick={scrollToForm}
+              size="lg"
+              className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-lg text-base md:text-lg px-8 py-6 hover-scale"
+            >
+              Book Your Consultation
+            </Button>
+            <Button
+              onClick={scrollToForm}
+              size="lg"
+              variant="outline"
+              className="bg-white/10 text-primary-foreground border-primary-foreground/20 hover:bg-white/20 text-base md:text-lg px-8 py-6"
+            >
+              Talk to Us
+            </Button>
+          </div>
           
           <div className="flex flex-wrap gap-4 md:gap-6 mt-8">
             <div className="flex items-center gap-2">

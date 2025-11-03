@@ -11,13 +11,21 @@ export const CTAButton = ({ align = "center" }: CTAButtonProps) => {
   };
 
   return (
-    <div className={`flex ${align === "center" ? "justify-center" : "justify-start"} mt-12`}>
+    <div className={`flex flex-wrap gap-4 ${align === "center" ? "justify-center" : "justify-start"} mt-12`}>
       <Button 
         onClick={scrollToContact}
         size="lg"
         className="bg-primary text-primary-foreground hover:bg-accent text-base md:text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all"
       >
         Book Your Consultation
+      </Button>
+      <Button 
+        onClick={scrollToContact}
+        size="lg"
+        variant="outline"
+        className="text-base md:text-lg px-8 py-6"
+      >
+        Talk to Us
       </Button>
     </div>
   );
