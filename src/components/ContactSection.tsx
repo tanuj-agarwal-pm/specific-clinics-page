@@ -124,7 +124,7 @@ export const ContactSection = () => {
             Not in Bangalore? We are also present in:
           </p>
           <p className="text-base md:text-lg text-foreground leading-relaxed font-medium text-center">
-            Amritsar • Bengaluru • Chennai • Delhi • Ernakulam • Hyderabad • Kochi • Mumbai • Panipat • Pune • Thiruvananthapuram • Vizag
+            Amritsar • Bengaluru • Chennai • Delhi • Ernakulam • Hyderabad • Kasargod • Kochi • Mumbai • Panipat • Pune • Singapore • Thiruvananthapuram • Vizag
           </p>
         </div>
       </div>
