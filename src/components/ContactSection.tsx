@@ -56,11 +56,11 @@ export const ContactSection = () => {
             </div>
             
             {/* Other Cities */}
-            <div className="mt-6">
-              <p className="text-sm text-muted-foreground mb-2">
-                Also available in:
+            <div className="mt-8 p-6 bg-primary/5 rounded-lg border-2 border-primary/20">
+              <p className="text-lg font-semibold text-foreground mb-3">
+                Not in Bangalore? We are also present in:
               </p>
-              <p className="text-sm text-foreground/80 leading-relaxed">
+              <p className="text-base text-foreground leading-relaxed font-medium">
                 Amritsar • Bengaluru • Chennai • Delhi • Ernakulam • Hyderabad • Kochi • Mumbai • Panipat • Pune • Thiruvananthapuram • Vizag
               </p>
             </div>
