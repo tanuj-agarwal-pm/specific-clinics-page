@@ -54,16 +54,6 @@ export const ContactSection = () => {
               border: 0
             }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Kerala Ayurveda Clinic Location" />
             </div>
-            
-            {/* Other Cities */}
-            <div className="mt-8 p-6 bg-primary/5 rounded-lg border-2 border-primary/20">
-              <p className="text-lg font-semibold text-foreground mb-3">
-                Not in Bangalore? We are also present in:
-              </p>
-              <p className="text-base text-foreground leading-relaxed font-medium">
-                Amritsar • Bengaluru • Chennai • Delhi • Ernakulam • Hyderabad • Kochi • Mumbai • Panipat • Pune • Thiruvananthapuram • Vizag
-              </p>
-            </div>
           </div>
 
           {/* Contact Form */}
@@ -126,6 +116,16 @@ export const ContactSection = () => {
               </Button>
             </form>
           </div>
+        </div>
+
+        {/* Other Cities - Full Width */}
+        <div className="mt-12 p-8 bg-primary/5 rounded-lg border-2 border-primary/20">
+          <p className="text-lg md:text-xl font-semibold text-foreground mb-3 text-center">
+            Not in Bangalore? We are also present in:
+          </p>
+          <p className="text-base md:text-lg text-foreground leading-relaxed font-medium text-center">
+            Amritsar • Bengaluru • Chennai • Delhi • Ernakulam • Hyderabad • Kochi • Mumbai • Panipat • Pune • Thiruvananthapuram • Vizag
+          </p>
         </div>
       </div>
     </section>;
