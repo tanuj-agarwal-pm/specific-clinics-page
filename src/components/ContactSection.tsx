@@ -127,7 +127,7 @@ export const ContactSection = () => {
             Amritsar • Bengaluru • Chennai • Delhi • Ernakulam • Hyderabad • Kasargod • Kochi • Mumbai • Panipat • Pune • Singapore • Thiruvananthapuram • Vizag
           </p>
           <p className="text-base text-foreground/80 text-center">
-            Call or WhatsApp to book an appointment in any of these cities
+            <a href="tel:+1234567890" className="text-primary hover:text-accent font-semibold transition-colors">Call</a> or <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-accent font-semibold transition-colors">WhatsApp</a> to book an appointment in any of these cities
           </p>
         </div>
       </div>
