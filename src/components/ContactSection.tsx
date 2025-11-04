@@ -123,8 +123,11 @@ export const ContactSection = () => {
           <p className="text-lg md:text-xl font-semibold text-foreground mb-3 text-center">
             Not in Bangalore? We are also present in:
           </p>
-          <p className="text-base md:text-lg text-foreground leading-relaxed font-medium text-center">
+          <p className="text-base md:text-lg text-foreground leading-relaxed font-medium text-center mb-4">
             Amritsar • Bengaluru • Chennai • Delhi • Ernakulam • Hyderabad • Kasargod • Kochi • Mumbai • Panipat • Pune • Singapore • Thiruvananthapuram • Vizag
+          </p>
+          <p className="text-base text-foreground/80 text-center">
+            Call or WhatsApp to book an appointment in any of these cities
           </p>
         </div>
       </div>
