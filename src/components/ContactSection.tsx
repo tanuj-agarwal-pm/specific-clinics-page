@@ -94,7 +94,10 @@ export const ContactSection = () => {
                 <label htmlFor="clinic" className="block text-sm font-medium text-foreground mb-2">
                   Preferred Clinic
                 </label>
-                <Select value={formData.clinic} onValueChange={(value) => setFormData({ ...formData, clinic: value })}>
+                <Select value={formData.clinic} onValueChange={value => setFormData({
+                ...formData,
+                clinic: value
+              })}>
                   <SelectTrigger className="w-full">
                     <SelectValue placeholder="Select a clinic" />
                   </SelectTrigger>
@@ -124,7 +127,7 @@ export const ContactSection = () => {
             Not in Bangalore? We are also present in:
           </p>
           <p className="text-base md:text-lg text-foreground leading-relaxed font-medium text-center mb-4">
-            Amritsar • Bengaluru • Chennai • Delhi • Ernakulam • Hyderabad • Kasargod • Kochi • Mumbai • Panipat • Pune • Singapore • Thiruvananthapuram • Vizag
+            Amritsar • • Chennai • Delhi • Ernakulam • Hyderabad • Kasargod • Kochi • Mumbai • Panipat • Pune • Singapore • Thiruvananthapuram • Vizag
           </p>
           <p className="text-base text-foreground/80 text-center">
             <a href="tel:+1234567890" className="text-primary hover:text-accent font-semibold transition-colors underline">Call</a> or <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-accent font-semibold transition-colors underline">WhatsApp</a> to book an appointment in any of these cities
