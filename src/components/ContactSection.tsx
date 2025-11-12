@@ -172,7 +172,10 @@ export const ContactSection = () => {
                     Preferred Time
                   </label>
                   <Select value={formData.time} onValueChange={(value) => setFormData({ ...formData, time: value })}>
-                    <SelectTrigger className={cn("w-full [&>svg]:hidden", !formData.time && "text-muted-foreground")}>
+                    <SelectTrigger className={cn(
+                      "w-full justify-start text-left font-normal [&>svg.lucide-chevron-down]:hidden",
+                      !formData.time && "text-muted-foreground"
+                    )}>
                       <Clock className="mr-2 h-4 w-4" />
                       <SelectValue placeholder="Select a time" />
                     </SelectTrigger>
