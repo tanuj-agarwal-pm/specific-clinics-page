@@ -124,7 +124,7 @@ export const ContactSection = () => {
         {/* Other Cities - Full Width */}
         <div className="mt-12 p-8 bg-primary/5 rounded-lg border-2 border-primary/20">
           <p className="text-lg md:text-xl font-semibold text-foreground mb-3 text-center">
-            Not in Bangalore? We are also present in:
+            Not in Bengaluru? We are also present in:
           </p>
           <p className="text-base md:text-lg text-foreground leading-relaxed font-medium text-center mb-4">
             Amritsar • • Chennai • Delhi • Ernakulam • Hyderabad • Kasargod • Kochi • Mumbai • Panipat • Pune • Singapore • Thiruvananthapuram • Vizag
