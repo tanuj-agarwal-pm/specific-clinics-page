@@ -10,11 +10,11 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 
 const countryCodes = [
-  { code: "+91", country: "India", digits: 10 },
-  { code: "+1", country: "US/Canada", digits: 10 },
-  { code: "+44", country: "UK", digits: 10 },
-  { code: "+971", country: "UAE", digits: 9 },
-  { code: "+65", country: "Singapore", digits: 8 },
+  { code: "+91", country: "India", flag: "🇮🇳", digits: 10 },
+  { code: "+1", country: "US/Canada", flag: "🇺🇸", digits: 10 },
+  { code: "+44", country: "UK", flag: "🇬🇧", digits: 10 },
+  { code: "+971", country: "UAE", flag: "🇦🇪", digits: 9 },
+  { code: "+65", country: "Singapore", flag: "🇸🇬", digits: 8 },
 ];
 
 const timeSlots = [
@@ -119,7 +119,7 @@ export const ContactSection = () => {
                     <SelectContent>
                       {countryCodes.map((country) => (
                         <SelectItem key={country.code} value={country.code}>
-                          {country.code} {country.country}
+                          {country.flag} {country.code}
                         </SelectItem>
                       ))}
                     </SelectContent>
