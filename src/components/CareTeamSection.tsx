@@ -93,13 +93,21 @@ export const CareTeamSection = () => {
                     <Award className="w-4 h-4" />
                     <span>{doctors[currentDoctor].experience} of experience</span>
                   </div>
-                  <Button 
-                    onClick={() => setSelectedDoctor(currentDoctor)}
-                    variant="outline"
-                    className="w-full md:w-auto"
-                  >
-                    View Profile
-                  </Button>
+                  <div className="flex gap-2 w-full md:w-auto">
+                    <Button 
+                      onClick={() => setSelectedDoctor(currentDoctor)}
+                      variant="outline"
+                      className="flex-1 md:flex-none"
+                    >
+                      View Profile
+                    </Button>
+                    <Button 
+                      onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
+                      className="flex-1 md:flex-none"
+                    >
+                      Consult
+                    </Button>
+                  </div>
                 </div>
               </div>
             </Card>
