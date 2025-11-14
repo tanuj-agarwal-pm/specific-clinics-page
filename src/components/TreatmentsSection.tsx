@@ -67,7 +67,7 @@ export const TreatmentsSection = () => {
   return (
     <section 
       aria-labelledby="treatments-heading" 
-      className="relative py-16 md:py-24 bg-background overflow-hidden"
+      className="relative pt-12 md:pt-16 pb-16 md:pb-24 bg-background overflow-hidden"
     >
       {/* Background Image - Absolute positioned on the right */}
       <div className="absolute top-0 md:top-16 bottom-0 right-0 w-full md:w-[52%] pointer-events-none">
