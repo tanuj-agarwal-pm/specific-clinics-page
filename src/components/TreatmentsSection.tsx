@@ -1,5 +1,4 @@
 import { Droplets, Flower2, Heart, Sparkles, Leaf, Wind, Stethoscope, Flame, HandHeart, Activity, Check } from "lucide-react";
-import { CTAButton } from "@/components/CTAButton";
 import treatmentBg from "@/assets/hero-treatment.jpg";
 
 const treatments = [
@@ -168,8 +167,6 @@ export const TreatmentsSection = () => {
             </div>
           </div>
         </div>
-        
-        <CTAButton align="left" />
       </div>
     </section>
   );
