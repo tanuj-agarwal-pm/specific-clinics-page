@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, GraduationCap, Award } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
@@ -61,6 +61,17 @@ export const CareTeamSection = () => {
   const [currentDoctor, setCurrentDoctor] = useState(0);
   const [selectedDoctor, setSelectedDoctor] = useState<number | null>(null);
   const [flippedCard, setFlippedCard] = useState<number | null>(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFlippedCard((prev) => {
+        if (prev === null) return 0;
+        return (prev + 1) % therapists.length;
+      });
+    }, 3000); // Flip every 3 seconds
+
+    return () => clearInterval(interval);
+  }, []);
 
   const nextDoctor = () => {
     setCurrentDoctor((prev) => (prev + 1) % doctors.length);
@@ -174,10 +185,9 @@ export const CareTeamSection = () => {
             {therapists.map((therapist, index) => (
               <div key={index} className="text-center">
                 <div 
-                  className="aspect-square rounded-lg cursor-pointer perspective-1000 mb-3"
-                  onClick={() => setFlippedCard(flippedCard === index ? null : index)}
+                  className="aspect-square rounded-lg perspective-1000 mb-3"
                 >
-                  <div className={`relative w-full h-full transition-transform duration-500 transform-style-3d ${flippedCard === index ? 'rotate-y-180' : ''}`}>
+                  <div className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${flippedCard === index ? 'rotate-y-180' : ''}`}>
                     {/* Front side */}
                     <div className="absolute w-full h-full backface-hidden rounded-lg overflow-hidden shadow-[var(--shadow-card)] hover:shadow-xl transition-shadow">
                       <img
