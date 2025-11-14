@@ -44,7 +44,7 @@ export const ApproachSection = () => {
       }
     }
   }, [activeStep]);
-  return <section className="py-16 md:pt-24 md:pb-12 px-4 bg-gradient-to-b from-background to-muted overflow-visible">
+  return <section className="py-16 md:pt-24 md:pb-12 px-4 bg-gradient-to-b from-background to-muted overflow-hidden">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-heading text-foreground mb-4">
@@ -55,7 +55,7 @@ export const ApproachSection = () => {
           </p>
         </div>
 
-        <div className="relative py-10 md:py-12 overflow-visible">
+        <div className="relative py-10 md:py-12 overflow-hidden">
           {/* Connection line for desktop */}
           <div className="hidden md:block absolute top-24 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent" />
           
@@ -63,7 +63,7 @@ export const ApproachSection = () => {
           <div className="md:hidden absolute top-[5.5rem] left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent z-0" />
 
           {/* Horizontal scroll on mobile, grid on desktop */}
-          <div ref={scrollContainerRef} className="flex md:grid md:grid-cols-4 gap-8 md:gap-8 overflow-x-auto overflow-y-visible md:overflow-visible snap-x snap-mandatory md:snap-none scrollbar-hide px-8 -mx-8 pt-10 md:pt-6 pb-6">
+          <div ref={scrollContainerRef} className="flex md:grid md:grid-cols-4 gap-8 md:gap-8 overflow-x-auto overflow-y-hidden md:overflow-hidden snap-x snap-mandatory md:snap-none scrollbar-hide px-8 -mx-8 pt-10 md:pt-6 pb-6">
             {steps.map((step, index) => {
             const isActive = activeStep === index;
 
@@ -86,7 +86,7 @@ export const ApproachSection = () => {
               inactive: "rounded-[48%_52%_45%_55%/45%_55%_48%_52%]"
             }];
             const currentBlobShape = isActive ? blobShapes[index].active : blobShapes[index].inactive;
-            return <div key={index} ref={el => stepRefs.current[index] = el} className={`relative transition-all duration-500 ease-in-out snap-center flex-shrink-0 w-[80vw] md:w-auto px-6 scroll-ml-12 scroll-mr-12 overflow-visible transform-gpu isolate ${isActive ? "scale-110" : "scale-100"}`}>
+            return <div key={index} ref={el => stepRefs.current[index] = el} className={`relative transition-all duration-500 ease-in-out snap-center flex-shrink-0 w-[80vw] md:w-auto px-6 scroll-ml-12 scroll-mr-12 transform-gpu isolate ${isActive ? "scale-110" : "scale-100"}`}>
                 <div className="flex flex-col items-center text-center">
                   {/* Step number and image */}
                   <div className="relative mb-6">
