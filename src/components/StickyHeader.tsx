@@ -5,15 +5,37 @@ import { ContactOptionsModal } from "@/components/ContactOptionsModal";
 export const StickyHeader = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [showContactOptions, setShowContactOptions] = useState(false);
+  const [isInContactSection, setIsInContactSection] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       // Show header after scrolling past hero section (roughly 100vh)
-      setIsVisible(window.scrollY > window.innerHeight * 0.8);
+      const shouldShow = window.scrollY > window.innerHeight * 0.8;
+      setIsVisible(shouldShow);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const contactSection = document.getElementById("contact-form");
+    if (!contactSection) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setIsInContactSection(entry.isIntersecting);
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "-100px 0px 0px 0px"
+      }
+    );
+
+    observer.observe(contactSection);
+    return () => observer.disconnect();
   }, []);
 
   const scrollToContact = () => {
@@ -25,7 +47,7 @@ export const StickyHeader = () => {
     <>
       <header
         className={`fixed md:top-0 bottom-0 md:bottom-auto left-0 right-0 z-50 bg-background/95 backdrop-blur-md md:border-b border-t md:border-t-0 border-border shadow-lg transition-transform duration-300 ${
-          isVisible ? "md:translate-y-0 translate-y-0" : "md:-translate-y-full translate-y-full"
+          isVisible && !isInContactSection ? "md:translate-y-0 translate-y-0" : "md:-translate-y-full translate-y-full"
         }`}
       >
         <div className="container mx-auto px-4 py-3">
