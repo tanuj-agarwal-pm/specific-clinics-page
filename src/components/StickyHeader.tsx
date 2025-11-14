@@ -24,16 +24,16 @@ export const StickyHeader = () => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-lg transition-transform duration-300 ${
-          isVisible ? "translate-y-0" : "-translate-y-full"
+        className={`fixed md:top-0 bottom-0 md:bottom-auto left-0 right-0 z-50 bg-background/95 backdrop-blur-md md:border-b border-t md:border-t-0 border-border shadow-lg transition-transform duration-300 ${
+          isVisible ? "md:translate-y-0 translate-y-0" : "md:-translate-y-full translate-y-full"
         }`}
       >
         <div className="container mx-auto px-4 py-3">
-          <div className="flex items-center justify-center gap-4">
+          <div className="flex items-center justify-center md:justify-end gap-3 md:gap-4">
             <Button
               onClick={scrollToContact}
               size="default"
-              className="bg-primary text-primary-foreground hover:bg-accent"
+              className="bg-primary text-primary-foreground hover:bg-accent text-sm md:text-base"
             >
               Book Your Consultation
             </Button>
@@ -41,6 +41,7 @@ export const StickyHeader = () => {
               onClick={() => setShowContactOptions(true)}
               size="default"
               variant="outline"
+              className="text-sm md:text-base"
             >
               Talk to Us
             </Button>
