@@ -147,9 +147,12 @@ export const CareTeamSection = () => {
 
         {/* Therapists */}
         <div className="bg-white dark:bg-slate-950 -mx-[50vw] left-1/2 relative right-1/2 w-screen px-4 py-12 md:py-16">
-          <h3 className="text-2xl font-heading text-foreground mb-6 text-center">
+          <h3 className="text-2xl font-heading text-foreground mb-3 text-center">
             Our Therapists
           </h3>
+          <p className="text-muted-foreground text-base max-w-2xl mx-auto text-center mb-6">
+            You spend a lot of time with our therapists. We make sure to do the same.
+          </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {therapists.map((therapist, index) => (
               <div key={index} className="text-center">
