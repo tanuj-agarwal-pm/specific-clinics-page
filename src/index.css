@@ -120,12 +120,66 @@ All colors MUST be HSL.
   }
 }
 
+@keyframes heat-wave {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes hand-sync {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes flow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes gentle-glow {
+  0%, 100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 0.8;
+    filter: brightness(1.2);
+  }
+}
+
 .animate-scroll-fast {
   animation: scroll 30s linear infinite;
 }
 
 .animate-scroll-fast:hover {
   animation-play-state: paused;
+}
+
+.animate-heat-wave {
+  animation: heat-wave 2s ease-in-out infinite;
+}
+
+.animate-hand-sync {
+  animation: hand-sync 1.5s ease-in-out infinite;
+}
+
+.animate-flow {
+  animation: flow 2.5s ease-in-out infinite;
+}
+
+.animate-gentle-glow {
+  animation: gentle-glow 3s ease-in-out infinite;
 }
 
 @layer utilities {
