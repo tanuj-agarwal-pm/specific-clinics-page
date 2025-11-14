@@ -35,15 +35,32 @@ const doctors = [
 ];
 
 const therapists = [
-  { name: "Ananya Krishnan", image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=400&fit=crop" },
-  { name: "Rohit Nair", image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop" },
-  { name: "Kavya Reddy", image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&h=400&fit=crop" },
-  { name: "Aditya Sharma", image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop" },
+  { 
+    name: "Ananya Krishnan", 
+    image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=400&fit=crop",
+    credential: "Trained in authentic Kerala Panchakarma techniques with 8+ years experience"
+  },
+  { 
+    name: "Rohit Nair", 
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop",
+    credential: "Certified in traditional Ayurvedic massage and specialized therapeutic treatments"
+  },
+  { 
+    name: "Kavya Reddy", 
+    image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&h=400&fit=crop",
+    credential: "Expert in Abhyanga and Shirodhara with continuous training in traditional methods"
+  },
+  { 
+    name: "Aditya Sharma", 
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop",
+    credential: "Specialized in therapeutic oil treatments following ancient Kerala protocols"
+  },
 ];
 
 export const CareTeamSection = () => {
   const [currentDoctor, setCurrentDoctor] = useState(0);
   const [selectedDoctor, setSelectedDoctor] = useState<number | null>(null);
+  const [flippedCard, setFlippedCard] = useState<number | null>(null);
 
   const nextDoctor = () => {
     setCurrentDoctor((prev) => (prev + 1) % doctors.length);
@@ -156,12 +173,26 @@ export const CareTeamSection = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {therapists.map((therapist, index) => (
               <div key={index} className="text-center">
-                <div className="aspect-square rounded-lg overflow-hidden shadow-[var(--shadow-card)] hover:shadow-xl transition-all mb-3">
-                  <img
-                    src={therapist.image}
-                    alt={therapist.name}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  />
+                <div 
+                  className="aspect-square rounded-lg cursor-pointer perspective-1000 mb-3"
+                  onClick={() => setFlippedCard(flippedCard === index ? null : index)}
+                >
+                  <div className={`relative w-full h-full transition-transform duration-500 transform-style-3d ${flippedCard === index ? 'rotate-y-180' : ''}`}>
+                    {/* Front side */}
+                    <div className="absolute w-full h-full backface-hidden rounded-lg overflow-hidden shadow-[var(--shadow-card)] hover:shadow-xl transition-shadow">
+                      <img
+                        src={therapist.image}
+                        alt={therapist.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    {/* Back side */}
+                    <div className="absolute w-full h-full backface-hidden rotate-y-180 rounded-lg bg-primary text-primary-foreground shadow-[var(--shadow-card)] flex items-center justify-center p-4">
+                      <p className="text-sm font-medium text-center leading-relaxed">
+                        {therapist.credential}
+                      </p>
+                    </div>
+                  </div>
                 </div>
                 <p className="font-heading text-foreground">{therapist.name}</p>
               </div>
