@@ -117,7 +117,7 @@ export const CareTeamSection = () => {
         </div>
 
         {/* Doctors Carousel */}
-        <div className="mb-16">
+        <div className="mb-24">
           
           <div className="relative max-w-2xl mx-auto">
             <Card className="p-8 shadow-[var(--shadow-card)]">
@@ -162,7 +162,16 @@ export const CareTeamSection = () => {
           </div>
 
           <div className="flex justify-center gap-2 mt-6">
-            {doctors.map((_, index) => {})}
+            {doctors.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentDoctor(index)}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  currentDoctor === index ? 'bg-primary w-6' : 'bg-muted-foreground/30'
+                }`}
+                aria-label={`Go to doctor ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
 
