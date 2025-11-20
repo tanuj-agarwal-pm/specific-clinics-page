@@ -145,7 +145,7 @@ export const HeroWithTestimonials = () => {
                   }`}
                 >
                   <Card 
-                    className="h-full p-8 md:p-10 shadow-2xl bg-background/95 backdrop-blur-sm border-2 border-primary-foreground/20 flex flex-col justify-center"
+                    className="h-full p-8 md:p-10 shadow-2xl bg-background/95 backdrop-blur-sm border-2 border-primary-foreground/20 flex flex-col justify-center overflow-hidden"
                     style={{ borderRadius: "60% 40% 40% 60% / 50% 60% 40% 50%" }}
                   >
                     {/* Icon */}
