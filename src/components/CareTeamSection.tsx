@@ -101,7 +101,7 @@ export const CareTeamSection = () => {
             Our Expert Care Team
           </h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
-            Experienced practitioners dedicated to your healing journey
+            Expert vaidyas dedicated to your healing journey - right from your first consultation                              
           </p>
         </div>
 
