@@ -88,14 +88,14 @@ export const CareTeamSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12">
           {credentials.map((cred, index) => {
           const Icon = cred.icon;
-          return <div key={index} className="text-center p-4 rounded-lg bg-primary shadow-[var(--shadow-card)] hover:shadow-xl transition-all">
-                <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/20 text-white mb-3">
-                  <Icon className="w-5 h-5" />
+          return <div key={index} className="text-center p-6 rounded-lg bg-primary shadow-[var(--shadow-card)] hover:shadow-xl transition-all">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/20 text-white mb-3">
+                  <Icon className="w-6 h-6" />
                 </div>
-                <p className="text-xl font-heading text-white mb-1">
+                <p className="text-2xl font-heading text-white mb-2">
                   {cred.value}
                 </p>
-                <p className="text-xs text-white/90">{cred.label}</p>
+                <p className="text-sm text-white/90">{cred.label}</p>
               </div>;
         })}
         </div>
