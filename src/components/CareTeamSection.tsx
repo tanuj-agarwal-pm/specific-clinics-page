@@ -84,6 +84,13 @@ export const CareTeamSection = () => {
   };
   return <section className="pt-16 md:pt-24 pb-0 px-4 bg-card">
       <div className="container mx-auto max-w-7xl">
+        {/* Why Trust Us Header */}
+        <div className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-heading text-foreground">
+            Why Trust Us
+          </h2>
+        </div>
+
         {/* Credentials Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12">
           {credentials.map((cred, index) => {
