@@ -82,7 +82,7 @@ export const CareTeamSection = () => {
   const prevDoctor = () => {
     setCurrentDoctor(prev => (prev - 1 + doctors.length) % doctors.length);
   };
-  return <section className="pt-16 md:pt-24 pb-0 px-4 bg-card">
+  return <section className="pt-16 md:pt-24 pb-16 md:pb-24 px-4 bg-card">
       <div className="container mx-auto max-w-7xl">
         {/* Why Trust Us Header */}
         <div className="text-center mb-8">
