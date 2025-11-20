@@ -162,7 +162,7 @@ export const CareTeamSection = () => {
           </div>
 
           <div className="flex justify-center gap-2 mt-6">
-            {doctors.map((_, index) => <button key={index} onClick={() => setCurrentDoctor(index)} className={`w-2 h-2 rounded-full transition-all ${index === currentDoctor ? "bg-primary w-6" : "bg-border hover:bg-primary/50"}`} aria-label={`Go to doctor ${index + 1}`} />)}
+            {doctors.map((_, index) => {})}
           </div>
         </div>
 
