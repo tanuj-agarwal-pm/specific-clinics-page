@@ -45,13 +45,19 @@ const therapists = [{
   image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop",
   credential: "Specialized in therapeutic oil treatments following ancient Kerala protocols"
 }];
-
-const credentials = [
-  { icon: Star, label: "4.9/5 on Google, Practo, Just Dial", value: "1500+ Reviews" },
-  { icon: Award, label: "75+ Years", value: "Excellence in Care" },
-  { icon: Users, label: "10,000+", value: "Patients Treated" },
-];
-
+const credentials = [{
+  icon: Star,
+  label: "4.9/5 on Google, Practo, Just Dial",
+  value: "1500+ Reviews"
+}, {
+  icon: Award,
+  label: "75+ Years",
+  value: "Excellence in Care"
+}, {
+  icon: Users,
+  label: "10,000+",
+  value: "Patients Treated"
+}];
 export const CareTeamSection = () => {
   const [currentDoctor, setCurrentDoctor] = useState(0);
   const [selectedDoctor, setSelectedDoctor] = useState<number | null>(null);
@@ -77,12 +83,8 @@ export const CareTeamSection = () => {
         {/* Credentials Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
           {credentials.map((cred, index) => {
-            const Icon = cred.icon;
-            return (
-              <div
-                key={index}
-                className="text-center p-6 md:p-8 rounded-lg bg-primary shadow-[var(--shadow-card)] hover:shadow-xl transition-all"
-              >
+          const Icon = cred.icon;
+          return <div key={index} className="text-center p-6 md:p-8 rounded-lg bg-primary shadow-[var(--shadow-card)] hover:shadow-xl transition-all">
                 <div className="inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/20 text-white mb-4">
                   <Icon className="w-6 h-6 md:w-7 md:h-7" />
                 </div>
@@ -90,9 +92,8 @@ export const CareTeamSection = () => {
                   {cred.value}
                 </p>
                 <p className="text-sm md:text-base text-white/90">{cred.label}</p>
-              </div>
-            );
-          })}
+              </div>;
+        })}
         </div>
 
         <div className="text-center mb-12">
@@ -106,9 +107,7 @@ export const CareTeamSection = () => {
 
         {/* Doctors Carousel */}
         <div className="mb-16">
-          <h3 className="text-2xl font-heading text-foreground mb-6 text-center">
-            Our Doctors
-          </h3>
+          
           <div className="relative max-w-2xl mx-auto">
             <Card className="p-8 shadow-[var(--shadow-card)]">
               <div className="flex flex-col md:flex-row items-center gap-6">
