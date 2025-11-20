@@ -85,17 +85,17 @@ export const CareTeamSection = () => {
   return <section className="pt-16 md:pt-24 pb-0 px-4 bg-card">
       <div className="container mx-auto max-w-7xl">
         {/* Credentials Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12">
           {credentials.map((cred, index) => {
           const Icon = cred.icon;
-          return <div key={index} className="text-center p-6 md:p-8 rounded-lg bg-primary shadow-[var(--shadow-card)] hover:shadow-xl transition-all">
-                <div className="inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/20 text-white mb-4">
-                  <Icon className="w-6 h-6 md:w-7 md:h-7" />
+          return <div key={index} className="text-center p-4 rounded-lg bg-primary shadow-[var(--shadow-card)] hover:shadow-xl transition-all">
+                <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/20 text-white mb-3">
+                  <Icon className="w-5 h-5" />
                 </div>
-                <p className="text-2xl md:text-3xl font-heading text-white mb-2">
+                <p className="text-xl font-heading text-white mb-1">
                   {cred.value}
                 </p>
-                <p className="text-sm md:text-base text-white/90">{cred.label}</p>
+                <p className="text-xs text-white/90">{cred.label}</p>
               </div>;
         })}
         </div>
