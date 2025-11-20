@@ -47,20 +47,20 @@ const therapists = [{
 }];
 const credentials = [{
   icon: Star,
-  label: "4.9/5 on Google, Practo, Just Dial",
-  value: "1500+ Reviews"
+  value: "4.9/5",
+  label: "15000+ Reviews on Google and Just Dial"
 }, {
   icon: Award,
-  label: "75+ Years",
-  value: "Excellence in Care"
+  value: "75+ Years",
+  label: "Excellence in Care"
 }, {
   icon: Users,
-  label: "10,000+",
-  value: "Patients Treated"
+  value: "100000+",
+  label: "Patients Treated"
 }, {
   icon: Users,
-  label: "Dedicated to Your Care",
-  value: "100+ Doctors"
+  value: "100+ Vaidyas",
+  label: "Dedicated to your care"
 }];
 export const CareTeamSection = () => {
   const [currentDoctor, setCurrentDoctor] = useState(0);
