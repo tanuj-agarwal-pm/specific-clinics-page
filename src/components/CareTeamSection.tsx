@@ -86,7 +86,7 @@ export const CareTeamSection = () => {
       <div className="container mx-auto max-w-7xl">
         {/* Why Trust Us Header */}
         <div className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-heading text-foreground">
+          <h2 className="text-3xl md:text-5xl font-heading text-foreground">
             Why Trust Us
           </h2>
         </div>
