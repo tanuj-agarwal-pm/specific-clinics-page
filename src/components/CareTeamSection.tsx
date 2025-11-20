@@ -74,17 +74,8 @@ export const CareTeamSection = () => {
   };
   return <section className="pt-16 md:pt-24 pb-0 px-4 bg-card">
       <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-heading text-foreground mb-4">
-            Our Expert Care Team
-          </h2>
-          <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
-            Experienced practitioners dedicated to your healing journey
-          </p>
-        </div>
-
         {/* Credentials Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
           {credentials.map((cred, index) => {
             const Icon = cred.icon;
             return (
@@ -102,6 +93,15 @@ export const CareTeamSection = () => {
               </div>
             );
           })}
+        </div>
+
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-5xl font-heading text-foreground mb-4">
+            Our Expert Care Team
+          </h2>
+          <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
+            Experienced practitioners dedicated to your healing journey
+          </p>
         </div>
 
         {/* Doctors Carousel */}
