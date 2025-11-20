@@ -3,6 +3,24 @@ import { Button } from "@/components/ui/button";
 import { ContactOptionsModal } from "@/components/ContactOptionsModal";
 import { Star, Heart, Brain, Baby, Bone } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import heroClinic from "@/assets/hero-clinic-interior.jpg";
+import heroTreatment from "@/assets/hero-treatment.jpg";
+import heroHerbs from "@/assets/hero-herbs.jpg";
+
+const slides = [
+  {
+    image: heroClinic,
+    alt: "Serene Kerala Ayurveda clinic interior with traditional ambiance",
+  },
+  {
+    image: heroTreatment,
+    alt: "Authentic Ayurvedic massage therapy in progress",
+  },
+  {
+    image: heroHerbs,
+    alt: "Traditional Ayurvedic herbs and natural healing ingredients",
+  },
+];
 
 const testimonials = [
   {
@@ -37,11 +55,19 @@ const testimonials = [
 
 export const HeroWithTestimonials = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
   const [showContactOptions, setShowContactOptions] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 5000);
     return () => clearInterval(timer);
   }, []);
@@ -53,8 +79,25 @@ export const HeroWithTestimonials = () => {
   };
 
   return (
-    <section className="relative min-h-[80vh] w-full overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-accent py-12 md:py-16">
-      <div className="container mx-auto max-w-7xl px-4 h-full">
+    <section className="relative min-h-[80vh] w-full overflow-hidden py-12 md:py-16">
+      {/* Background Images with Low Opacity */}
+      {slides.map((slide, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 transition-opacity duration-1000 ${
+            index === currentSlide ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <img
+            src={slide.image}
+            alt={slide.alt}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/90 to-primary/85" />
+        </div>
+      ))}
+
+      <div className="container mx-auto max-w-7xl px-4 h-full relative z-10">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Left Side - Hero Content */}
           <div className="animate-fade-in">
