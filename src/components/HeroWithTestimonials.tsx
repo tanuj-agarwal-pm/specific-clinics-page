@@ -79,7 +79,7 @@ export const HeroWithTestimonials = () => {
   };
 
   return (
-    <section className="relative min-h-[80vh] w-full overflow-hidden py-12 md:py-16">
+    <section className="relative min-h-[60vh] md:min-h-[65vh] w-full overflow-hidden py-12 md:py-16">
       {/* Background Images with Low Opacity */}
       {slides.map((slide, index) => (
         <div
@@ -132,7 +132,7 @@ export const HeroWithTestimonials = () => {
           </div>
 
           {/* Right Side - Testimonials */}
-          <div className="relative h-[400px] md:h-[500px]">
+          <div className="relative h-[350px] md:h-[400px]">
             {testimonials.map((testimonial, index) => {
               const Icon = testimonial.icon;
               return (
@@ -144,20 +144,13 @@ export const HeroWithTestimonials = () => {
                       : "opacity-0 scale-95"
                   }`}
                 >
-                  <Card className="h-full p-8 md:p-10 shadow-2xl bg-background/95 backdrop-blur-sm border-2 border-primary-foreground/20 flex flex-col justify-center">
+                  <Card 
+                    className="h-full p-8 md:p-10 shadow-2xl bg-background/95 backdrop-blur-sm border-2 border-primary-foreground/20 flex flex-col justify-center"
+                    style={{ borderRadius: "60% 40% 40% 60% / 50% 60% 40% 50%" }}
+                  >
                     {/* Icon */}
                     <div className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-full bg-primary text-primary-foreground mb-6">
                       <Icon className="w-6 h-6 md:w-8 md:h-8" />
-                    </div>
-
-                    {/* Stars */}
-                    <div className="flex gap-1 mb-4">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className="w-5 h-5 fill-primary text-primary"
-                        />
-                      ))}
                     </div>
 
                     {/* Testimonial Text */}
