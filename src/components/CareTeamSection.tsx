@@ -92,7 +92,7 @@ export const CareTeamSection = () => {
         </div>
 
         {/* Credentials Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-16">
           {credentials.map((cred, index) => {
           const Icon = cred.icon;
           return <div key={index} className="text-center p-6 rounded-lg bg-primary shadow-[var(--shadow-card)] hover:shadow-xl transition-all">
