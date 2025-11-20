@@ -159,7 +159,7 @@ export const HeroWithTestimonials = () => {
                     </p>
 
                     {/* Author */}
-                    <div className="mt-auto">
+                    <div className="mt-auto text-center">
                       <p className="font-heading text-lg md:text-xl text-foreground">
                         {testimonial.name}
                       </p>
