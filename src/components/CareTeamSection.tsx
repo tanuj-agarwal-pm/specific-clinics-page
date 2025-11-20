@@ -57,6 +57,10 @@ const credentials = [{
   icon: Users,
   label: "10,000+",
   value: "Patients Treated"
+}, {
+  icon: Users,
+  label: "Dedicated to Your Care",
+  value: "100+ Doctors"
 }];
 export const CareTeamSection = () => {
   const [currentDoctor, setCurrentDoctor] = useState(0);
@@ -81,7 +85,7 @@ export const CareTeamSection = () => {
   return <section className="pt-16 md:pt-24 pb-0 px-4 bg-card">
       <div className="container mx-auto max-w-7xl">
         {/* Credentials Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-12">
           {credentials.map((cred, index) => {
           const Icon = cred.icon;
           return <div key={index} className="text-center p-6 md:p-8 rounded-lg bg-primary shadow-[var(--shadow-card)] hover:shadow-xl transition-all">
