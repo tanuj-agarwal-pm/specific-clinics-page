@@ -120,17 +120,17 @@ export const CareTeamSectionVariantA = () => {
         </div>
 
         {/* Credentials Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
           {credentials.map((cred, index) => {
           const Icon = cred.icon;
-          return <div key={index} className="text-center p-6 rounded-lg bg-primary shadow-[var(--shadow-card)] hover:shadow-xl transition-all">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/20 text-white mb-3">
-                  <Icon className="w-6 h-6" />
+          return <div key={index} className="text-center">
+                <div className="inline-flex items-center justify-center w-10 h-10 mb-3 text-primary">
+                  <Icon className="w-8 h-8" />
                 </div>
-                <p className="text-2xl font-heading text-white mb-2">
+                <p className="text-2xl md:text-3xl font-heading text-foreground mb-1">
                   {cred.value}
                 </p>
-                <p className="text-sm text-white/90">{cred.label}</p>
+                <p className="text-sm text-muted-foreground">{cred.label}</p>
               </div>;
         })}
         </div>
