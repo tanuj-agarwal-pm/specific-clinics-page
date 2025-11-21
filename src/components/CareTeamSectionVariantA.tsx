@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, GraduationCap, Award, Star, Users } from "lucide-react";
+import { ChevronLeft, ChevronRight, GraduationCap, Award, Star, Users, Stethoscope } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -58,7 +58,7 @@ const credentials = [{
   value: "100000+",
   label: "Patients Treated"
 }, {
-  icon: Users,
+  icon: Stethoscope,
   value: "100+ Vaidyas",
   label: "Dedicated to your care"
 }];
