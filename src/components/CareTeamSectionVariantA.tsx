@@ -86,8 +86,8 @@ export const CareTeamSectionVariantA = () => {
       <div className="container mx-auto max-w-7xl">
         {/* Why Trust Us Header */}
         <div className="text-center mb-8">
-          <h2 className="text-3xl md:text-5xl font-heading text-foreground">
-            Why Trust Us
+          <h2 className="md:text-5xl font-heading text-foreground text-2xl font-thin">
+            What our patients say?                    
           </h2>
         </div>
 
@@ -95,23 +95,13 @@ export const CareTeamSectionVariantA = () => {
         <div className="mb-12 md:max-w-2xl md:mx-auto">
           <div className="flex gap-4 overflow-x-auto md:grid md:grid-cols-2 md:gap-6 pb-4 md:pb-0 snap-x snap-mandatory md:snap-none -mx-4 px-4 md:mx-0 md:px-0">
             <div className="relative aspect-[9/16] w-[70vw] md:w-full flex-shrink-0 rounded-lg overflow-hidden shadow-[var(--shadow-card)] bg-muted snap-center">
-              <video 
-                className="w-full h-full object-cover"
-                controls
-                preload="metadata"
-                poster="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=700&fit=crop"
-              >
+              <video className="w-full h-full object-cover" controls preload="metadata" poster="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=700&fit=crop">
                 <source src="/path-to-your-video-1.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
             <div className="relative aspect-[9/16] w-[70vw] md:w-full flex-shrink-0 rounded-lg overflow-hidden shadow-[var(--shadow-card)] bg-muted snap-center">
-              <video 
-                className="w-full h-full object-cover"
-                controls
-                preload="metadata"
-                poster="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=700&fit=crop"
-              >
+              <video className="w-full h-full object-cover" controls preload="metadata" poster="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=700&fit=crop">
                 <source src="/path-to-your-video-2.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
@@ -192,16 +182,7 @@ export const CareTeamSectionVariantA = () => {
           </div>
 
           <div className="flex justify-center gap-2 mt-6">
-            {doctors.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentDoctor(index)}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  currentDoctor === index ? 'bg-primary w-6' : 'bg-muted-foreground/30'
-                }`}
-                aria-label={`Go to doctor ${index + 1}`}
-              />
-            ))}
+            {doctors.map((_, index) => <button key={index} onClick={() => setCurrentDoctor(index)} className={`w-2 h-2 rounded-full transition-all ${currentDoctor === index ? 'bg-primary w-6' : 'bg-muted-foreground/30'}`} aria-label={`Go to doctor ${index + 1}`} />)}
           </div>
         </div>
 
