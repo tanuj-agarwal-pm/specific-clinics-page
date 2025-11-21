@@ -8,33 +8,21 @@ import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
-const countryCodes = [{
-  code: "+91",
-  country: "India",
-  flag: "🇮🇳",
-  digits: 10
-}, {
-  code: "+1",
-  country: "US/Canada",
-  flag: "🇺🇸",
-  digits: 10
-}, {
-  code: "+44",
-  country: "UK",
-  flag: "🇬🇧",
-  digits: 10
-}, {
-  code: "+971",
-  country: "UAE",
-  flag: "🇦🇪",
-  digits: 9
-}, {
-  code: "+65",
-  country: "Singapore",
-  flag: "🇸🇬",
-  digits: 8
-}];
-const timeSlots = ["09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "12:00 PM", "12:30 PM", "01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM", "05:00 PM", "05:30 PM", "06:00 PM", "06:30 PM", "07:00 PM"];
+
+const countryCodes = [
+  { code: "+91", country: "India", flag: "🇮🇳", digits: 10 },
+  { code: "+1", country: "US/Canada", flag: "🇺🇸", digits: 10 },
+  { code: "+44", country: "UK", flag: "🇬🇧", digits: 10 },
+  { code: "+971", country: "UAE", flag: "🇦🇪", digits: 9 },
+  { code: "+65", country: "Singapore", flag: "🇸🇬", digits: 8 },
+];
+
+const timeSlots = [
+  "09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM",
+  "12:00 PM", "12:30 PM", "01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM",
+  "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM", "05:00 PM", "05:30 PM",
+  "06:00 PM", "06:30 PM", "07:00 PM"
+];
 export const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -79,6 +67,7 @@ export const ContactSection = () => {
       [e.target.name]: e.target.value
     });
   };
+
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.replace(/\D/g, ''); // Only allow digits
     const selectedCountry = countryCodes.find(c => c.code === formData.countryCode);
@@ -123,21 +112,28 @@ export const ContactSection = () => {
                   Phone Number *
                 </label>
                 <div className="flex gap-2">
-                  <Select value={formData.countryCode} onValueChange={value => setFormData({
-                  ...formData,
-                  countryCode: value,
-                  phone: ""
-                })}>
+                  <Select value={formData.countryCode} onValueChange={(value) => setFormData({ ...formData, countryCode: value, phone: "" })}>
                     <SelectTrigger className="w-[110px]">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                      {countryCodes.map(country => <SelectItem key={country.code} value={country.code}>
+                      {countryCodes.map((country) => (
+                        <SelectItem key={country.code} value={country.code}>
                           {country.flag} {country.code}
-                        </SelectItem>)}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
-                  <Input id="phone" name="phone" type="tel" required value={formData.phone} onChange={handlePhoneChange} placeholder={`${countryCodes.find(c => c.code === formData.countryCode)?.digits} digits`} className="flex-1" />
+                  <Input 
+                    id="phone" 
+                    name="phone" 
+                    type="tel" 
+                    required 
+                    value={formData.phone} 
+                    onChange={handlePhoneChange} 
+                    placeholder={`${countryCodes.find(c => c.code === formData.countryCode)?.digits} digits`}
+                    className="flex-1" 
+                  />
                 </div>
               </div>
 
@@ -148,16 +144,26 @@ export const ContactSection = () => {
                   </label>
                   <Popover>
                     <PopoverTrigger asChild>
-                      <Button variant="outline" className={cn("w-full justify-start text-left font-normal", !formData.date && "text-muted-foreground")}>
+                      <Button
+                        variant="outline"
+                        className={cn(
+                          "w-full justify-start text-left font-normal",
+                          !formData.date && "text-muted-foreground"
+                        )}
+                      >
                         <CalendarIcon className="mr-2 h-4 w-4" />
                         {formData.date ? format(formData.date, "PPP") : <span>Pick a date</span>}
                       </Button>
                     </PopoverTrigger>
                     <PopoverContent className="w-auto p-0" align="start">
-                      <Calendar mode="single" selected={formData.date} onSelect={date => setFormData({
-                      ...formData,
-                      date
-                    })} disabled={date => date < new Date(new Date().setHours(0, 0, 0, 0))} initialFocus className={cn("p-3 pointer-events-auto")} />
+                      <Calendar
+                        mode="single"
+                        selected={formData.date}
+                        onSelect={(date) => setFormData({ ...formData, date })}
+                        disabled={(date) => date < new Date(new Date().setHours(0, 0, 0, 0))}
+                        initialFocus
+                        className={cn("p-3 pointer-events-auto")}
+                      />
                     </PopoverContent>
                   </Popover>
                 </div>
@@ -165,18 +171,20 @@ export const ContactSection = () => {
                   <label htmlFor="time" className="block text-sm font-medium text-foreground mb-2">
                     Preferred Time
                   </label>
-                  <Select value={formData.time} onValueChange={value => setFormData({
-                  ...formData,
-                  time: value
-                })}>
-                    <SelectTrigger className={cn("w-full justify-start text-left font-normal [&>svg.lucide-chevron-down]:hidden", !formData.time && "text-muted-foreground")}>
+                  <Select value={formData.time} onValueChange={(value) => setFormData({ ...formData, time: value })}>
+                    <SelectTrigger className={cn(
+                      "w-full justify-start text-left font-normal [&>svg.lucide-chevron-down]:hidden",
+                      !formData.time && "text-muted-foreground"
+                    )}>
                       <Clock className="mr-2 h-4 w-4" />
                       <SelectValue placeholder="Select a time" />
                     </SelectTrigger>
                     <SelectContent>
-                      {timeSlots.map(slot => <SelectItem key={slot} value={slot}>
+                      {timeSlots.map((slot) => (
+                        <SelectItem key={slot} value={slot}>
                           {slot}
-                        </SelectItem>)}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </div>
@@ -221,7 +229,8 @@ export const ContactSection = () => {
           <p className="text-base md:text-lg text-foreground leading-relaxed font-medium text-center mb-4">
             Amritsar • Chennai • Delhi • Ernakulam • Hyderabad • Kasargod • Kochi • Mumbai • Panipat • Pune • Singapore • Thiruvananthapuram • Vizag
           </p>
-          <p className="text-base text-foreground/80 text-center">Call or WhatsApp to book an appointment in any of these cities or get an online appointment.     <a href="tel:+1234567890" className="text-primary hover:text-accent font-semibold transition-colors underline">Call</a> or <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-accent font-semibold transition-colors underline">WhatsApp</a> to book an appointment in any of these cities
+          <p className="text-base text-foreground/80 text-center">
+            <a href="tel:+1234567890" className="text-primary hover:text-accent font-semibold transition-colors underline">Call</a> or <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-accent font-semibold transition-colors underline">WhatsApp</a> to book an appointment in any of these cities
           </p>
         </div>
       </div>
