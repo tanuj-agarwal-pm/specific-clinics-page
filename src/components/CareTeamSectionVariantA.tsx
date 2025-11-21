@@ -62,7 +62,7 @@ const credentials = [{
   value: "100+ Vaidyas",
   label: "Dedicated to your care"
 }];
-export const CareTeamSection = () => {
+export const CareTeamSectionVariantA = () => {
   const [currentDoctor, setCurrentDoctor] = useState(0);
   const [selectedDoctor, setSelectedDoctor] = useState<number | null>(null);
   const [flippedCard, setFlippedCard] = useState<number | null>(null);
@@ -82,7 +82,7 @@ export const CareTeamSection = () => {
   const prevDoctor = () => {
     setCurrentDoctor(prev => (prev - 1 + doctors.length) % doctors.length);
   };
-  return <section className="pt-16 md:pt-24 pb-16 md:pb-24 px-4 bg-card">
+  return <section className="pt-16 md:pt-24 pb-8 md:pb-12 px-4 bg-card">
       <div className="container mx-auto max-w-7xl">
         {/* Why Trust Us Header */}
         <div className="text-center mb-8">
@@ -112,7 +112,7 @@ export const CareTeamSection = () => {
             Our Expert Care Team
           </h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
-            Expert vaidyas dedicated to your healing journey - right from your first consultation                              
+            Expert vaidyas dedicated to your healing journey - right from your first consultation                              
           </p>
         </div>
 

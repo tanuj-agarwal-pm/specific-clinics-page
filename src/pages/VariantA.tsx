@@ -1,9 +1,9 @@
 import { HeroWithTestimonials } from "@/components/HeroWithTestimonials";
 import { StickyHeader } from "@/components/StickyHeader";
 import { ConditionsSection } from "@/components/ConditionsSection";
-import { CareTeamSection } from "@/components/CareTeamSection";
+import { CareTeamSectionVariantA } from "@/components/CareTeamSectionVariantA";
 import { TreatmentsSection } from "@/components/TreatmentsSection";
-import { ApproachSection } from "@/components/ApproachSection";
+import { ApproachSectionVariantA } from "@/components/ApproachSectionVariantA";
 import { ContactSection } from "@/components/ContactSection";
 
 const VariantA = () => {
@@ -12,8 +12,8 @@ const VariantA = () => {
       <StickyHeader />
       <HeroWithTestimonials />
       <ConditionsSection />
-      <CareTeamSection />
-      <ApproachSection />
+      <CareTeamSectionVariantA />
+      <ApproachSectionVariantA />
       <TreatmentsSection />
       <ContactSection />
     </main>

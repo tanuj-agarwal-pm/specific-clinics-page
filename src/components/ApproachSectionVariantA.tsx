@@ -20,7 +20,7 @@ const steps = [{
   title: "Integrated in your life",
   description: "Receive personalized food and routine guidance that seamlessly integrates into your daily life, ensuring lasting wellness through sustainable lifestyle changes."
 }];
-export const ApproachSection = () => {
+export const ApproachSectionVariantA = () => {
   const [activeStep, setActiveStep] = useState(0);
   const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
@@ -44,7 +44,7 @@ export const ApproachSection = () => {
       }
     }
   }, [activeStep]);
-  return <section className="py-16 md:pt-4 md:pb-12 px-4 bg-gradient-to-b from-background to-muted overflow-hidden">
+  return <section className="py-16 md:pt-10 md:pb-12 px-4 bg-gradient-to-b from-background to-muted overflow-hidden">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-heading text-foreground mb-4">
