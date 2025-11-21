@@ -86,8 +86,8 @@ export const CareTeamSectionVariantA = () => {
       <div className="container mx-auto max-w-7xl">
         {/* Why Trust Us Header */}
         <div className="text-center mb-8">
-          <h2 className="md:text-5xl font-heading text-foreground text-2xl font-thin">
-            What our patients say?                    
+          <h2 className="md:text-5xl font-heading text-foreground font-thin text-4xl">
+            Real customer transformation stories!                       
           </h2>
         </div>
 
