@@ -128,7 +128,7 @@ export const CareTeamSectionVariantA = () => {
                   <div className="inline-flex items-center justify-center w-10 h-10 mb-3 text-primary">
                     <Icon className="w-8 h-8" />
                   </div>
-                  <p className="text-2xl md:text-3xl font-heading text-foreground mb-1">
+                  <p className="text-xl md:text-2xl font-heading text-foreground mb-1">
                     {cred.value}
                   </p>
                   <p className="text-sm text-muted-foreground">{cred.label}</p>
