@@ -91,6 +91,32 @@ export const CareTeamSectionVariantA = () => {
           </h2>
         </div>
 
+        {/* Video Testimonials */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 max-w-2xl mx-auto">
+          <div className="relative aspect-[9/16] rounded-lg overflow-hidden shadow-[var(--shadow-card)] bg-muted">
+            <video 
+              className="w-full h-full object-cover"
+              controls
+              preload="metadata"
+              poster="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=700&fit=crop"
+            >
+              <source src="/path-to-your-video-1.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div className="relative aspect-[9/16] rounded-lg overflow-hidden shadow-[var(--shadow-card)] bg-muted">
+            <video 
+              className="w-full h-full object-cover"
+              controls
+              preload="metadata"
+              poster="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=700&fit=crop"
+            >
+              <source src="/path-to-your-video-2.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
         {/* Credentials Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-16">
           {credentials.map((cred, index) => {
