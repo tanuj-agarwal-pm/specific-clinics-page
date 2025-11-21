@@ -55,7 +55,7 @@ const credentials = [{
   label: "Excellence in Care"
 }, {
   icon: Users,
-  value: "100000+",
+  value: "100K+",
   label: "Patients Treated"
 }, {
   icon: Stethoscope,
