@@ -1,4 +1,4 @@
-import { Users, ActivitySquare, Bone, Wind, Heart, Brain, Activity, Moon } from "lucide-react";
+import { Users, ActivitySquare, Bone, Wind, Droplets, Brain, Activity, Moon } from "lucide-react";
 const conditions = [{
   icon: Users,
   title: "PCOS",
@@ -16,7 +16,7 @@ const conditions = [{
   title: "Respiratory Health",
   description: "Natural remedies for respiratory conditions including asthma, allergies, and breathing difficulties through Ayurvedic care."
 }, {
-  icon: Heart,
+  icon: Droplets,
   title: "Liver Health",
   description: "Comprehensive liver care and detoxification treatments to support optimal liver function and overall health."
 }, {
