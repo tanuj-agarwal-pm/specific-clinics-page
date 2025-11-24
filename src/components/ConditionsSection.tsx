@@ -1,4 +1,4 @@
-import { Users, ActivitySquare, Bone, Stethoscope, Baby, Brain, Activity, Moon } from "lucide-react";
+import { Users, ActivitySquare, Bone, Wind, Heart, Brain, Activity, Moon } from "lucide-react";
 const conditions = [{
   icon: Users,
   title: "PCOS",
@@ -12,13 +12,13 @@ const conditions = [{
   title: "Joint Pain",
   description: "Therapeutic treatments to reduce inflammation and restore mobility naturally and effectively."
 }, {
-  icon: Stethoscope,
-  title: "Chronic Conditions",
-  description: "Long-term management of chronic ailments through holistic Ayurvedic approaches and lifestyle changes."
+  icon: Wind,
+  title: "Respiratory Health",
+  description: "Natural remedies for respiratory conditions including asthma, allergies, and breathing difficulties through Ayurvedic care."
 }, {
-  icon: Baby,
-  title: "Maternal Care",
-  description: "Comprehensive support for mothers during pregnancy and postpartum with traditional Ayurvedic therapies."
+  icon: Heart,
+  title: "Liver Health",
+  description: "Comprehensive liver care and detoxification treatments to support optimal liver function and overall health."
 }, {
   icon: Moon,
   title: "Sleep Management",
