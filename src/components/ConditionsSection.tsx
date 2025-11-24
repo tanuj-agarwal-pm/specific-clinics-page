@@ -1,7 +1,7 @@
 import { Users, ActivitySquare, Bone, Wind, Droplets, Brain, Activity, Moon } from "lucide-react";
 const conditions = [{
   icon: Users,
-  title: "PCOS",
+  title: "PCOS and PCOD",
   description: "Hormonal balance treatments addressing the root causes of PCOS through personalized Ayurvedic care."
 }, {
   icon: ActivitySquare,
