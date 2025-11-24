@@ -29,7 +29,7 @@ const conditions = [{
   description: "Holistic stress relief through meditation, herbal remedies, and Ayurvedic relaxation therapies."
 }, {
   icon: Activity,
-  title: "Lifestyle Correction",
+  title: "General Wellness and Lifestyle",
   description: "Personalized guidance to transform daily habits and achieve lasting health and vitality."
 }];
 export const ConditionsSection = () => {
