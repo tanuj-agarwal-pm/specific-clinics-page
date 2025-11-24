@@ -9,7 +9,7 @@ const conditions = [{
   description: "Comprehensive digestive care addressing indigestion, gut healing, and overall digestive wellness through Ayurvedic principles."
 }, {
   icon: Bone,
-  title: "Joint Pain",
+  title: "Bone Health",
   description: "Therapeutic treatments to reduce inflammation and restore mobility naturally and effectively."
 }, {
   icon: Wind,
