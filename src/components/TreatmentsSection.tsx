@@ -4,33 +4,33 @@ import treatmentBg from "@/assets/hero-treatment.jpg";
 const treatments = [
   {
     icon: Droplets,
-    title: "Panchakarma Therapy",
-    description: "Complete detoxification and rejuvenation through five traditional cleansing procedures for deep healing and balance.",
+    title: "Panchakarma",
+    description: "Five detox therapies that eliminate deep toxins and reset the body for long-term healing.",
   },
   {
     icon: Flower2,
-    title: "Abhyanga Massage",
-    description: "Traditional full body massage with warm herbal oils to improve circulation and release deep-seated tension.",
+    title: "Abhyanga",
+    description: "Full-body warm oil massage that nourishes tissues, calms nerves, and melts stress.",
   },
   {
     icon: Heart,
-    title: "Shirodhara Treatment",
-    description: "Continuous stream of warm oil on the forehead to calm the mind, balance the nervous system, and promote deep relaxation.",
+    title: "Shirodhara",
+    description: "Warm oil flows steadily on the forehead to relax the mind and improve sleep.",
   },
   {
     icon: Sparkles,
-    title: "Therapeutic Basti",
-    description: "Specialized treatments including Kati, Greeva, and Janu Basti for targeted pain relief and joint healing.",
+    title: "Swedana",
+    description: "Herbal steam therapy that opens pores, relieves stiffness, improves circulation, and removes toxins.",
   },
   {
     icon: Leaf,
-    title: "Pinda Swedana",
-    description: "Udvartana, Elakizhi, and Njavara Kizhi using traditional herbal preparations for holistic wellness and vitality.",
+    title: "Basti",
+    description: "Medicated enema that cleanses the colon, balances Vata, and treats pain and digestive issues.",
   },
   {
     icon: Wind,
-    title: "Bandhana",
-    description: "Comprehensive care packages combining multiple therapies for prenatal, postnatal, and lifestyle wellness needs.",
+    title: "Bandhana (Upanaham)",
+    description: "Warm herbal paste wrapped on painful area to reduce swelling, stiffness, and inflammation.",
   },
 ];
 
