@@ -1,4 +1,4 @@
-import { Bone, Apple, Sparkles, Gauge, HeartPulse, Users, Baby, Wind, Moon } from "lucide-react";
+import { Bone, Apple, Leaf, Gauge, HeartPulse, HeartHandshake, Baby, Wind, Moon } from "lucide-react";
 
 const conditions = [{
   icon: Bone,
@@ -9,7 +9,7 @@ const conditions = [{
   title: "Gut & Digestive Health",
   description: "Comprehensive digestive care addressing indigestion, gut healing, and overall digestive wellness through Ayurvedic principles."
 }, {
-  icon: Sparkles,
+  icon: Leaf,
   title: "Skin & Hair Issues",
   description: "Natural remedies for healthy skin and hair through Ayurvedic treatments and herbal formulations."
 }, {
@@ -21,7 +21,7 @@ const conditions = [{
   title: "Hypertension & Stress Management",
   description: "Natural solutions to manage blood pressure and reduce stress through Ayurvedic practices and therapies."
 }, {
-  icon: Users,
+  icon: HeartHandshake,
   title: "Women's Health - PCOD, PCOS, Menopause",
   description: "Specialized care for women's hormonal health addressing PCOD, PCOS, and menopausal symptoms naturally."
 }, {
