@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ContactOptionsModal } from "@/components/ContactOptionsModal";
-import { Star, Heart, Brain, Baby, Bone } from "lucide-react";
+import { Heart, Baby, Bone, Activity, Sparkles } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import heroClinic from "@/assets/hero-clinic-interior.jpg";
 import heroTreatment from "@/assets/hero-treatment.jpg";
@@ -24,31 +24,38 @@ const slides = [
 
 const testimonials = [
   {
-    name: "Meera Sharma",
-    condition: "PCOS Treatment",
-    text: "After years of struggling, the personalized Ayurvedic treatment helped me regain balance. The doctors truly understand the root cause approach.",
+    name: "Iyer",
+    condition: "Blood Pressure and Back Pain",
+    text: "Excellent treatment by one of the best in the business. I have been a regular at this clinic for more than 20 years. Many chronic problems including low BP and back problems have been rectified here. I will without a cinch of hesitation, recommend the wellness center.",
     icon: Heart,
     rating: 5,
   },
   {
-    name: "Arjun Patel",
-    condition: "Stress Management",
-    text: "The Panchakarma therapy was transformative. I feel rejuvenated and the chronic stress that plagued me for years has significantly reduced.",
-    icon: Brain,
-    rating: 5,
-  },
-  {
-    name: "Divya Menon",
-    condition: "Postnatal Care",
-    text: "The postnatal care package was a blessing. Traditional treatments combined with modern care helped me recover beautifully after childbirth.",
-    icon: Baby,
-    rating: 5,
-  },
-  {
-    name: "Vikram Singh",
-    condition: "Joint Pain Relief",
-    text: "Years of joint pain made my life difficult. The authentic Kerala Ayurveda treatments have given me my mobility back. Truly grateful!",
+    name: "Kunjan Chauhan",
+    condition: "Shoulder Injury",
+    text: "It's getting so much harder to find authentic ayurvedic physicians and clinics. This is a great place to get treated. My son is showing good signs of recovery with his shoulder injury that he has been struggling with for 3-4 years. Staff are very helpful, humble and approachable.",
     icon: Bone,
+    rating: 5,
+  },
+  {
+    name: "Indra Kumar",
+    condition: "General Wellness",
+    text: "I recently visited Kerala ayurveda wellness centre for an Ayurveda body massage, and it was truly a transformative experience. The massage itself was incredibly relaxing, with warm oil and soothing strokes that melted away my tension and stress.",
+    icon: Sparkles,
+    rating: 5,
+  },
+  {
+    name: "Subash Chinniah",
+    condition: "Digestive & Gut Health",
+    text: "I had digestive disorders for a long time. Did many tests and consulted many allopathy doctors for the treatment. It's been a few months since I'm under Kerala Ayurveda's guidance and medication. I'm totally relieved of the problem and I'm getting back to my good gut feeling.",
+    icon: Activity,
+    rating: 5,
+  },
+  {
+    name: "Chithravathi B",
+    condition: "Postpartum Recovery",
+    text: "Dr Sreelakshmi has helped me a lot with postpartum recovery therapy sessions. The utmost care given by the doctor and her team has helped me recover a lot. The doctor stayed in touch with me and made sure I ate a balanced meal. Budget friendly as well.",
+    icon: Baby,
     rating: 5,
   },
 ];
