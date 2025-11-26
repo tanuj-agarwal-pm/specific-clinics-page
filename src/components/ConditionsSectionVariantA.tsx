@@ -1,4 +1,4 @@
-import { Bone, Apple, Flower2, Scale, HeartPulse, Users, Baby, Wind, Moon } from "lucide-react";
+import { Bone, Apple, Sparkles, Gauge, HeartPulse, Users, Baby, Wind, Moon } from "lucide-react";
 
 const conditions = [{
   icon: Bone,
@@ -9,11 +9,11 @@ const conditions = [{
   title: "Gut & Digestive Health",
   description: "Comprehensive digestive care addressing indigestion, gut healing, and overall digestive wellness through Ayurvedic principles."
 }, {
-  icon: Flower2,
+  icon: Sparkles,
   title: "Skin & Hair Issues",
   description: "Natural remedies for healthy skin and hair through Ayurvedic treatments and herbal formulations."
 }, {
-  icon: Scale,
+  icon: Gauge,
   title: "Obesity & Diabetic Management",
   description: "Holistic approach to weight management and blood sugar control through personalized Ayurvedic care."
 }, {
