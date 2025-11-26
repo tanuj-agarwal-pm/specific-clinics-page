@@ -217,6 +217,10 @@ export const ContactSection = () => {
                 <CalendarIcon className="w-5 h-5 mr-2" />
                 Request Consultation
               </Button>
+              
+              <p className="text-center text-sm text-muted-foreground mt-4">
+                Have questions? <a href="tel:+1234567890" className="text-primary hover:text-accent font-semibold transition-colors underline">Call Us Now</a>
+              </p>
             </form>
           </div>
         </div>
