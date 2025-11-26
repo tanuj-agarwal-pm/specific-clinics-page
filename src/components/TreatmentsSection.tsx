@@ -94,77 +94,179 @@ export const TreatmentsSection = () => {
           </p>
         </div>
 
-        {/* Treatment Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-xl md:max-w-2xl">
-          {treatments.map((treatment) => {
-            const Icon = treatment.icon;
-            return (
-              <div
-                key={treatment.title}
-                className="bg-card border border-border rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow"
-              >
-                <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-primary">
-                  <Icon className="h-5 w-5" strokeWidth={1.5} />
+        {/* Desktop: All treatments, then unique section */}
+        <div className="hidden md:block">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-xl md:max-w-2xl">
+            {treatments.map((treatment) => {
+              const Icon = treatment.icon;
+              return (
+                <div
+                  key={treatment.title}
+                  className="bg-card border border-border rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-primary">
+                    <Icon className="h-5 w-5" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="mt-3 text-lg font-heading text-foreground">
+                    {treatment.title}
+                  </h3>
+                  <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
+                    {treatment.description}
+                  </p>
                 </div>
-                <h3 className="mt-3 text-lg font-heading text-foreground">
-                  {treatment.title}
-                </h3>
-                <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
-                  {treatment.description}
-                </p>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
 
-        {/* What Makes Us Unique - Animated Scroll */}
-        <div className="mt-16 overflow-hidden">
-          <h3 className="text-xl md:text-2xl font-heading text-foreground mb-6 max-w-md">
-            What Makes Our Treatments Unique
-          </h3>
-          <div className="relative -z-10">
-            <div className="flex gap-6 animate-scroll-fast" style={{ willChange: 'transform' }}>
-              <div className="flex gap-6">
-                {uniqueFeatures.map((feature, index) => {
-                  const Icon = feature.icon;
-                  return (
-                    <div
-                      key={`g1-${index}`}
-                      className="flex-shrink-0 w-64 bg-card/50 border border-border/50 rounded-lg px-5 py-4 backdrop-blur-sm"
-                    >
-                      <div className="flex items-start gap-3">
-                        <div className={`flex-shrink-0 mt-0.5 text-primary ${feature.animation}`}>
-                          <Icon className="h-5 w-5" strokeWidth={1.5} />
+          {/* What Makes Us Unique - Desktop */}
+          <div className="mt-16 overflow-hidden">
+            <h3 className="text-xl md:text-2xl font-heading text-foreground mb-6 max-w-md">
+              What Makes Our Treatments Unique
+            </h3>
+            <div className="relative -z-10">
+              <div className="flex gap-6 animate-scroll-fast" style={{ willChange: 'transform' }}>
+                <div className="flex gap-6">
+                  {uniqueFeatures.map((feature, index) => {
+                    const Icon = feature.icon;
+                    return (
+                      <div
+                        key={`g1-${index}`}
+                        className="flex-shrink-0 w-64 bg-card/50 border border-border/50 rounded-lg px-5 py-4 backdrop-blur-sm"
+                      >
+                        <div className="flex items-start gap-3">
+                          <div className={`flex-shrink-0 mt-0.5 text-primary ${feature.animation}`}>
+                            <Icon className="h-5 w-5" strokeWidth={1.5} />
+                          </div>
+                          <p className="text-sm text-foreground leading-relaxed">
+                            {feature.text}
+                          </p>
                         </div>
-                        <p className="text-sm text-foreground leading-relaxed">
-                          {feature.text}
-                        </p>
                       </div>
-                    </div>
-                  );
-                })}
-              </div>
-              <div className="flex gap-6" aria-hidden="true">
-                {uniqueFeatures.map((feature, index) => {
-                  const Icon = feature.icon;
-                  return (
-                    <div
-                      key={`g2-${index}`}
-                      className="flex-shrink-0 w-64 bg-card/50 border border-border/50 rounded-lg px-5 py-4 backdrop-blur-sm"
-                    >
-                      <div className="flex items-start gap-3">
-                        <div className={`flex-shrink-0 mt-0.5 text-primary ${feature.animation}`}>
-                          <Icon className="h-5 w-5" strokeWidth={1.5} />
+                    );
+                  })}
+                </div>
+                <div className="flex gap-6" aria-hidden="true">
+                  {uniqueFeatures.map((feature, index) => {
+                    const Icon = feature.icon;
+                    return (
+                      <div
+                        key={`g2-${index}`}
+                        className="flex-shrink-0 w-64 bg-card/50 border border-border/50 rounded-lg px-5 py-4 backdrop-blur-sm"
+                      >
+                        <div className="flex items-start gap-3">
+                          <div className={`flex-shrink-0 mt-0.5 text-primary ${feature.animation}`}>
+                            <Icon className="h-5 w-5" strokeWidth={1.5} />
+                          </div>
+                          <p className="text-sm text-foreground leading-relaxed">
+                            {feature.text}
+                          </p>
                         </div>
-                        <p className="text-sm text-foreground leading-relaxed">
-                          {feature.text}
-                        </p>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Mobile: First 2 treatments, unique section, then remaining 4 */}
+        <div className="md:hidden">
+          {/* First 2 treatments */}
+          <div className="grid grid-cols-1 gap-6 max-w-xl">
+            {treatments.slice(0, 2).map((treatment) => {
+              const Icon = treatment.icon;
+              return (
+                <div
+                  key={treatment.title}
+                  className="bg-card border border-border rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-primary">
+                    <Icon className="h-5 w-5" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="mt-3 text-lg font-heading text-foreground">
+                    {treatment.title}
+                  </h3>
+                  <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
+                    {treatment.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* What Makes Us Unique - Mobile */}
+          <div className="mt-12 overflow-hidden">
+            <h3 className="text-xl font-heading text-foreground mb-6 max-w-md">
+              What Makes Our Treatments Unique
+            </h3>
+            <div className="relative -z-10">
+              <div className="flex gap-6 animate-scroll-fast" style={{ willChange: 'transform' }}>
+                <div className="flex gap-6">
+                  {uniqueFeatures.map((feature, index) => {
+                    const Icon = feature.icon;
+                    return (
+                      <div
+                        key={`g1-${index}`}
+                        className="flex-shrink-0 w-64 bg-card/50 border border-border/50 rounded-lg px-5 py-4 backdrop-blur-sm"
+                      >
+                        <div className="flex items-start gap-3">
+                          <div className={`flex-shrink-0 mt-0.5 text-primary ${feature.animation}`}>
+                            <Icon className="h-5 w-5" strokeWidth={1.5} />
+                          </div>
+                          <p className="text-sm text-foreground leading-relaxed">
+                            {feature.text}
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+                <div className="flex gap-6" aria-hidden="true">
+                  {uniqueFeatures.map((feature, index) => {
+                    const Icon = feature.icon;
+                    return (
+                      <div
+                        key={`g2-${index}`}
+                        className="flex-shrink-0 w-64 bg-card/50 border border-border/50 rounded-lg px-5 py-4 backdrop-blur-sm"
+                      >
+                        <div className="flex items-start gap-3">
+                          <div className={`flex-shrink-0 mt-0.5 text-primary ${feature.animation}`}>
+                            <Icon className="h-5 w-5" strokeWidth={1.5} />
+                          </div>
+                          <p className="text-sm text-foreground leading-relaxed">
+                            {feature.text}
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Remaining 4 treatments */}
+          <div className="mt-12 grid grid-cols-1 gap-6 max-w-xl">
+            {treatments.slice(2).map((treatment) => {
+              const Icon = treatment.icon;
+              return (
+                <div
+                  key={treatment.title}
+                  className="bg-card border border-border rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-primary">
+                    <Icon className="h-5 w-5" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="mt-3 text-lg font-heading text-foreground">
+                    {treatment.title}
+                  </h3>
+                  <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
+                    {treatment.description}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
