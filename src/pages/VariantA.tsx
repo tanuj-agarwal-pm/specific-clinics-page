@@ -1,6 +1,6 @@
 import { HeroWithTestimonials } from "@/components/HeroWithTestimonials";
 import { StickyHeader } from "@/components/StickyHeader";
-import { ConditionsSection } from "@/components/ConditionsSection";
+import { ConditionsSectionVariantA } from "@/components/ConditionsSectionVariantA";
 import { CareTeamSectionVariantA } from "@/components/CareTeamSectionVariantA";
 import { TreatmentsSection } from "@/components/TreatmentsSection";
 import { ApproachSectionVariantA } from "@/components/ApproachSectionVariantA";
@@ -11,7 +11,7 @@ const VariantA = () => {
     <main className="min-h-screen">
       <StickyHeader />
       <HeroWithTestimonials />
-      <ConditionsSection />
+      <ConditionsSectionVariantA />
       <CareTeamSectionVariantA />
       <ApproachSectionVariantA />
       <TreatmentsSection />
