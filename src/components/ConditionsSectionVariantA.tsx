@@ -1,19 +1,19 @@
-import { Bone, ActivitySquare, Sparkles, Activity, HeartPulse, Users, Baby, Wind, Moon } from "lucide-react";
+import { Bone, Apple, Flower2, Scale, HeartPulse, Users, Baby, Wind, Moon } from "lucide-react";
 
 const conditions = [{
   icon: Bone,
   title: "Bone and Muscular Pain Management",
   description: "Therapeutic treatments to reduce inflammation and restore mobility naturally and effectively."
 }, {
-  icon: ActivitySquare,
+  icon: Apple,
   title: "Gut & Digestive Health",
   description: "Comprehensive digestive care addressing indigestion, gut healing, and overall digestive wellness through Ayurvedic principles."
 }, {
-  icon: Sparkles,
+  icon: Flower2,
   title: "Skin & Hair Issues",
   description: "Natural remedies for healthy skin and hair through Ayurvedic treatments and herbal formulations."
 }, {
-  icon: Activity,
+  icon: Scale,
   title: "Obesity & Diabetic Management",
   description: "Holistic approach to weight management and blood sugar control through personalized Ayurvedic care."
 }, {
