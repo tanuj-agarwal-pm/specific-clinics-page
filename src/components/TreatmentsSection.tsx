@@ -24,12 +24,12 @@ const treatments = [
   },
   {
     icon: Leaf,
-    title: "Herbal Therapies",
+    title: "Pinda Swedana",
     description: "Udvartana, Elakizhi, and Njavara Kizhi using traditional herbal preparations for holistic wellness and vitality.",
   },
   {
     icon: Wind,
-    title: "Wellness Packages",
+    title: "Bandhana",
     description: "Comprehensive care packages combining multiple therapies for prenatal, postnatal, and lifestyle wellness needs.",
   },
 ];
