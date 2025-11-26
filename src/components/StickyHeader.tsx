@@ -53,19 +53,19 @@ export const StickyHeader = () => {
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-center md:justify-end gap-3 md:gap-4">
             <Button
-              onClick={scrollToContact}
+              onClick={() => setShowContactOptions(true)}
               size="default"
               className="bg-primary text-primary-foreground hover:bg-accent text-sm md:text-base"
             >
-              Book Your Consultation
+              Talk to Us
             </Button>
             <Button
-              onClick={() => setShowContactOptions(true)}
+              onClick={scrollToContact}
               size="default"
               variant="outline"
               className="text-sm md:text-base"
             >
-              Talk to Us
+              Request Consultation
             </Button>
           </div>
         </div>
