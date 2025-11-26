@@ -109,19 +109,19 @@ export const HeroWithTestimonials = () => {
             </p>
             <div className="flex flex-wrap gap-4">
               <Button
-                onClick={scrollToForm}
+                onClick={() => setShowContactOptions(true)}
                 size="lg"
                 className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-lg text-base md:text-lg px-8 py-6 hover-scale"
               >
-                Book Your Consultation
+                Talk to Us
               </Button>
               <Button
-                onClick={() => setShowContactOptions(true)}
+                onClick={scrollToForm}
                 size="lg"
                 variant="outline"
                 className="bg-white/10 text-primary-foreground border-primary-foreground/20 hover:bg-white/20 text-base md:text-lg px-8 py-6"
               >
-                Talk to Us
+                Request Consultation
               </Button>
             </div>
 
