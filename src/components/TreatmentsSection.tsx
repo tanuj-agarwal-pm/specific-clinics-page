@@ -3,34 +3,34 @@ import treatmentBg from "@/assets/hero-treatment.jpg";
 
 const treatments = [
   {
-    icon: Droplets,
-    title: "Panchakarma",
-    description: "Five detox therapies that eliminate deep toxins and reset the body for long-term healing.",
+    icon: Heart,
+    title: "Shirodhara",
+    description: "A classical Ayurvedic therapy where a continuous oscillating stream of warm herbal oil is gently poured over the forehead to calm the nervous system, ease stress, and restore deep mental balance.",
   },
   {
     icon: Flower2,
     title: "Abhyanga",
-    description: "Full-body warm oil massage that nourishes tissues, calms nerves, and melts stress.",
-  },
-  {
-    icon: Heart,
-    title: "Shirodhara",
-    description: "Warm oil flows steadily on the forehead to relax the mind and improve sleep.",
+    description: "Traditional Ayurvedic oil therapy that uses rhythmic, grounded strokes (massage) to calm the nervous system, enhance mind–body connection, and support mental clarity and relaxation.",
   },
   {
     icon: Sparkles,
-    title: "Swedana",
-    description: "Herbal steam therapy that opens pores, relieves stiffness, improves circulation, and removes toxins.",
-  },
-  {
-    icon: Leaf,
-    title: "Basti",
-    description: "Medicated enema that cleanses the colon, balances Vata, and treats pain and digestive issues.",
+    title: "Udwartana",
+    description: "An authentic dry herbal powder massage that stimulates circulation, exfoliates the skin, and supports healthy metabolism and lymphatic flow.",
   },
   {
     icon: Wind,
-    title: "Bandhana (Upanaham)",
-    description: "Warm herbal paste wrapped on painful area to reduce swelling, stiffness, and inflammation.",
+    title: "Swedana",
+    description: "Classical Ayurvedic therapy that gently induces therapeutic sweating to open the channels, release stiffness, and prepare the body for deeper detoxification.",
+  },
+  {
+    icon: Droplets,
+    title: "Kayaseka",
+    description: "A traditional Ayurvedic oil-bath therapy that applies steady, flowing warmth to relax muscles, improve circulation, and restore balance to the body's systems.",
+  },
+  {
+    icon: Leaf,
+    title: "Panchakarma",
+    description: "A comprehensive classical Ayurvedic healing program that combines preparatory, cleansing, and restorative treatments to correct imbalances at the root and promote long-term wellness.",
   },
 ];
 
