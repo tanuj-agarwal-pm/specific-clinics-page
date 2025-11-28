@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, GraduationCap, Award, Star, Users, Stethoscope } from "lucide-react";
+import { ChevronLeft, ChevronRight, GraduationCap, Award, Users, Stethoscope } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -46,10 +46,6 @@ const therapists = [{
   credential: "Specialized in therapeutic oil treatments following ancient Kerala protocols"
 }];
 const credentials = [{
-  icon: Star,
-  value: "4.9/5",
-  label: "15000+ Reviews on Google and Just Dial"
-}, {
   icon: Award,
   value: "75+ Years",
   label: "Excellence in Care"
@@ -111,7 +107,7 @@ export const CareTeamSectionVariantA = () => {
 
         {/* Credentials Cards */}
         <div className="bg-primary/10 rounded-2xl p-8 mb-16">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-3 gap-8">
             {credentials.map((cred, index) => {
             const Icon = cred.icon;
             return <div key={index} className="text-center">
