@@ -1,41 +1,45 @@
-import { Bone, Apple, Leaf, Gauge, HeartPulse, HeartHandshake, Baby, Wind, Moon } from "lucide-react";
+import { Bone, Apple, Leaf, Gauge, HeartPulse, HeartHandshake, Baby, Wind, Moon, Droplets } from "lucide-react";
 
 const conditions = [{
   icon: Bone,
-  title: "Bone and Muscular Pain Management",
-  description: "Therapeutic treatments to reduce inflammation and restore mobility naturally and effectively."
+  title: "Skeletal and Muscular Health",
+  description: "Treatments that aid in relieving joint pain, stiffness, muscular spasms and more supporting natural tissue recovery."
 }, {
   icon: Apple,
-  title: "Gut & Digestive Health",
-  description: "Comprehensive digestive care addressing indigestion, gut healing, and overall digestive wellness through Ayurvedic principles."
+  title: "Gut Health",
+  description: "Treatments that aid in restoring digestive balance, enhancing nutrient absorption, and maintaining a healthy gut microbiome."
 }, {
   icon: Leaf,
-  title: "Skin & Hair Issues",
-  description: "Natural remedies for healthy skin and hair through Ayurvedic treatments and herbal formulations."
+  title: "Skin and Hair",
+  description: "Holistic treatments that enhance the natural health of your skin and hair, restoring balance and resolving concerns."
 }, {
   icon: Gauge,
-  title: "Obesity & Diabetic Management",
-  description: "Holistic approach to weight management and blood sugar control through personalized Ayurvedic care."
+  title: "Metabolic Disorders and Diabetes",
+  description: "Treatments that support balanced metabolism, improve blood sugar regulation and manage diabetes naturally."
 }, {
   icon: HeartPulse,
-  title: "Hypertension & Stress Management",
-  description: "Natural solutions to manage blood pressure and reduce stress through Ayurvedic practices and therapies."
+  title: "Stress Management and Hypertension",
+  description: "Treatments that calm the mind, relax the body, and support healthy blood pressure regulation."
 }, {
   icon: HeartHandshake,
-  title: "Women's Health - PCOD, PCOS, Menopause",
-  description: "Specialized care for women's hormonal health addressing PCOD, PCOS, and menopausal symptoms naturally."
+  title: "Women's Health and Wellness",
+  description: "Treatments that support hormonal balance, energy, mood stability, and sleep while addressing concerns such as PMS, PCOD, endometriosis and more."
 }, {
   icon: Baby,
-  title: "Infertility Treatment",
-  description: "Comprehensive fertility support through Ayurvedic treatments to enhance reproductive health naturally."
+  title: "Reproductive Health and Fertility Support",
+  description: "Treatments that strengthen the reproductive system, regulate cycles and support conception by addressing the underlying factors."
 }, {
   icon: Wind,
-  title: "Respiratory & Liver Health",
-  description: "Natural remedies for respiratory conditions and liver detoxification to support optimal organ function."
+  title: "Respiratory and Immune Wellness",
+  description: "Treatments that help strengthen lung function, address congestion, and boost immune resilience while addressing concerns like allergies, recurrent infections, and seasonal respiratory issues."
+}, {
+  icon: Droplets,
+  title: "Liver and Kidney Health",
+  description: "Treatments that support healthy liver and kidney function, enhance natural detoxification, and address concerns such as bloating, water retention and sluggish metabolism."
 }, {
   icon: Moon,
-  title: "Sleep & General Wellness",
-  description: "Natural solutions to improve sleep quality and achieve lasting health and vitality through Ayurvedic practices."
+  title: "Sleep and General Wellness",
+  description: "Treatments that calm the mind, regulate sleep cycles, and enhance daily vitality while addressing issues like insomnia, restlessness, fatigue, and stress-related imbalance."
 }];
 
 export const ConditionsSectionVariantA = () => {
