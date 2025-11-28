@@ -6,19 +6,19 @@ import lifestyleImg from "@/assets/approach-lifestyle.jpg";
 const steps = [{
   image: consultationImg,
   title: "Consultation",
-  description: "Meet with our experienced doctor who diagnoses the root cause through traditional Ayurvedic assessment methods including pulse diagnosis and dosha evaluation."
+  description: "An in-depth Ayurvedic assessment by experienced Ayurvedic doctor who evaluates your health history, symptoms, body constitution, and current imbalances to understand the root cause of your concerns."
 }, {
   image: planImg,
-  title: "Personalized Plan",
-  description: "Based on your unique constitution and imbalances, the doctor prescribes customized treatments and medicines tailored to your specific needs."
+  title: "Personalized Advice",
+  description: "Expert guidance tailored to your unique needs, outlining the most effective therapies, herbal medicines, and wellness protocol to support your healing journey."
 }, {
   image: careImg,
-  title: "Authentic Care",
-  description: "Experience treatments using original Kerala Ayurveda products at our wellness centers and begin your healing journey with us."
+  title: "Tailored Treatment",
+  description: "A customized Ayurvedic treatment plan designed specifically for your health concern, combining the right therapies, oils, and modalities to address your condition at its root."
 }, {
   image: lifestyleImg,
-  title: "Integrated in your life",
-  description: "Receive personalized food and routine guidance that seamlessly integrates into your daily life, ensuring lasting wellness through sustainable lifestyle changes."
+  title: "Diet and Lifestyle",
+  description: "Individualized condition and treatment specific dietary and daily-routine recommendations that help maintain balance, enhance treatment results, and support wellbeing."
 }];
 export const ApproachSectionVariantA = () => {
   const [activeStep, setActiveStep] = useState(0);
