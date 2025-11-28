@@ -107,7 +107,7 @@ export const CareTeamSectionVariantA = () => {
 
         {/* Credentials Cards */}
         <div className="bg-primary/10 rounded-2xl p-8 mb-16">
-          <div className="grid grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
             {credentials.map((cred, index) => {
             const Icon = cred.icon;
             return <div key={index} className="text-center">
