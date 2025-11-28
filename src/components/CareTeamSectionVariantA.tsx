@@ -47,15 +47,15 @@ const therapists = [{
 }];
 const credentials = [{
   icon: Award,
-  value: "75+ Years",
+  value: "80+ Years",
   label: "Excellence in Care"
 }, {
   icon: Users,
-  value: "100K+",
+  value: "10Lacs+",
   label: "Patients Treated"
 }, {
   icon: Stethoscope,
-  value: "100+ Vaidyas",
+  value: "300+ Vaidyas",
   label: "Dedicated to your care"
 }];
 export const CareTeamSectionVariantA = () => {
