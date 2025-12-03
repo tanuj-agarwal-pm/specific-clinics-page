@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Calendar as CalendarIcon, Clock } from "lucide-react";
+import { Calendar as CalendarIcon, Clock, PhoneIncoming } from "lucide-react";
 import { format } from "date-fns";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -206,7 +206,7 @@ export const ContactSection = () => {
               </div>
 
               <Button type="submit" size="lg" className="w-full bg-primary text-primary-foreground hover:bg-accent">
-                <CalendarIcon className="w-5 h-5 mr-2" />
+                <PhoneIncoming className="w-5 h-5 mr-2" />
                 Request Callback
               </Button>
               
