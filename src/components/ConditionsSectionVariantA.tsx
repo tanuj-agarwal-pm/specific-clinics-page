@@ -1,45 +1,45 @@
 import { Bone, Apple, Leaf, Gauge, HeartPulse, HeartHandshake, Baby, Wind, Moon, Droplets } from "lucide-react";
 
 const conditions = [{
-  icon: Bone,
-  title: "Skeletal and Muscular Health",
-  description: "Treatments that aid in relieving joint pain, stiffness, muscular spasms and more supporting natural tissue recovery."
+  icon: Leaf,
+  title: "Skin and Hair",
+  description: "Holistic treatments that enhance the natural health of your skin and hair, restoring balance and resolving concerns."
 }, {
   icon: Apple,
   title: "Gut Health",
   description: "Treatments that aid in restoring digestive balance, enhancing nutrient absorption, and maintaining a healthy gut microbiome."
 }, {
-  icon: Leaf,
-  title: "Skin and Hair",
-  description: "Holistic treatments that enhance the natural health of your skin and hair, restoring balance and resolving concerns."
+  icon: Bone,
+  title: "Joint and Muscle Pain",
+  description: "Treatments that aid in relieving joint pain, stiffness, muscular spasms and more supporting natural tissue recovery."
 }, {
   icon: Gauge,
-  title: "Metabolic Disorders and Diabetes",
+  title: "Diabetes, Thyroid and BP",
   description: "Treatments that support balanced metabolism, improve blood sugar regulation and manage diabetes naturally."
 }, {
   icon: HeartPulse,
-  title: "Stress Management and Hypertension",
+  title: "Stress Management",
   description: "Treatments that calm the mind, relax the body, and support healthy blood pressure regulation."
 }, {
   icon: HeartHandshake,
-  title: "Women's Health and Wellness",
+  title: "PCOS, PCOD, Menopause",
   description: "Treatments that support hormonal balance, energy, mood stability, and sleep while addressing concerns such as PMS, PCOD, endometriosis and more."
 }, {
   icon: Baby,
-  title: "Reproductive Health and Fertility Support",
+  title: "Reproductive Health and Infertility",
   description: "Treatments that strengthen the reproductive system, regulate cycles and support conception by addressing the underlying factors."
-}, {
-  icon: Wind,
-  title: "Respiratory and Immune Wellness",
-  description: "Treatments that help strengthen lung function, address congestion, and boost immune resilience while addressing concerns like allergies, recurrent infections, and seasonal respiratory issues."
 }, {
   icon: Droplets,
   title: "Liver and Kidney Health",
   description: "Treatments that support healthy liver and kidney function, enhance natural detoxification, and address concerns such as bloating, water retention and sluggish metabolism."
 }, {
   icon: Moon,
-  title: "Sleep and General Wellness",
+  title: "Sleep and General Lifestyle",
   description: "Treatments that calm the mind, regulate sleep cycles, and enhance daily vitality while addressing issues like insomnia, restlessness, fatigue, and stress-related imbalance."
+}, {
+  icon: Wind,
+  title: "Respiratory and General Immunity",
+  description: "Treatments that help strengthen lung function, address congestion, and boost immune resilience while addressing concerns like allergies, recurrent infections, and seasonal respiratory issues."
 }];
 
 export const ConditionsSectionVariantA = () => {
