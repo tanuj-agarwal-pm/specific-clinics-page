@@ -62,7 +62,7 @@ export const StickyHeader = () => {
             <Button
               onClick={scrollToContact}
               size="lg"
-              className="bg-accent text-accent-foreground hover:bg-accent/90 md:bg-accent md:text-accent-foreground md:hover:bg-accent/80 text-sm font-semibold shadow-md md:shadow-none md:size-default"
+              className="bg-background text-primary hover:bg-background/90 md:bg-accent md:text-accent-foreground md:hover:bg-accent/80 text-sm font-semibold shadow-md md:shadow-none md:size-default"
             >
               Book Doctor Consultation
             </Button>
