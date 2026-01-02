@@ -1,5 +1,4 @@
 import { Bone, Apple, Leaf, Gauge, HeartPulse, HeartHandshake, Baby, Wind, Moon, Droplets } from "lucide-react";
-
 const conditions = [{
   icon: Leaf,
   title: "Skin and Hair",
@@ -41,13 +40,12 @@ const conditions = [{
   title: "Respiratory and General Immunity",
   description: "Treatments that help strengthen lung function, address congestion, and boost immune resilience while addressing concerns like allergies, recurrent infections, and seasonal respiratory issues."
 }];
-
 export const ConditionsSectionVariantA = () => {
   return <section className="py-16 md:py-24 px-4 bg-background">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-heading text-foreground mb-4">Conditions We Support</h2>
-          <p className="text-muted-foreground text-base md:text-lg max-w-3xl mx-auto">Whether you are struggling with a health condition or looking to step up your general wellness, Kerala Ayurveda can help you reach your best self.</p>
+          <h2 className="text-3xl md:text-5xl font-heading text-foreground mb-4">Conditions We Treat</h2>
+          
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
