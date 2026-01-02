@@ -46,24 +46,24 @@ export const StickyHeader = () => {
   return (
     <>
       <header
-        className={`fixed md:top-0 bottom-0 md:bottom-auto left-0 right-0 z-50 bg-background/95 backdrop-blur-md md:border-b border-t md:border-t-0 border-border shadow-lg transition-transform duration-300 ${
+        className={`fixed md:top-0 bottom-0 md:bottom-auto left-0 right-0 z-50 bg-primary md:bg-background/95 backdrop-blur-md md:border-b border-t md:border-t-0 border-border shadow-[0_-4px_20px_rgba(0,0,0,0.15)] md:shadow-lg transition-transform duration-300 ${
           isVisible && !isInContactSection ? "md:translate-y-0 translate-y-0" : "md:-translate-y-full translate-y-full"
         }`}
       >
-        <div className="container mx-auto px-4 py-3">
-          <div className="flex items-center justify-center md:justify-end gap-3 md:gap-4">
+        <div className="container mx-auto px-4 py-4 md:py-3">
+          <div className="flex items-center justify-center md:justify-end gap-4">
             <Button
               onClick={() => setShowContactOptions(true)}
-              size="default"
-              className="bg-primary text-primary-foreground hover:bg-accent text-sm md:text-base"
+              size="lg"
+              className="bg-background text-primary hover:bg-background/90 md:bg-primary md:text-primary-foreground md:hover:bg-accent text-base font-semibold shadow-md md:shadow-none md:size-default"
             >
               Talk to Us
             </Button>
             <Button
               onClick={scrollToContact}
-              size="default"
+              size="lg"
               variant="outline"
-              className="text-sm md:text-base"
+              className="border-background text-background hover:bg-background/10 md:border-border md:text-foreground md:hover:bg-accent/10 text-base font-semibold md:size-default"
             >
               Request Consultation
             </Button>
