@@ -50,20 +50,19 @@ export const StickyHeader = () => {
           isVisible && !isInContactSection ? "md:translate-y-0 translate-y-0" : "md:-translate-y-full translate-y-full"
         }`}
       >
-        <div className="container mx-auto px-6 md:px-4 py-4 md:py-3">
-          <div className="flex items-center justify-center md:justify-end gap-4">
+        <div className="container mx-auto px-4 py-4 md:py-3">
+          <div className="flex items-center justify-center md:justify-end gap-3 mx-4 md:mx-0">
             <Button
               onClick={() => setShowContactOptions(true)}
               size="lg"
-              className="bg-background text-primary hover:bg-background/90 md:bg-primary md:text-primary-foreground md:hover:bg-accent text-base font-semibold shadow-md md:shadow-none md:size-default"
+              className="bg-background text-primary hover:bg-background/90 md:bg-primary md:text-primary-foreground md:hover:bg-accent text-sm font-semibold shadow-md md:shadow-none md:size-default"
             >
               Call Us
             </Button>
             <Button
               onClick={scrollToContact}
               size="lg"
-              variant="outline"
-              className="border-background text-background hover:bg-background/10 md:border-border md:text-foreground md:hover:bg-accent/10 text-base font-semibold md:size-default"
+              className="bg-accent text-accent-foreground hover:bg-accent/90 md:bg-accent md:text-accent-foreground md:hover:bg-accent/80 text-sm font-semibold shadow-md md:shadow-none md:size-default"
             >
               Book Doctor Consultation
             </Button>
