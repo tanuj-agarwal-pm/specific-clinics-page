@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ContactOptionsModal } from "@/components/ContactOptionsModal";
+import { BookingModal } from "@/components/booking/BookingModal";
 
 export const StickyHeader = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [showContactOptions, setShowContactOptions] = useState(false);
+  const [showBookingModal, setShowBookingModal] = useState(false);
   const [isInContactSection, setIsInContactSection] = useState(false);
 
   useEffect(() => {
@@ -38,11 +40,6 @@ export const StickyHeader = () => {
     return () => observer.disconnect();
   }, []);
 
-  const scrollToContact = () => {
-    const contactSection = document.getElementById("contact-form");
-    contactSection?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <>
       <header
@@ -60,7 +57,7 @@ export const StickyHeader = () => {
               Call Us
             </Button>
             <Button
-              onClick={scrollToContact}
+              onClick={() => setShowBookingModal(true)}
               size="lg"
               className="bg-background text-primary hover:bg-background/90 md:bg-accent md:text-accent-foreground md:hover:bg-accent/80 text-sm font-semibold shadow-md md:shadow-none md:size-default"
             >
@@ -72,6 +69,10 @@ export const StickyHeader = () => {
       <ContactOptionsModal
         open={showContactOptions}
         onOpenChange={setShowContactOptions}
+      />
+      <BookingModal
+        open={showBookingModal}
+        onOpenChange={setShowBookingModal}
       />
     </>
   );
