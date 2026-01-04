@@ -1,4 +1,4 @@
-export type SlotStatus = 'available' | 'fast-filling' | 'unavailable';
+export type SlotStatus = 'available' | 'unavailable';
 export type DayStatus = 'available' | 'fast-filling' | 'unavailable';
 export type PaymentMethod = 'online' | 'clinic';
 export type PaymentStatus = 'pending' | 'success' | 'failed';
