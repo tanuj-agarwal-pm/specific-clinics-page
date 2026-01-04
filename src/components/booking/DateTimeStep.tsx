@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import { format, addDays, isSameDay, startOfDay } from "date-fns";
 import { ChevronLeft, ChevronRight, Clock, Calendar, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 import { DayStatus, SlotStatus, TimeSlot } from "@/types/booking";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
@@ -11,25 +9,12 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 interface DateTimeStepProps {
   selectedDate: Date | null;
   selectedTime: string | null;
-  name: string;
-  phone: string;
-  countryCode: string;
   onDateChange: (date: Date) => void;
   onTimeChange: (time: string) => void;
-  onNameChange: (name: string) => void;
-  onPhoneChange: (phone: string) => void;
-  onCountryCodeChange: (code: string) => void;
   onBack: () => void;
   onContinue: () => void;
 }
 
-const countryCodes = [
-  { code: "+91", country: "India", flag: "🇮🇳", digits: 10 },
-  { code: "+1", country: "US/Canada", flag: "🇺🇸", digits: 10 },
-  { code: "+44", country: "UK", flag: "🇬🇧", digits: 10 },
-  { code: "+971", country: "UAE", flag: "🇦🇪", digits: 9 },
-  { code: "+65", country: "Singapore", flag: "🇸🇬", digits: 8 },
-];
 
 // Mock data generator - replace with API later
 const generateMockAvailability = (): Map<string, { status: DayStatus; slots: TimeSlot[] }> => {
@@ -75,14 +60,8 @@ const generateMockAvailability = (): Map<string, { status: DayStatus; slots: Tim
 export const DateTimeStep = ({
   selectedDate,
   selectedTime,
-  name,
-  phone,
-  countryCode,
   onDateChange,
   onTimeChange,
-  onNameChange,
-  onPhoneChange,
-  onCountryCodeChange,
   onBack,
   onContinue,
 }: DateTimeStepProps) => {
@@ -110,15 +89,6 @@ export const DateTimeStep = ({
       }
     }
   }, []);
-
-  const selectedCountry = countryCodes.find(c => c.code === countryCode);
-  
-  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value.replace(/\D/g, '');
-    if (selectedCountry && value.length <= selectedCountry.digits) {
-      onPhoneChange(value);
-    }
-  };
 
   const getDayData = (date: Date) => {
     const dateKey = format(date, 'yyyy-MM-dd');
@@ -185,8 +155,7 @@ export const DateTimeStep = ({
   const selectedDayData = selectedDate ? getDayData(selectedDate) : null;
   const availableSlots = selectedDayData?.slots.filter(s => s.status !== 'unavailable') || [];
   
-  const isValid = selectedDate && selectedTime && name.trim() && 
-    phone.length === (selectedCountry?.digits || 10);
+  const isValid = selectedDate && selectedTime;
 
   return (
     <div className="flex flex-col h-full">
@@ -299,47 +268,6 @@ export const DateTimeStep = ({
           </div>
         )}
 
-        {/* User Details */}
-        <div className="space-y-4">
-          <h4 className="text-sm font-medium text-foreground">Your Details</h4>
-          
-          <div>
-            <label className="block text-sm text-muted-foreground mb-1.5">Full Name *</label>
-            <Input
-              value={name}
-              onChange={(e) => onNameChange(e.target.value)}
-              placeholder="Enter your full name"
-            />
-          </div>
-          
-          <div>
-            <label className="block text-sm text-muted-foreground mb-1.5">WhatsApp Number *</label>
-            <div className="flex gap-2">
-              <Select value={countryCode} onValueChange={(v) => {
-                onCountryCodeChange(v);
-                onPhoneChange('');
-              }}>
-                <SelectTrigger className="w-[100px]">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {countryCodes.map(c => (
-                    <SelectItem key={c.code} value={c.code}>
-                      {c.flag} {c.code}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-              <Input
-                type="tel"
-                value={phone}
-                onChange={handlePhoneChange}
-                placeholder={`${selectedCountry?.digits} digits`}
-                className="flex-1"
-              />
-            </div>
-          </div>
-        </div>
       </div>
 
       <div className="pt-4 mt-4 border-t border-border flex gap-3">
