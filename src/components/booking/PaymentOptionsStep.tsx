@@ -110,7 +110,11 @@ export const PaymentOptionsStep = ({
           disabled={!selectedMethod || isProcessing} 
           className="flex-1"
         >
-          {isProcessing ? "Processing..." : "Confirm Booking"}
+          {isProcessing 
+            ? "Processing..." 
+            : selectedMethod === 'online' 
+              ? "Pay & Confirm" 
+              : "Confirm Booking"}
         </Button>
       </div>
     </div>
