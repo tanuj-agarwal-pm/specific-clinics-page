@@ -120,7 +120,7 @@ export const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="w-[calc(100vw-2rem)] sm:w-auto sm:max-w-[520px] max-h-[90vh] p-0 gap-0 overflow-hidden">
+      <DialogContent className="w-[calc(100vw-2rem)] sm:w-auto sm:max-w-[640px] max-h-[90vh] p-0 gap-0 overflow-hidden">
         {/* Header */}
         <div className="flex items-center justify-between p-4 pr-12 border-b border-border">
           <h2 className="text-lg font-heading text-foreground">Book Consultation</h2>
