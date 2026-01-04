@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { X } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import { doctors, Doctor } from "@/data/doctors";
@@ -121,16 +120,10 @@ export const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="w-[95vw] max-w-[500px] max-h-[90vh] p-0 gap-0 overflow-hidden">
+      <DialogContent className="sm:max-w-[500px] max-h-[90vh] p-0 gap-0 overflow-hidden">
         {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b border-border">
+        <div className="flex items-center justify-between p-4 pr-12 border-b border-border">
           <h2 className="text-lg font-heading text-foreground">Book Consultation</h2>
-          <button
-            onClick={() => onOpenChange(false)}
-            className="w-8 h-8 rounded-full hover:bg-secondary flex items-center justify-center transition-colors"
-          >
-            <X className="w-5 h-5" />
-          </button>
         </div>
 
         {/* Progress Steps - Hide on confirmation */}
