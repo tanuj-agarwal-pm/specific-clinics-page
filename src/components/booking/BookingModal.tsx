@@ -120,7 +120,7 @@ export const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[500px] max-h-[90vh] p-0 gap-0 overflow-hidden">
+      <DialogContent className="w-[calc(100vw-2rem)] sm:w-auto sm:max-w-[520px] max-h-[90vh] p-0 gap-0 overflow-hidden">
         {/* Header */}
         <div className="flex items-center justify-between p-4 pr-12 border-b border-border">
           <h2 className="text-lg font-heading text-foreground">Book Consultation</h2>
@@ -129,13 +129,13 @@ export const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
         {/* Progress Steps - Hide on confirmation */}
         {currentStep < 5 && (
           <div className="px-4 py-3 border-b border-border bg-secondary/30">
-            <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between">
               {steps.map((step, index) => (
                 <div key={step.number} className="flex items-center">
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1.5 sm:gap-2">
                     <div
                       className={cn(
-                        "w-7 h-7 rounded-full flex items-center justify-center text-sm font-medium transition-colors",
+                        "w-7 h-7 rounded-full flex items-center justify-center text-sm font-medium transition-colors flex-shrink-0",
                         currentStep >= step.number
                           ? "bg-primary text-primary-foreground"
                           : "bg-secondary text-muted-foreground"
@@ -145,7 +145,7 @@ export const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
                     </div>
                     <span
                       className={cn(
-                        "text-sm font-medium hidden sm:block",
+                        "text-sm font-medium hidden sm:block whitespace-nowrap",
                         currentStep >= step.number ? "text-foreground" : "text-muted-foreground"
                       )}
                     >
@@ -155,7 +155,7 @@ export const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
                   {index < steps.length - 1 && (
                     <div
                       className={cn(
-                        "w-8 sm:w-12 h-0.5 mx-2",
+                        "w-4 sm:w-8 h-0.5 mx-1 sm:mx-2 flex-shrink-0",
                         currentStep > step.number ? "bg-primary" : "bg-border"
                       )}
                     />
