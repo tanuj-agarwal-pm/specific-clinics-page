@@ -22,7 +22,7 @@ const initialBooking: BookingDetails = {
   name: "",
   phone: "",
   countryCode: "+91",
-  paymentMethod: null,
+  paymentMethod: "online",
   paymentStatus: "pending",
 };
 
@@ -121,7 +121,7 @@ export const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[500px] max-h-[90vh] p-0 gap-0 overflow-hidden">
+      <DialogContent className="w-[95vw] max-w-[500px] max-h-[90vh] p-0 gap-0 overflow-hidden">
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-border">
           <h2 className="text-lg font-heading text-foreground">Book Consultation</h2>
