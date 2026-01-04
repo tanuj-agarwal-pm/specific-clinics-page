@@ -53,14 +53,9 @@ const generateMockAvailability = (): Map<string, { status: DayStatus; slots: Tim
     }
     
     // Generate slot availability
-    const slots: TimeSlot[] = baseSlots.map((time, idx) => {
+    const slots: TimeSlot[] = baseSlots.map((time) => {
       const rand = Math.random();
-      let status: SlotStatus = 'available';
-      
-      // Some slots are unavailable
-      if (rand < 0.2) status = 'unavailable';
-      else if (rand < 0.4) status = 'fast-filling';
-      
+      const status: SlotStatus = rand < 0.25 ? 'unavailable' : 'available';
       return { time, status };
     });
     
@@ -261,14 +256,10 @@ export const DateTimeStep = ({
                     "px-3 py-2 rounded-md text-sm font-medium border transition-colors",
                     selectedTime === slot.time
                       ? "bg-primary text-primary-foreground border-primary"
-                      : "bg-card border-border hover:border-primary/50",
-                    slot.status === 'fast-filling' && selectedTime !== slot.time && "border-orange-300"
+                      : "bg-card border-border hover:border-primary/50"
                   )}
                 >
                   {slot.time}
-                  {slot.status === 'fast-filling' && (
-                    <span className="block text-[10px] text-orange-500 font-normal">Few left</span>
-                  )}
                 </button>
               ))}
             </div>
