@@ -1,6 +1,6 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { format, addDays, isSameDay, startOfDay } from "date-fns";
-import { ChevronLeft, ChevronRight, Clock, Calendar, ChevronDown, Zap } from "lucide-react";
+import { ChevronLeft, ChevronRight, Clock, Calendar, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -92,27 +92,22 @@ export const DateTimeStep = ({
   
   const today = startOfDay(new Date());
 
-  // Find next available slot
-  const nextAvailableSlot = useMemo(() => {
-    for (let i = 0; i < 30; i++) {
-      const date = addDays(today, i);
-      const dateKey = format(date, 'yyyy-MM-dd');
-      const dayData = availability.get(dateKey);
-      if (dayData && dayData.status !== 'unavailable') {
-        const firstSlot = dayData.slots.find(s => s.status !== 'unavailable');
-        if (firstSlot) {
-          return { date, time: firstSlot.time };
-        }
-      }
-    }
-    return null;
-  }, [availability, today]);
-  
   // Auto-select next available slot on mount
   useEffect(() => {
-    if (!selectedDate && nextAvailableSlot) {
-      onDateChange(nextAvailableSlot.date);
-      onTimeChange(nextAvailableSlot.time);
+    if (!selectedDate) {
+      for (let i = 0; i < 30; i++) {
+        const date = addDays(today, i);
+        const dateKey = format(date, 'yyyy-MM-dd');
+        const dayData = availability.get(dateKey);
+        if (dayData && dayData.status !== 'unavailable') {
+          onDateChange(date);
+          const firstSlot = dayData.slots.find(s => s.status !== 'unavailable');
+          if (firstSlot) {
+            onTimeChange(firstSlot.time);
+          }
+          break;
+        }
+      }
     }
   }, []);
 
@@ -129,17 +124,6 @@ export const DateTimeStep = ({
     const dateKey = format(date, 'yyyy-MM-dd');
     return availability.get(dateKey);
   };
-
-  const handleQuickSelect = () => {
-    if (nextAvailableSlot) {
-      onDateChange(nextAvailableSlot.date);
-      onTimeChange(nextAvailableSlot.time);
-    }
-  };
-
-  const isNextSlotSelected = nextAvailableSlot && 
-    selectedDate && isSameDay(selectedDate, nextAvailableSlot.date) && 
-    selectedTime === nextAvailableSlot.time;
 
   const renderCalendar = () => {
     const year = currentMonth.getFullYear();
@@ -212,40 +196,6 @@ export const DateTimeStep = ({
       </div>
 
       <div className="flex-1 overflow-y-auto pr-1 space-y-5">
-        {/* Quick Select - Next Available Slot */}
-        {nextAvailableSlot && (
-          <div className={cn(
-            "rounded-lg border-2 p-4 transition-all",
-            isNextSlotSelected 
-              ? "border-primary bg-primary/5" 
-              : "border-primary/30 bg-gradient-to-r from-primary/5 to-transparent"
-          )}>
-            <div className="flex items-start justify-between gap-3">
-              <div className="flex items-start gap-3">
-                <div className="p-2 rounded-full bg-primary/10">
-                  <Zap className="w-4 h-4 text-primary" />
-                </div>
-                <div>
-                  <p className="text-xs font-medium text-primary uppercase tracking-wide mb-1">
-                    Next Available Slot
-                  </p>
-                  <p className="text-lg font-semibold text-foreground">
-                    {format(nextAvailableSlot.date, 'EEE, MMM d')} at {nextAvailableSlot.time}
-                  </p>
-                </div>
-              </div>
-              <Button 
-                size="sm" 
-                onClick={handleQuickSelect}
-                variant={isNextSlotSelected ? "secondary" : "default"}
-                className="shrink-0"
-              >
-                {isNextSlotSelected ? "Selected ✓" : "Choose"}
-              </Button>
-            </div>
-          </div>
-        )}
-
         {/* Date Selection */}
         <div>
           <div className="flex items-center gap-2 mb-3">
