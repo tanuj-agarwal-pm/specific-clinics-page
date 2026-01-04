@@ -275,7 +275,7 @@ export const DateTimeStep = ({
           Back
         </Button>
         <Button onClick={onContinue} disabled={!isValid} className="flex-1">
-          Continue
+          Enter Your Details
         </Button>
       </div>
     </div>

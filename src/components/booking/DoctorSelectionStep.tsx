@@ -69,7 +69,7 @@ export const DoctorSelectionStep = ({
           className="w-full"
           size="lg"
         >
-          Continue
+          Choose Date & Time
         </Button>
       </div>
     </div>
