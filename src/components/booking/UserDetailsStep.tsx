@@ -103,7 +103,7 @@ export const UserDetailsStep = ({
           Back
         </Button>
         <Button onClick={onContinue} disabled={!isValid} className="flex-1">
-          Continue
+          Proceed to Payment
         </Button>
       </div>
     </div>
