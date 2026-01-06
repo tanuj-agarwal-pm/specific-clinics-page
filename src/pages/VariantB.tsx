@@ -1,21 +1,19 @@
-import { HeroCarousel } from "@/components/HeroCarousel";
+import { HeroWithTestimonials } from "@/components/HeroWithTestimonials";
 import { StickyHeader } from "@/components/StickyHeader";
-import { ConditionsSection } from "@/components/ConditionsSection";
-import { CareTeamSection } from "@/components/CareTeamSection";
-import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { ConditionsSectionVariantA } from "@/components/ConditionsSectionVariantA";
+import { CareTeamSectionVariantA } from "@/components/CareTeamSectionVariantA";
 import { TreatmentsSection } from "@/components/TreatmentsSection";
-import { ApproachSection } from "@/components/ApproachSection";
+import { ApproachSectionVariantA } from "@/components/ApproachSectionVariantA";
 import { ContactSection } from "@/components/ContactSection";
 
 const VariantB = () => {
   return (
     <main className="min-h-screen">
       <StickyHeader />
-      <HeroCarousel />
-      <ConditionsSection />
-      <CareTeamSection />
-      <TestimonialsSection />
-      <ApproachSection />
+      <HeroWithTestimonials />
+      <ConditionsSectionVariantA />
+      <CareTeamSectionVariantA />
+      <ApproachSectionVariantA />
       <TreatmentsSection />
       <ContactSection />
     </main>
