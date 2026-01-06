@@ -94,24 +94,21 @@ export const TreatmentsSection = () => {
           </p>
         </div>
 
-        {/* Treatment Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-xl md:max-w-2xl">
+        {/* Treatment Grid - 2x3 Matrix */}
+        <div className="grid grid-cols-2 gap-3 md:gap-4 max-w-md">
           {treatments.map((treatment) => {
             const Icon = treatment.icon;
             return (
               <div
                 key={treatment.title}
-                className="bg-card border border-border rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow"
+                className="bg-card border border-border rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow flex items-center gap-3"
               >
-                <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-primary">
-                  <Icon className="h-5 w-5" strokeWidth={1.5} />
+                <div className="flex-shrink-0 inline-flex h-9 w-9 items-center justify-center rounded-full bg-secondary text-primary">
+                  <Icon className="h-4 w-4" strokeWidth={1.5} />
                 </div>
-                <h3 className="mt-3 text-lg font-heading text-foreground">
+                <h3 className="text-sm md:text-base font-heading text-foreground">
                   {treatment.title}
                 </h3>
-                <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
-                  {treatment.description}
-                </p>
               </div>
             );
           })}
