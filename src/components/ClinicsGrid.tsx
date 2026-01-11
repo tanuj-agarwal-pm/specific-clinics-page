@@ -67,16 +67,6 @@ export const ClinicsGrid = () => {
               {clinic.address}
             </p>
 
-            {/* Doctor Info */}
-            <div className="flex items-center gap-2 mb-3">
-              <div className="h-8 w-8 rounded-full bg-secondary flex items-center justify-center text-xs font-semibold text-primary">
-                {clinic.doctorName.split(' ').map(n => n[0]).join('').slice(0, 2)}
-              </div>
-              <span className="text-xs md:text-sm text-foreground font-medium truncate">
-                {clinic.doctorName}
-              </span>
-            </div>
-
             {/* CTA */}
             <Button variant="ghost" size="sm" className="w-full justify-between text-primary hover:text-accent hover:bg-primary/5 p-0 h-auto" onClick={() => {
           // Future: navigate to clinic page
