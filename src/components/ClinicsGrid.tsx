@@ -70,7 +70,7 @@ export const ClinicsGrid = () => {
                 className="w-full justify-between text-primary hover:text-accent hover:bg-primary/5 p-0 h-auto" 
                 onClick={() => console.log(`Request consultation at ${clinic.id}`)}
               >
-                <span className="text-xs">Request Consultation</span>
+                <span className="text-xs text-left leading-tight">Request<br/>Consultation</span>
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
               <div className="flex items-center gap-2">
