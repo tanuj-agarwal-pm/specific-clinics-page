@@ -1,4 +1,4 @@
-import { MapPin, ArrowRight } from "lucide-react";
+import { MapPin, ArrowRight, Phone, Map } from "lucide-react";
 import { Button } from "@/components/ui/button";
 interface Clinic {
   id: string;
@@ -67,14 +67,37 @@ export const ClinicsGrid = () => {
               {clinic.address}
             </p>
 
-            {/* CTA */}
-            <Button variant="ghost" size="sm" className="w-full justify-between text-primary hover:text-accent hover:bg-primary/5 p-0 h-auto" onClick={() => {
-          // Future: navigate to clinic page
-          console.log(`Navigate to ${clinic.id} clinic page`);
-        }}>
-              <span className="text-xs md:text-sm">View Clinic</span>
-              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            {/* Actions Row */}
+            <div className="flex items-center justify-between">
+              {/* Left Icons */}
+              <div className="flex items-center gap-2">
+                <button 
+                  className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
+                  onClick={() => console.log(`Call ${clinic.areaName} clinic`)}
+                  aria-label="Call clinic"
+                >
+                  <Phone className="h-4 w-4 text-primary" />
+                </button>
+                <button 
+                  className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
+                  onClick={() => console.log(`Open maps for ${clinic.areaName}`)}
+                  aria-label="Open in maps"
+                >
+                  <Map className="h-4 w-4 text-primary" />
+                </button>
+              </div>
+
+              {/* Right CTA */}
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="text-primary hover:text-accent hover:bg-primary/5 p-0 h-auto gap-1" 
+                onClick={() => console.log(`Request consultation at ${clinic.id}`)}
+              >
+                <span className="text-xs md:text-sm">Request Consultation</span>
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </div>
           </div>)}
       </div>
     </div>;
