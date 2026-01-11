@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Calendar as CalendarIcon, Clock, PhoneIncoming } from "lucide-react";
 import { ClinicsGrid } from "@/components/ClinicsGrid";
+import { FAQSection } from "@/components/FAQSection";
 import { format } from "date-fns";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -220,6 +221,9 @@ export const ContactSection = () => {
 
         {/* Clinics Grid */}
         <ClinicsGrid />
+
+        {/* FAQ Section */}
+        <FAQSection />
 
         {/* Other Cities - Full Width */}
         <div className="mt-12 p-8 bg-primary/5 rounded-lg border-2 border-primary/20">
