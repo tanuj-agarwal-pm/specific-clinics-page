@@ -1,6 +1,5 @@
 import { MapPin, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
 interface Clinic {
   id: string;
   areaName: string;
@@ -8,52 +7,42 @@ interface Clinic {
   doctorName: string;
   doctorImage?: string;
 }
-
-const clinics: Clinic[] = [
-  {
-    id: "sarjapur",
-    areaName: "Sarjapur",
-    address: "Near Wipro Gate, Sarjapur Road",
-    doctorName: "Dr. Meena Iyer",
-  },
-  {
-    id: "shivajinagar",
-    areaName: "Shivaji Nagar",
-    address: "Commercial Street, Near Russell Market",
-    doctorName: "Dr. Suresh Nair",
-  },
-  {
-    id: "hsr-layout",
-    areaName: "HSR Layout",
-    address: "Sector 7, 27th Main Road",
-    doctorName: "Dr. Kavitha Rao",
-  },
-  {
-    id: "jayanagar",
-    areaName: "Jayanagar",
-    address: "4th Block, Near Ashoka Pillar",
-    doctorName: "Dr. Ravi Shankar",
-  },
-  {
-    id: "whitefield",
-    areaName: "Whitefield",
-    address: "ITPL Main Road, Near Phoenix Mall",
-    doctorName: "Dr. Lakshmi Devi",
-  },
-  {
-    id: "koramangala",
-    areaName: "Koramangala",
-    address: "4th Block, 80 Feet Road",
-    doctorName: "Dr. Arun Kumar",
-  },
-];
-
+const clinics: Clinic[] = [{
+  id: "sarjapur",
+  areaName: "Sarjapur",
+  address: "Near Wipro Gate, Sarjapur Road",
+  doctorName: "Dr. Meena Iyer"
+}, {
+  id: "shivajinagar",
+  areaName: "Shivaji Nagar",
+  address: "Commercial Street, Near Russell Market",
+  doctorName: "Dr. Suresh Nair"
+}, {
+  id: "hsr-layout",
+  areaName: "HSR Layout",
+  address: "Sector 7, 27th Main Road",
+  doctorName: "Dr. Kavitha Rao"
+}, {
+  id: "jayanagar",
+  areaName: "Jayanagar",
+  address: "4th Block, Near Ashoka Pillar",
+  doctorName: "Dr. Ravi Shankar"
+}, {
+  id: "whitefield",
+  areaName: "Whitefield",
+  address: "ITPL Main Road, Near Phoenix Mall",
+  doctorName: "Dr. Lakshmi Devi"
+}, {
+  id: "koramangala",
+  areaName: "Koramangala",
+  address: "4th Block, 80 Feet Road",
+  doctorName: "Dr. Arun Kumar"
+}];
 export const ClinicsGrid = () => {
-  return (
-    <div className="mt-16">
+  return <div className="mt-16">
       <div className="text-center mb-8">
         <h3 className="text-2xl md:text-3xl font-heading text-foreground mb-2">
-          6 More Clinics Across Bangalore
+          Other locations in Bangalore   
         </h3>
         <p className="text-muted-foreground">
           Find authentic Ayurvedic care near you
@@ -62,11 +51,7 @@ export const ClinicsGrid = () => {
 
       {/* Grid: 3 cols on desktop, 2 cols on mobile */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-        {clinics.map((clinic) => (
-          <div
-            key={clinic.id}
-            className="bg-card border border-border rounded-xl p-4 md:p-5 shadow-sm hover:shadow-md transition-all group"
-          >
+        {clinics.map(clinic => <div key={clinic.id} className="bg-card border border-border rounded-xl p-4 md:p-5 shadow-sm hover:shadow-md transition-all group">
             {/* Location Icon + Area Name */}
             <div className="flex items-center gap-2 mb-2">
               <div className="flex-shrink-0 h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
@@ -93,21 +78,14 @@ export const ClinicsGrid = () => {
             </div>
 
             {/* CTA */}
-            <Button
-              variant="ghost"
-              size="sm"
-              className="w-full justify-between text-primary hover:text-accent hover:bg-primary/5 p-0 h-auto"
-              onClick={() => {
-                // Future: navigate to clinic page
-                console.log(`Navigate to ${clinic.id} clinic page`);
-              }}
-            >
+            <Button variant="ghost" size="sm" className="w-full justify-between text-primary hover:text-accent hover:bg-primary/5 p-0 h-auto" onClick={() => {
+          // Future: navigate to clinic page
+          console.log(`Navigate to ${clinic.id} clinic page`);
+        }}>
               <span className="text-xs md:text-sm">View Clinic</span>
               <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
-          </div>
-        ))}
+          </div>)}
       </div>
-    </div>
-  );
+    </div>;
 };
