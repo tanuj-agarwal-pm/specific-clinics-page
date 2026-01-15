@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { MessageCircle, Download, Sun, X, ChevronDown } from "lucide-react";
+import { MessageCircle, Download, Sun, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -33,94 +33,87 @@ export const MakarSankrantiBanner = () => {
   const handleDismiss = (e: React.MouseEvent) => {
     e.stopPropagation();
     setIsDismissed(true);
+    setIsExpanded(false);
   };
 
   if (!isVisible || isDismissed) return null;
 
   return (
-    <div className="fixed top-16 left-0 right-0 z-40 px-4 animate-in slide-in-from-top duration-300">
-      <div
-        className={cn(
-          "mx-auto max-w-4xl bg-gradient-to-r from-amber-500/95 to-orange-500/95 backdrop-blur-sm shadow-lg cursor-pointer transition-all duration-300",
-          isExpanded ? "rounded-xl" : "rounded-full"
-        )}
-        onClick={() => !isExpanded && setIsExpanded(true)}
-      >
-        {/* Collapsed state - thin bar */}
-        {!isExpanded && (
-          <div className="flex items-center justify-between px-4 py-2">
-            <div className="flex items-center gap-2">
-              <Sun className="w-4 h-4 text-amber-100" />
-              <span className="text-white text-sm font-medium">
-                ✨ Makar Sankranti Special — Ayurvedic wellness tips
-              </span>
-              <ChevronDown className="w-4 h-4 text-white/70" />
-            </div>
-            <button
-              onClick={handleDismiss}
-              className="p-1 rounded-full hover:bg-white/20 transition-colors"
-              aria-label="Dismiss"
-            >
-              <X className="w-4 h-4 text-white/80" />
-            </button>
+    <div className="fixed top-20 right-4 z-40 animate-in fade-in duration-500">
+      {/* Collapsed state - small icon */}
+      {!isExpanded && (
+        <button
+          onClick={() => setIsExpanded(true)}
+          className="relative group bg-gradient-to-br from-amber-400 to-orange-500 rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+          aria-label="Makar Sankranti Special"
+        >
+          <div className="relative">
+            <Sun className="w-5 h-5 text-white" />
+            <span className="absolute -top-1 -right-1 text-xs">🪁</span>
           </div>
-        )}
+          {/* Tooltip */}
+          <span className="absolute right-full mr-2 top-1/2 -translate-y-1/2 bg-foreground text-background text-xs px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+            Makar Sankranti Special
+          </span>
+        </button>
+      )}
 
-        {/* Expanded state */}
-        {isExpanded && (
-          <div className="p-4 relative">
-            <button
-              onClick={handleDismiss}
-              className="absolute top-3 right-3 p-1 rounded-full hover:bg-white/20 transition-colors"
-              aria-label="Dismiss"
-            >
-              <X className="w-4 h-4 text-white/80" />
-            </button>
+      {/* Expanded state */}
+      {isExpanded && (
+        <div className="bg-gradient-to-br from-amber-500 to-orange-500 rounded-xl shadow-xl p-4 w-72 animate-in zoom-in-95 duration-200">
+          <button
+            onClick={handleDismiss}
+            className="absolute top-2 right-2 p-1 rounded-full hover:bg-white/20 transition-colors"
+            aria-label="Dismiss"
+          >
+            <X className="w-4 h-4 text-white/80" />
+          </button>
 
-            <div className="flex flex-col md:flex-row md:items-center gap-4">
-              <div className="flex-1 min-w-0">
-                <h3 className="text-white font-medium mb-1 flex items-center gap-2">
-                  <Sun className="w-4 h-4 text-amber-100" />
-                  Celebrate Makar Sankranti the Ayurvedic Way
-                </h3>
-                <p className="text-white/85 text-sm">
-                  Sesame & jaggery balance Vata dosha and boost immunity during this seasonal shift.
-                </p>
-              </div>
-
-              <div className="flex items-center gap-2 flex-shrink-0">
-                <Button
-                  onClick={handleWhatsAppClick}
-                  size="sm"
-                  className="bg-green-600 hover:bg-green-700 text-white text-xs h-8 px-3"
-                >
-                  <MessageCircle className="w-3.5 h-3.5 mr-1.5" />
-                  WhatsApp
-                </Button>
-                <Button
-                  onClick={handleDownloadBrochure}
-                  size="sm"
-                  variant="outline"
-                  className="bg-white/20 hover:bg-white/30 text-white border-white/30 text-xs h-8 px-3"
-                >
-                  <Download className="w-3.5 h-3.5 mr-1.5" />
-                  Guide
-                </Button>
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setIsExpanded(false);
-                  }}
-                  className="p-1.5 rounded-full hover:bg-white/20 transition-colors text-white/70"
-                  aria-label="Collapse"
-                >
-                  <ChevronDown className="w-4 h-4 rotate-180" />
-                </button>
-              </div>
-            </div>
+          <div className="flex items-center gap-2 mb-3">
+            <Sun className="w-5 h-5 text-amber-100" />
+            <span className="text-lg">🪁</span>
+            <span className="text-white/80 text-xs font-medium">Festival Special</span>
           </div>
-        )}
-      </div>
+
+          <h3 className="text-white font-medium text-sm mb-2">
+            Celebrate Makar Sankranti the Ayurvedic Way
+          </h3>
+          
+          <p className="text-white/85 text-xs mb-4 leading-relaxed">
+            Sesame & jaggery balance Vata dosha and boost immunity during this seasonal shift.
+          </p>
+
+          <div className="flex gap-2">
+            <Button
+              onClick={handleWhatsAppClick}
+              size="sm"
+              className="flex-1 bg-green-600 hover:bg-green-700 text-white text-xs h-8"
+            >
+              <MessageCircle className="w-3.5 h-3.5 mr-1" />
+              WhatsApp
+            </Button>
+            <Button
+              onClick={handleDownloadBrochure}
+              size="sm"
+              variant="outline"
+              className="flex-1 bg-white/20 hover:bg-white/30 text-white border-white/30 text-xs h-8"
+            >
+              <Download className="w-3.5 h-3.5 mr-1" />
+              Guide
+            </Button>
+          </div>
+
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsExpanded(false);
+            }}
+            className="w-full mt-3 text-white/60 hover:text-white/80 text-xs transition-colors"
+          >
+            Collapse
+          </button>
+        </div>
+      )}
     </div>
   );
 };
