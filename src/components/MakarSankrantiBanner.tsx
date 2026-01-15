@@ -1,94 +1,154 @@
-import { MessageCircle, Download, Sun } from "lucide-react";
+import { useState, useEffect } from "react";
+import { MessageCircle, Download, Sun, X, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export const MakarSankrantiBanner = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [isDismissed, setIsDismissed] = useState(false);
+
   const whatsappNumber = "919876543210"; // Replace with actual number
   const whatsappMessage = encodeURIComponent(
     "Hi! I'm interested in learning more about Ayurvedic practices for Makar Sankranti."
   );
 
-  const handleWhatsAppClick = () => {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 6000); // Shows after 6 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleWhatsAppClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
     window.open(
       `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`,
       "_blank"
     );
   };
 
-  const handleDownloadBrochure = () => {
-    // Replace with actual brochure URL
+  const handleDownloadBrochure = (e: React.MouseEvent) => {
+    e.stopPropagation();
     window.open("/makar-sankranti-brochure.pdf", "_blank");
   };
 
-  return (
-    <section className="py-8 md:py-12 px-4">
-      <div className="container mx-auto max-w-6xl">
-        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-amber-500/90 via-orange-500/85 to-primary/90 p-6 md:p-10">
-          {/* Decorative elements */}
-          <div className="absolute top-4 right-4 md:top-6 md:right-8 opacity-20">
-            <Sun className="w-24 h-24 md:w-40 md:h-40 text-amber-100 animate-gentle-glow" />
-          </div>
-          <div className="absolute -bottom-4 -left-4 w-32 h-32 md:w-48 md:h-48 bg-amber-300/20 rounded-full blur-3xl" />
-          <div className="absolute top-1/2 right-1/4 w-20 h-20 bg-orange-200/15 rounded-full blur-2xl" />
+  const handleDismiss = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsDismissed(true);
+  };
 
-          <div className="relative z-10 max-w-2xl">
-            {/* Festival Badge */}
-            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-1.5 mb-4">
-              <span className="text-amber-100 text-sm font-medium">
+  if (!isVisible || isDismissed) return null;
+
+  return (
+    <div
+      className={cn(
+        "fixed bottom-4 right-4 z-50 transition-all duration-300 ease-out",
+        "max-w-[calc(100vw-2rem)] md:max-w-md"
+      )}
+    >
+      <div
+        className={cn(
+          "relative overflow-hidden rounded-xl bg-gradient-to-br from-amber-500 via-orange-500 to-primary shadow-2xl cursor-pointer",
+          "transition-all duration-300 ease-out",
+          isExpanded ? "p-4 md:p-5" : "p-3"
+        )}
+        onClick={() => !isExpanded && setIsExpanded(true)}
+      >
+        {/* Close button */}
+        <button
+          onClick={handleDismiss}
+          className="absolute top-2 right-2 z-20 p-1 rounded-full bg-black/20 hover:bg-black/30 transition-colors"
+          aria-label="Dismiss banner"
+        >
+          <X className="w-4 h-4 text-white" />
+        </button>
+
+        {/* Decorative sun */}
+        <div className="absolute -top-2 -right-2 opacity-20">
+          <Sun className={cn(
+            "text-amber-100 transition-all duration-300",
+            isExpanded ? "w-20 h-20" : "w-12 h-12"
+          )} />
+        </div>
+
+        {/* Collapsed state */}
+        {!isExpanded && (
+          <div className="relative z-10 flex items-center gap-3 pr-6">
+            <div className="flex-shrink-0 bg-white/20 rounded-full p-2">
+              <Sun className="w-5 h-5 text-amber-100" />
+            </div>
+            <div className="min-w-0">
+              <p className="text-white font-medium text-sm truncate">
+                ✨ Makar Sankranti Special
+              </p>
+              <p className="text-white/80 text-xs">
+                Tap to explore Ayurvedic wisdom
+              </p>
+            </div>
+          </div>
+        )}
+
+        {/* Expanded state */}
+        {isExpanded && (
+          <div className="relative z-10">
+            {/* Collapse button */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsExpanded(false);
+              }}
+              className="absolute top-0 right-6 p-1 rounded-full bg-white/20 hover:bg-white/30 transition-colors"
+              aria-label="Collapse banner"
+            >
+              <ChevronUp className="w-4 h-4 text-white" />
+            </button>
+
+            {/* Badge */}
+            <div className="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 mb-3">
+              <span className="text-amber-100 text-xs font-medium">
                 ✨ Festival Special
               </span>
             </div>
 
             {/* Title */}
-            <h2 className="text-2xl md:text-4xl font-heading text-white mb-3 leading-tight">
+            <h3 className="text-lg md:text-xl font-heading text-white mb-2 leading-tight">
               Celebrate Makar Sankranti
-              <span className="block text-amber-100">The Ayurvedic Way</span>
-            </h2>
+              <span className="block text-amber-100 text-base">The Ayurvedic Way</span>
+            </h3>
 
             {/* Description */}
-            <p className="text-white/90 text-sm md:text-base leading-relaxed mb-4">
-              As the Sun transitions into Capricorn, Ayurveda teaches us this is the perfect time for{" "}
-              <strong className="text-amber-100">detoxification and rejuvenation</strong>. 
-              The warming foods like til (sesame) and jaggery aren't just tradition—they balance 
-              Vata dosha and strengthen immunity during this seasonal shift.
+            <p className="text-white/90 text-xs leading-relaxed mb-3">
+              The Sun's transition into Capricorn is perfect for{" "}
+              <strong className="text-amber-100">detoxification</strong>. 
+              Sesame & jaggery balance Vata dosha and boost immunity.
             </p>
 
-            <ul className="text-white/85 text-sm space-y-1.5 mb-6">
-              <li className="flex items-start gap-2">
-                <span className="text-amber-200 mt-0.5">●</span>
-                <span>Sesame seeds provide warmth & nourish tissues</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-amber-200 mt-0.5">●</span>
-                <span>Jaggery aids digestion & boosts energy</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-amber-200 mt-0.5">●</span>
-                <span>Sun salutations align body with cosmic rhythms</span>
-              </li>
-            </ul>
-
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row gap-2">
               <Button
                 onClick={handleWhatsAppClick}
-                className="bg-green-600 hover:bg-green-700 text-white font-medium px-6 py-5 rounded-lg flex items-center justify-center gap-2 shadow-lg"
+                size="sm"
+                className="bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg flex items-center justify-center gap-2 shadow-lg text-xs h-9"
               >
-                <MessageCircle className="w-5 h-5" />
-                <span>Chat on WhatsApp</span>
+                <MessageCircle className="w-4 h-4" />
+                <span>WhatsApp</span>
               </Button>
 
               <Button
                 onClick={handleDownloadBrochure}
+                size="sm"
                 variant="outline"
-                className="bg-white/20 hover:bg-white/30 text-white border-white/40 font-medium px-6 py-5 rounded-lg flex items-center justify-center gap-2 backdrop-blur-sm"
+                className="bg-white/20 hover:bg-white/30 text-white border-white/40 font-medium rounded-lg flex items-center justify-center gap-2 backdrop-blur-sm text-xs h-9"
               >
-                <Download className="w-5 h-5" />
+                <Download className="w-4 h-4" />
                 <span>Download Guide</span>
               </Button>
             </div>
           </div>
-        </div>
+        )}
       </div>
-    </section>
+    </div>
   );
 };
