@@ -44,8 +44,8 @@ export const MakarSankrantiBanner = () => {
   return (
     <div
       className={cn(
-        "fixed bottom-4 right-4 z-50 transition-all duration-300 ease-out",
-        "max-w-[calc(100vw-2rem)] md:max-w-md"
+        "fixed top-16 left-4 right-4 z-50 transition-all duration-300 ease-out",
+        "mx-auto max-w-2xl"
       )}
     >
       <div
