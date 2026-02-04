@@ -1,25 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ContactOptionsModal } from "@/components/ContactOptionsModal";
 import { Award, Users, Heart } from "lucide-react";
-import heroClinic from "@/assets/hero-clinic-interior.jpg";
 import heroTreatment from "@/assets/hero-treatment.jpg";
-import heroHerbs from "@/assets/hero-herbs.jpg";
-
-const slides = [
-  {
-    image: heroClinic,
-    alt: "Serene Kerala Ayurveda clinic interior with traditional ambiance",
-  },
-  {
-    image: heroTreatment,
-    alt: "Authentic Ayurvedic massage therapy in progress",
-  },
-  {
-    image: heroHerbs,
-    alt: "Traditional Ayurvedic herbs and natural healing ingredients",
-  },
-];
 
 const credibilityMarkers = [
   {
@@ -55,15 +38,7 @@ const videoTestimonials = [
 ];
 
 export const HeroWithVideoD = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
   const [showContactOptions, setShowContactOptions] = useState(false);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
 
   const scrollToForm = () => {
     document.getElementById("contact-form")?.scrollIntoView({
@@ -73,22 +48,15 @@ export const HeroWithVideoD = () => {
 
   return (
     <section className="relative min-h-[70vh] md:min-h-[75vh] w-full overflow-hidden py-12 md:py-16">
-      {/* Background Images with Low Opacity */}
-      {slides.map((slide, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
-            index === currentSlide ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          <img
-            src={slide.image}
-            alt={slide.alt}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/90 to-primary/85" />
-        </div>
-      ))}
+      {/* Static Background Image */}
+      <div className="absolute inset-0">
+        <img
+          src={heroTreatment}
+          alt="Authentic Ayurvedic massage therapy in progress"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/90 to-primary/85" />
+      </div>
 
       <div className="container mx-auto max-w-7xl px-4 h-full relative z-10">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
