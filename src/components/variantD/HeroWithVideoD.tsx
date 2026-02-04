@@ -147,12 +147,12 @@ export const HeroWithVideoD = () => {
           </div>
 
           {/* Right Side - Video Testimonials with Horizontal Scroll */}
-          <div className="flex flex-col">
-            <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 -mx-4 px-4 md:mx-0 md:px-0">
+          <div className="overflow-hidden">
+            <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 pr-[30%] md:pr-[20%]">
               {videoTestimonials.map((video, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 snap-center flex flex-col items-center"
+                  className="flex-shrink-0 snap-start flex flex-col items-center"
                 >
                   <div className="relative w-[240px] md:w-[280px] aspect-[9/16] rounded-xl overflow-hidden shadow-2xl">
                     <iframe
@@ -172,15 +172,6 @@ export const HeroWithVideoD = () => {
                     </p>
                   </div>
                 </div>
-              ))}
-            </div>
-            {/* Scroll Indicators */}
-            <div className="flex justify-center gap-2 mt-2">
-              {videoTestimonials.map((_, index) => (
-                <div
-                  key={index}
-                  className="w-2 h-2 rounded-full bg-primary-foreground/40"
-                />
               ))}
             </div>
           </div>
