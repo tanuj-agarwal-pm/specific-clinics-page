@@ -115,14 +115,14 @@ export const HeroWithVideoD = () => {
           </div>
 
           {/* Right Side - Video Testimonials with Horizontal Scroll */}
-          <div className="w-[300px] md:w-[380px] overflow-hidden ml-auto">
+          <div className="w-[340px] md:w-[440px] overflow-hidden ml-auto">
             <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 w-max">
               {videoTestimonials.map((video, index) => (
                 <div
                   key={index}
                   className="flex-shrink-0 snap-start flex flex-col items-center"
                 >
-                  <div className="relative w-[240px] md:w-[280px] aspect-[9/16] rounded-xl overflow-hidden shadow-2xl">
+                  <div className="relative w-[300px] md:w-[360px] aspect-[9/16] rounded-xl overflow-hidden shadow-2xl">
                     <iframe
                       src={`https://www.youtube.com/embed/${video.videoId}?rel=0&modestbranding=1`}
                       title={`${video.patientName} Testimonial Video`}
