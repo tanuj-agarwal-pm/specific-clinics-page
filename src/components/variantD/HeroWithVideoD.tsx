@@ -1,7 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ContactOptionsModal } from "@/components/ContactOptionsModal";
 import { Award, Users, Heart } from "lucide-react";
+
+const conditions = [
+  "skin and hair issues?",
+  "gut issues?",
+  "joint and muscle pain?",
+  "diabetes or high cholesterol?",
+  "PCOD/ PCOS?",
+  "respiratory issues?",
+];
 import heroTreatment from "@/assets/hero-treatment.jpg";
 
 const credibilityMarkers = [
@@ -39,6 +48,15 @@ const videoTestimonials = [
 
 export const HeroWithVideoD = () => {
   const [showContactOptions, setShowContactOptions] = useState(false);
+  const [currentConditionIndex, setCurrentConditionIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentConditionIndex((prev) => (prev + 1) % conditions.length);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const scrollToForm = () => {
     document.getElementById("contact-form")?.scrollIntoView({
@@ -63,7 +81,14 @@ export const HeroWithVideoD = () => {
           {/* Left Side - Hero Content */}
           <div className="animate-fade-in">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading text-primary-foreground mb-6 leading-tight">
-              Experience Authentic Kerala Ayurveda - in Indiranagar
+              Are you struggling with
+              <br />
+              <span
+                key={currentConditionIndex}
+                className="text-primary-foreground/90 animate-text-fade-in inline-block"
+              >
+                {conditions[currentConditionIndex]}
+              </span>
             </h1>
             <p className="text-lg md:text-xl text-primary-foreground/95 mb-8">
               Traditional healing wisdom meets personalized care for your
