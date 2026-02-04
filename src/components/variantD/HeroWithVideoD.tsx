@@ -39,12 +39,20 @@ const credibilityMarkers = [
   },
 ];
 
-const videoTestimonial = {
-  // Placeholder YouTube video - replace with actual testimonial video
-  videoId: "dQw4w9WgXcQ",
-  patientName: "Priya Sharma",
-  condition: "PCOS Recovery Journey",
-};
+const videoTestimonials = [
+  {
+    // Placeholder YouTube video - replace with actual testimonial video
+    videoId: "dQw4w9WgXcQ",
+    patientName: "Priya Sharma",
+    condition: "PCOS Recovery Journey",
+  },
+  {
+    // Second placeholder video - replace with actual testimonial video
+    videoId: "dQw4w9WgXcQ",
+    patientName: "Rajesh Kumar",
+    condition: "Joint Pain Recovery",
+  },
+];
 
 export const HeroWithVideoD = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -138,24 +146,42 @@ export const HeroWithVideoD = () => {
             />
           </div>
 
-          {/* Right Side - Video Testimonial */}
-          <div className="flex flex-col items-center">
-            <div className="relative w-full max-w-[280px] md:max-w-[320px] aspect-[9/16] rounded-xl overflow-hidden shadow-2xl">
-              <iframe
-                src={`https://www.youtube.com/embed/${videoTestimonial.videoId}?rel=0&modestbranding=1`}
-                title="Patient Testimonial Video"
-                className="absolute inset-0 w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+          {/* Right Side - Video Testimonials with Horizontal Scroll */}
+          <div className="flex flex-col">
+            <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 -mx-4 px-4 md:mx-0 md:px-0">
+              {videoTestimonials.map((video, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0 snap-center flex flex-col items-center"
+                >
+                  <div className="relative w-[240px] md:w-[280px] aspect-[9/16] rounded-xl overflow-hidden shadow-2xl">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${video.videoId}?rel=0&modestbranding=1`}
+                      title={`${video.patientName} Testimonial Video`}
+                      className="absolute inset-0 w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                  <div className="mt-4 text-center">
+                    <p className="font-heading text-lg md:text-xl text-primary-foreground">
+                      {video.patientName}
+                    </p>
+                    <p className="text-sm text-primary-foreground/80">
+                      {video.condition}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
-            <div className="mt-4 text-center">
-              <p className="font-heading text-lg md:text-xl text-primary-foreground">
-                {videoTestimonial.patientName}
-              </p>
-              <p className="text-sm text-primary-foreground/80">
-                {videoTestimonial.condition}
-              </p>
+            {/* Scroll Indicators */}
+            <div className="flex justify-center gap-2 mt-2">
+              {videoTestimonials.map((_, index) => (
+                <div
+                  key={index}
+                  className="w-2 h-2 rounded-full bg-primary-foreground/40"
+                />
+              ))}
             </div>
           </div>
         </div>
