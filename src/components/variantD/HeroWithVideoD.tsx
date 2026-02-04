@@ -80,13 +80,13 @@ export const HeroWithVideoD = () => {
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Left Side - Hero Content */}
           <div className="animate-fade-in">
-            <div className="mb-6 min-h-[140px] md:min-h-[160px] lg:min-h-[180px]">
+            <div className="mb-6 h-[160px] md:h-[180px] lg:h-[200px]">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading text-primary-foreground leading-tight">
-                <span className="font-normal">Are you struggling with</span>
+                <span className="font-light opacity-90">Are you struggling with</span>
                 <br />
                 <span
                   key={currentConditionIndex}
-                  className="text-primary-foreground/90 animate-text-fade-in inline-block font-bold"
+                  className="text-primary-foreground animate-text-fade-in inline-block font-extrabold"
                 >
                   {conditions[currentConditionIndex]}
                 </span>
