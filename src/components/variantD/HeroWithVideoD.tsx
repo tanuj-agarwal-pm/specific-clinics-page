@@ -53,7 +53,7 @@ export const HeroWithVideoD = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentConditionIndex((prev) => (prev + 1) % conditions.length);
-    }, 2000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
@@ -80,16 +80,18 @@ export const HeroWithVideoD = () => {
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Left Side - Hero Content */}
           <div className="animate-fade-in">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading text-primary-foreground mb-6 leading-tight">
-              Are you struggling with
-              <br />
-              <span
-                key={currentConditionIndex}
-                className="text-primary-foreground/90 animate-text-fade-in inline-block"
-              >
-                {conditions[currentConditionIndex]}
-              </span>
-            </h1>
+            <div className="mb-6 min-h-[140px] md:min-h-[160px] lg:min-h-[180px]">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading text-primary-foreground leading-tight">
+                <span className="font-normal">Are you struggling with</span>
+                <br />
+                <span
+                  key={currentConditionIndex}
+                  className="text-primary-foreground/90 animate-text-fade-in inline-block font-bold"
+                >
+                  {conditions[currentConditionIndex]}
+                </span>
+              </h1>
+            </div>
             <p className="text-lg md:text-xl text-primary-foreground/95 mb-8">
               Traditional healing wisdom meets personalized care for your
               complete wellness journey.
