@@ -147,8 +147,8 @@ export const HeroWithVideoD = () => {
           </div>
 
           {/* Right Side - Video Testimonials with Horizontal Scroll */}
-          <div className="overflow-hidden">
-            <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 pr-[30%] md:pr-[20%]">
+          <div className="w-[300px] md:w-[380px] overflow-hidden ml-auto">
+            <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 w-max">
               {videoTestimonials.map((video, index) => (
                 <div
                   key={index}
