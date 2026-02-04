@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import VariantA from "./pages/VariantA";
 import VariantB from "./pages/VariantB";
 import VariantC from "./pages/VariantC";
+import VariantD from "./pages/VariantD";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/variantA" element={<VariantA />} />
           <Route path="/variantB" element={<VariantB />} />
           <Route path="/variantC" element={<VariantC />} />
+          <Route path="/variantD" element={<VariantD />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
