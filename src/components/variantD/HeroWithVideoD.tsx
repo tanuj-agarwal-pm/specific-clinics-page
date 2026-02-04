@@ -82,7 +82,7 @@ export const HeroWithVideoD = () => {
           <div className="animate-fade-in">
             <div className="mb-6 h-[160px] md:h-[180px] lg:h-[200px]">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading text-primary-foreground leading-tight">
-                <span className="font-light opacity-90">Are you struggling with</span>
+                <span className="font-light opacity-90 text-2xl md:text-3xl lg:text-4xl">Are you struggling with</span>
                 <br />
                 <span
                   key={currentConditionIndex}
