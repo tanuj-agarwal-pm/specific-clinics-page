@@ -1,54 +1,107 @@
 
 
-# Plan: Fix Video Testimonial Peek Effect
+# Plan: Animated Rotating Conditions Headline
 
-## Problem
-Currently both video testimonials are fully visible in the hero section. The user wants:
-- **First video**: Fully visible
-- **Second video**: Only partially visible (peeking from the right) to indicate scrollability
+## Overview
+Replace the static hero headline with a dynamic question that cycles through different health conditions every 2 seconds with a smooth fade animation.
 
-## Root Cause
-The scroll container width isn't constrained properly. Both videos (280px each + 16px gap = ~576px total) fit within the available column width, so both are fully displayed.
-
-## Solution
-Constrain the scroll container to show only the first video fully, with the second video peeking ~30-40% from the right edge.
-
-## Technical Changes
-
-### File: `src/components/variantD/HeroWithVideoD.tsx`
-
-**Change the video scroll container (lines 149-177):**
-
-1. Add a fixed max-width to the outer container that equals approximately:
-   - First video width (280px on desktop) + gap (16px) + peek amount (~100px)
-   - Total: ~396px on desktop
-
-2. Remove the `pr-[30%]` padding which isn't achieving the desired effect
-
-3. Update the structure:
-```text
-Before:
-<div className="overflow-hidden">
-  <div className="flex gap-4 overflow-x-auto ... pr-[30%] md:pr-[20%]">
-
-After:
-<div className="w-[300px] md:w-[380px] overflow-hidden">
-  <div className="flex gap-4 overflow-x-auto ... w-max">
+**New headline format:**
+```
+Are you struggling with
+[skin and hair issues?] <- This part animates/rotates
 ```
 
-**Key CSS changes:**
-- Outer container: Fixed width (`w-[300px] md:w-[380px]`) to clip content
-- Inner scroll container: `w-max` to ensure all cards render at full size, enabling scroll
-- The fixed width ensures only ~first video + peek of second is visible
-- User can scroll horizontally to reveal the full second video
+## Conditions List (in order)
+1. skin and hair issues?
+2. gut issues?
+3. joint and muscle pain?
+4. diabetes or high cholesterol?
+5. PCOD/ PCOS?
+6. respiratory issues?
 
-## Visual Result
-```text
-+----------------------------------+
-|  [VIDEO 1 - FULL]  [VIDEO 2 -    |  <- clipped here
-|                     PARTIAL]     |
-+----------------------------------+
-                     ^
-                     User can scroll to see more
+## Technical Implementation
+
+### 1. Add New CSS Animation (`src/index.css`)
+Create a fade-in-out animation for smooth text transitions:
+
+```css
+@keyframes text-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-text-fade-in {
+  animation: text-fade-in 0.4s ease-out forwards;
+}
 ```
+
+### 2. Update HeroWithVideoD Component (`src/components/variantD/HeroWithVideoD.tsx`)
+
+**Add conditions array:**
+```javascript
+const conditions = [
+  "skin and hair issues?",
+  "gut issues?",
+  "joint and muscle pain?",
+  "diabetes or high cholesterol?",
+  "PCOD/ PCOS?",
+  "respiratory issues?",
+];
+```
+
+**Add state and useEffect for rotation:**
+```javascript
+const [currentConditionIndex, setCurrentConditionIndex] = useState(0);
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrentConditionIndex((prev) => (prev + 1) % conditions.length);
+  }, 2000); // 2 second interval
+
+  return () => clearInterval(interval);
+}, []);
+```
+
+**Update headline structure:**
+```jsx
+<h1 className="text-4xl md:text-5xl lg:text-6xl font-heading text-primary-foreground mb-6 leading-tight">
+  Are you struggling with
+  <br />
+  <span 
+    key={currentConditionIndex} 
+    className="text-primary-foreground/90 animate-text-fade-in inline-block"
+  >
+    {conditions[currentConditionIndex]}
+  </span>
+</h1>
+```
+
+The `key` prop is crucial - it forces React to re-mount the span element when the index changes, which re-triggers the CSS animation.
+
+## Visual Flow
+```text
++----------------------------------------+
+| Are you struggling with                |
+| [skin and hair issues?]  <- fades in   |
++----------------------------------------+
+        | (2 seconds)
+        v
++----------------------------------------+
+| Are you struggling with                |
+| [gut issues?]  <- new text fades in    |
++----------------------------------------+
+        | (2 seconds)
+        v
+        ... cycles through all 6 conditions
+```
+
+## Files to Modify
+1. `src/index.css` - Add text fade animation keyframes
+2. `src/components/variantD/HeroWithVideoD.tsx` - Add rotating condition logic and update headline
 
