@@ -1,86 +1,54 @@
 
 
-# Plan: Create Variant D - Hero with Video Testimonial
+# Plan: Fix Video Testimonial Peek Effect
 
-## Overview
-Create a new `/variantD` page that is a copy of `/variantA` but with a redesigned hero section that:
-- Replaces rotating text testimonials with a **video testimonial** on the right side
-- Adds **credibility markers** (80+ Years, 10L+ Patients, 300+ Vaidyas) on the left side below the CTA buttons
+## Problem
+Currently both video testimonials are fully visible in the hero section. The user wants:
+- **First video**: Fully visible
+- **Second video**: Only partially visible (peeking from the right) to indicate scrollability
 
-## New Files to Create
+## Root Cause
+The scroll container width isn't constrained properly. Both videos (280px each + 16px gap = ~576px total) fit within the available column width, so both are fully displayed.
 
-### 1. `src/components/variantD/HeroWithVideoD.tsx`
-A new hero component with the following layout:
+## Solution
+Constrain the scroll container to show only the first video fully, with the second video peeking ~30-40% from the right edge.
 
-**Left Side:**
-- Main headline: "Experience Authentic Kerala Ayurveda - in Indiranagar"
-- Subtext paragraph
-- Two CTA buttons ("Talk to Us" and "Request Consultation")
-- Three credibility markers in a row:
-  - 80+ Years of Excellence in Care
-  - 10 Lacs+ Patients Treated
-  - 300+ Vaidyas Dedicated to Your Care
+## Technical Changes
 
-**Right Side:**
-- Video testimonial player (vertical video format to match mobile-first design)
-- Supporting text below or beside the video with patient name and condition
+### File: `src/components/variantD/HeroWithVideoD.tsx`
 
-**Design Notes:**
-- Keep the same background image carousel with gradient overlay (from current HeroWithTestimonials)
-- Credibility markers styled as compact badges/pills with icons
-- Video container with rounded corners and shadow
-- Responsive: On mobile, stack vertically (content first, then video below)
+**Change the video scroll container (lines 149-177):**
 
-### 2. `src/pages/VariantD.tsx`
-New page that mirrors VariantA structure:
-- StickyHeader
-- HeroWithVideoD (new hero component)
-- ConditionsSectionVariantA
-- CareTeamSectionVariantA
-- ApproachSectionVariantA
-- TreatmentsSection
-- ContactSection
+1. Add a fixed max-width to the outer container that equals approximately:
+   - First video width (280px on desktop) + gap (16px) + peek amount (~100px)
+   - Total: ~396px on desktop
 
-## Files to Modify
+2. Remove the `pr-[30%]` padding which isn't achieving the desired effect
 
-### 3. `src/App.tsx`
-Add the new route:
-```tsx
-import VariantD from "./pages/VariantD";
-// ...
-<Route path="/variantD" element={<VariantD />} />
-```
-
----
-
-## Technical Details
-
-### Hero Layout Structure (Desktop)
+3. Update the structure:
 ```text
-+--------------------------------------------------+
-|  [Background Image Carousel with Gradient]       |
-|                                                  |
-|  +---------------------+  +--------------------+ |
-|  | HEADLINE            |  |                    | |
-|  | Subtext             |  |   VIDEO PLAYER     | |
-|  |                     |  |   (9:16 ratio)     | |
-|  | [Talk to Us] [CTA]  |  |                    | |
-|  |                     |  |  Patient Name      | |
-|  | [80+ yrs] [10L+]    |  |  Condition         | |
-|  | [300+ Vaidyas]      |  +--------------------+ |
-|  +---------------------+                         |
-+--------------------------------------------------+
+Before:
+<div className="overflow-hidden">
+  <div className="flex gap-4 overflow-x-auto ... pr-[30%] md:pr-[20%]">
+
+After:
+<div className="w-[300px] md:w-[380px] overflow-hidden">
+  <div className="flex gap-4 overflow-x-auto ... w-max">
 ```
 
-### Credibility Markers Styling
-- Horizontal layout on desktop (3 columns)
-- Semi-transparent white/cream background
-- Icon + Value + Label stacked
-- Icons: Award (years), Users (patients), Heart (vaidyas)
+**Key CSS changes:**
+- Outer container: Fixed width (`w-[300px] md:w-[380px]`) to clip content
+- Inner scroll container: `w-max` to ensure all cards render at full size, enabling scroll
+- The fixed width ensures only ~first video + peek of second is visible
+- User can scroll horizontally to reveal the full second video
 
-### Video Component
-- Aspect ratio: 9:16 (vertical video) or 16:9 (horizontal) depending on available video
-- Placeholder YouTube embed initially
-- Rounded corners (`rounded-xl`)
-- Shadow for depth
+## Visual Result
+```text
++----------------------------------+
+|  [VIDEO 1 - FULL]  [VIDEO 2 -    |  <- clipped here
+|                     PARTIAL]     |
++----------------------------------+
+                     ^
+                     User can scroll to see more
+```
 
