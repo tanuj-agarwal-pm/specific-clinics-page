@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Bone, Apple, Leaf, Gauge, HeartPulse, HeartHandshake, Baby, Wind, Moon, Droplets, ChevronDown, ChevronUp } from "lucide-react";
 import { Heart, Flower2, Sparkles } from "lucide-react";
-
 const conditions = [{
   icon: Leaf,
   title: "Skin and Hair",
@@ -43,74 +42,55 @@ const conditions = [{
   title: "Respiratory and General Immunity",
   description: "Treatments that help strengthen lung function, address congestion, and boost immune resilience while addressing concerns like allergies, recurrent infections, and seasonal respiratory issues."
 }];
-
-const therapies = [
-  {
-    icon: Heart,
-    title: "Shirodhara",
-    description: "A classical Ayurvedic therapy where a continuous oscillating stream of warm herbal oil is gently poured over the forehead to calm the nervous system."
-  },
-  {
-    icon: Flower2,
-    title: "Abhyanga",
-    description: "Traditional Ayurvedic oil therapy that uses rhythmic, grounded strokes to calm the nervous system and enhance mind–body connection."
-  },
-  {
-    icon: Sparkles,
-    title: "Udwartana",
-    description: "An authentic dry herbal powder massage that stimulates circulation, exfoliates the skin, and supports healthy metabolism."
-  },
-  {
-    icon: Wind,
-    title: "Swedana",
-    description: "Classical Ayurvedic therapy that gently induces therapeutic sweating to open the channels and release stiffness."
-  },
-  {
-    icon: Droplets,
-    title: "Kayaseka",
-    description: "A traditional Ayurvedic oil-bath therapy that applies steady, flowing warmth to relax muscles and improve circulation."
-  },
-  {
-    icon: Leaf,
-    title: "Panchakarma",
-    description: "A comprehensive classical Ayurvedic healing program that combines preparatory, cleansing, and restorative treatments."
-  },
-];
-
+const therapies = [{
+  icon: Heart,
+  title: "Shirodhara",
+  description: "A classical Ayurvedic therapy where a continuous oscillating stream of warm herbal oil is gently poured over the forehead to calm the nervous system."
+}, {
+  icon: Flower2,
+  title: "Abhyanga",
+  description: "Traditional Ayurvedic oil therapy that uses rhythmic, grounded strokes to calm the nervous system and enhance mind–body connection."
+}, {
+  icon: Sparkles,
+  title: "Udwartana",
+  description: "An authentic dry herbal powder massage that stimulates circulation, exfoliates the skin, and supports healthy metabolism."
+}, {
+  icon: Wind,
+  title: "Swedana",
+  description: "Classical Ayurvedic therapy that gently induces therapeutic sweating to open the channels and release stiffness."
+}, {
+  icon: Droplets,
+  title: "Kayaseka",
+  description: "A traditional Ayurvedic oil-bath therapy that applies steady, flowing warmth to relax muscles and improve circulation."
+}, {
+  icon: Leaf,
+  title: "Panchakarma",
+  description: "A comprehensive classical Ayurvedic healing program that combines preparatory, cleansing, and restorative treatments."
+}];
 export const ConditionsSectionVariantA = () => {
   const [showAll, setShowAll] = useState(false);
   const [activeTab, setActiveTab] = useState<"conditions" | "therapies">("conditions");
-
   const currentItems = activeTab === "conditions" ? conditions : therapies;
-
   return <section className="py-16 md:py-24 px-4 bg-background">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-heading text-foreground mb-4 text-center">Ayurveda as a lifestyle choice</h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto mb-8">
-            Whether you are looking to deal with a health concern, or just looking at enhancing your current state, Kerala Ayurveda clinics have an answer for you
+            Whether you are looking to deal with a health concern, or just looking at enhancing your current state, Kerala Ayurveda clinics can help you.  
           </p>
           
           {/* Tab Chips */}
           <div className="inline-flex justify-center gap-2 p-1.5 bg-muted/50 rounded-full border border-border">
-            <button
-              onClick={() => { setActiveTab("conditions"); setShowAll(false); }}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                activeTab === "conditions"
-                  ? "bg-primary text-primary-foreground"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
+            <button onClick={() => {
+            setActiveTab("conditions");
+            setShowAll(false);
+          }} className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeTab === "conditions" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}>
               Conditions We Support
             </button>
-            <button
-              onClick={() => { setActiveTab("therapies"); setShowAll(false); }}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                activeTab === "therapies"
-                  ? "bg-primary text-primary-foreground"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
+            <button onClick={() => {
+            setActiveTab("therapies");
+            setShowAll(false);
+          }} className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeTab === "therapies" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}>
               Therapies & Massages
             </button>
           </div>
