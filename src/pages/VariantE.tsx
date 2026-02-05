@@ -5,6 +5,7 @@ import { ConditionsSectionVariantA } from "@/components/ConditionsSectionVariant
 import { CareTeamSectionE } from "@/components/variantE/CareTeamSectionE";
  import { UniqueTreatmentsSection } from "@/components/UniqueTreatmentsSection";
 import { ContactSection } from "@/components/ContactSection";
+import { GoogleReviewsSection } from "@/components/variantE/GoogleReviewsSection";
 
 const VariantE = () => {
   const [activeTab, setActiveTab] = useState<"conditions" | "therapies">("conditions");
@@ -17,11 +18,13 @@ const VariantE = () => {
       {activeTab === "conditions" ? (
         <>
           <CareTeamSectionE />
+          <GoogleReviewsSection />
           <UniqueTreatmentsSection />
         </>
       ) : (
         <>
           <UniqueTreatmentsSection />
+          <GoogleReviewsSection />
           <CareTeamSectionE />
         </>
       )}
