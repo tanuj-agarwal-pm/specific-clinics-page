@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { ChevronRight as ArrowRight, Award } from "lucide-react";
  import { Card } from "@/components/ui/card";
  import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
@@ -33,6 +33,34 @@ import careTeamBg from "@/assets/care-team-bg.jpg";
  export const CareTeamSectionE = () => {
    const [selectedDoctor, setSelectedDoctor] = useState<number | null>(null);
    const scrollRef = useRef<HTMLDivElement>(null);
+   const [activeIndex, setActiveIndex] = useState(0);
+
+   useEffect(() => {
+     const container = scrollRef.current;
+     if (!container) return;
+
+     const handleScroll = () => {
+       const scrollLeft = container.scrollLeft;
+       const cardWidth = container.firstElementChild?.clientWidth || 0;
+       const gap = 16; // gap-4 = 16px
+       const index = Math.round(scrollLeft / (cardWidth + gap));
+       setActiveIndex(Math.min(index, doctors.length - 1));
+     };
+
+     container.addEventListener('scroll', handleScroll);
+     return () => container.removeEventListener('scroll', handleScroll);
+   }, []);
+
+   const scrollToDoctor = (index: number) => {
+     const container = scrollRef.current;
+     if (!container) return;
+     const cardWidth = container.firstElementChild?.clientWidth || 0;
+     const gap = 16;
+     container.scrollTo({
+       left: index * (cardWidth + gap),
+       behavior: 'smooth'
+     });
+   };
  
    return (
     <section className="relative py-16 md:py-24 px-4 overflow-hidden">
@@ -87,6 +115,20 @@ import careTeamBg from "@/assets/care-team-bg.jpg";
                  <ArrowRight className="w-5 h-5 text-muted-foreground flex-shrink-0" />
                </div>
              </Card>
+           ))}
+         </div>
+
+         {/* Scroll Indicators */}
+         <div className="flex justify-center gap-2 mt-4">
+           {doctors.map((_, index) => (
+             <button
+               key={index}
+               onClick={() => scrollToDoctor(index)}
+               className={`h-2 rounded-full transition-all ${
+                 activeIndex === index ? 'bg-primary w-6' : 'bg-muted-foreground/30 w-2'
+               }`}
+               aria-label={`Go to doctor ${index + 1}`}
+             />
            ))}
          </div>
        </div>
