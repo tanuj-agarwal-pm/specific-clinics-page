@@ -144,13 +144,15 @@ import careTeamBg from "@/assets/care-team-bg.jpg";
          {/* Doctors Carousel */}
          <div 
            ref={scrollRef}
-           className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide -ml-4 md:-mx-4 pl-4 md:px-4 pr-0 md:pr-4"
+           className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide -ml-4 md:-mx-4 md:px-4 pr-0 md:pr-4"
            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
          >
+           {/* Left spacer - mobile only */}
+           <div className="flex-shrink-0 w-4 md:hidden" />
            {doctors.map((doctor, index) => (
              <Card 
                key={index}
-               className="p-4 shadow-[var(--shadow-card)] cursor-pointer hover:shadow-lg transition-shadow snap-start flex-shrink-0 w-[75vw] md:w-[320px]"
+               className="p-4 shadow-[var(--shadow-card)] cursor-pointer hover:shadow-lg transition-shadow snap-center flex-shrink-0 w-[75vw] md:w-[320px]"
                onClick={() => setSelectedDoctor(index)}
              >
                <div className="flex items-center gap-4 h-[72px]">
@@ -172,6 +174,8 @@ import careTeamBg from "@/assets/care-team-bg.jpg";
                </div>
              </Card>
            ))}
+           {/* Right spacer - mobile only */}
+           <div className="flex-shrink-0 w-4 md:hidden" />
          </div>
 
          {/* Scroll Indicators */}

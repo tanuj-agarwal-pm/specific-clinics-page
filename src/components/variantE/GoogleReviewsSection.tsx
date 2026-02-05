@@ -57,7 +57,9 @@ export const GoogleReviewsSection = () => {
          </div>
  
          {/* Reviews Grid */}
-        <div ref={scrollContainerRef} className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-6 md:overflow-visible md:pb-0 scrollbar-hide">
+        <div ref={scrollContainerRef} className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory -mx-4 md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-6 md:overflow-visible md:pb-0 scrollbar-hide">
+          {/* Left spacer - mobile only */}
+          <div className="flex-shrink-0 w-4 md:hidden" />
            {reviews.map((review, index) => {
           const isExpanded = expandedReview === index;
           const shouldTruncate = review.text.length > 120;
@@ -100,6 +102,8 @@ export const GoogleReviewsSection = () => {
                  </div>
                </div>;
         })}
+          {/* Right spacer - mobile only */}
+          <div className="flex-shrink-0 w-4 md:hidden" />
          </div>
 
         {/* Dot Indicators - Mobile Only */}
