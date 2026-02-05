@@ -11,8 +11,8 @@ const VariantE = () => {
     <main className="min-h-screen">
       <StickyHeader />
       <HeroWithVideoE />
-      <ConditionsSectionVariantA />
       <CareTeamSectionE />
+      <ConditionsSectionVariantA />
       <ApproachSectionVariantA />
       <TreatmentsSection />
       <ContactSection />
