@@ -1,101 +1,73 @@
 
-# Plan: Add Expandable Clinic Selection with Indiranagar Default
+# Hero Testimonials Carousel - Edge-to-Edge Peeking Effect
 
 ## Overview
-Add an interactive clinic selection feature where one clinic is always expanded showing full details (address, doctor info, action buttons), while others appear as compact tiles in a grid. Clicking any tile expands it and collapses the previously selected one.
+Update the VideoTestimonials carousel so that the **active/focused card** has proper padding from the screen edge, while the **peeking cards** extend all the way to the edge of the screen.
 
-## Visual Layout
+## Current Behavior
+- All cards have the same left padding (`pl-4`)
+- No right padding (`pr-0`), so all cards extend to the right edge
 
-```text
-+--------------------------------------------------+
-|           Find us in Bengaluru                   |
-|     Find authentic Ayurvedic care near you       |
-+--------------------------------------------------+
-|                                                  |
-|  +--------------------------------------------+  |
-|  |  EXPANDED CLINIC CARD (Indiranagar)        |  |
-|  |  ----------------------------------------  |  |
-|  |  Indiranagar                               |  |
-|  |  12th Main Road, Near Sony World Signal    |  |
-|  |                                            |  |
-|  |  [Doctor Photo]  Dr. Anjali Sharma         |  |
-|  |                  BAMS, MD (Ayurveda)       |  |
-|  |                  Panchakarma Specialist    |  |
-|  |                                            |  |
-|  |  [Maps]  [Call]  [Book Visit - Primary]    |  |
-|  +--------------------------------------------+  |
-|                                                  |
-|  +----------+  +----------+  +----------+        |
-|  | Sarjapur |  | Shivaji  |  | HSR      |        |
-|  | (brief)  |  | Nagar    |  | Layout   |        |
-|  +----------+  +----------+  +----------+        |
-|  +----------+  +----------+  +----------+        |
-|  | Jayanagar|  | White-   |  | Korama-  |        |
-|  | (brief)  |  | field    |  | ngala    |        |
-|  +----------+  +----------+  +----------+        |
-+--------------------------------------------------+
-```
+## Desired Behavior
+- **First testimonial (Priya Sharma)**: Has left padding, peeking card (Rajesh) extends to right edge
+- **Middle testimonial (Rajesh Kumar)**: Previous and next cards extend to their respective edges
+- **Last testimonial (Meera Patel)**: Has right padding, previous card extends to left edge
 
-## Data Changes
-
-Add Indiranagar as a 7th clinic with enhanced doctor details:
-
-| Field | Value |
-|-------|-------|
-| id | indiranagar |
-| areaName | Indiranagar |
-| address | 12th Main Road, Near Sony World Signal |
-| doctorName | Dr. Anjali Sharma |
-| doctorQualifications | BAMS, MD (Ayurveda) |
-| doctorSpecialization | Panchakarma & Detox Specialist |
-| doctorImage | Placeholder image URL |
-
-## Implementation Steps
-
-### 1. Update Clinic Data Structure
-Extend the `Clinic` interface to include additional doctor details needed for the expanded view:
-- `doctorQualifications`: string
-- `doctorSpecialization`: string  
-- `doctorImage`: string (optional)
-
-### 2. Add Indiranagar Clinic
-Insert Indiranagar as a new clinic entry with full doctor details.
-
-### 3. Add Selection State
-Introduce `useState` to track which clinic is currently selected/expanded. Default to "indiranagar".
-
-### 4. Create Expanded Clinic Card Component
-Build a larger card component that displays:
-- Clinic name (prominent heading)
-- Full address
-- Doctor photo, name, qualifications, and specialization
-- Three action buttons: Maps icon, Call icon, and "Book Visit" primary button
-
-### 5. Modify Grid Layout
-- Render the expanded card above the grid
-- Filter out the selected clinic from the grid (so it only appears in expanded form)
-- Keep the 2x3 grid for remaining 6 clinics
-
-### 6. Add Click Handlers
-When a user clicks any collapsed clinic tile:
-- Update the selected clinic state to that clinic's ID
-- The expanded card will automatically show the new selection
-- The previous selection moves back to the grid
-
----
+## Solution
+Add invisible spacer elements at the beginning and end of the carousel. This allows:
+- The first card to snap with left margin while the second card peeks from the edge
+- The last card to snap with right margin while the previous card peeks from the edge
 
 ## Technical Details
 
-### File to Modify
-- `src/components/ClinicsGrid.tsx`
+### File: `src/components/variantE/HeroWithVideoE.tsx`
 
-### Key Implementation Patterns
-- Use `useState<string>('indiranagar')` for tracking selected clinic
-- Filter clinics array: expanded card shows `selectedClinic`, grid shows all others
-- Smooth transition using existing Tailwind classes
-- Consistent styling with existing card design
+**Changes to VideoTestimonials component:**
 
-### Action Buttons Behavior
-- **Maps button**: Opens Google Maps with clinic address
-- **Call button**: Initiates phone call (tel: link)
-- **Book Visit button**: Primary CTA (console.log for now, same as existing "Request Consultation")
+1. **Remove left padding from the scroll container** - Change `pl-4` to `pl-0` on the inner flex container
+
+2. **Add a left spacer before the first card** - A 16px (1rem) spacer that only appears on mobile, creating the left margin for the first card
+
+3. **Add a right spacer after the last card** - A 16px (1rem) spacer that only appears on mobile, creating the right margin for the last card
+
+4. **Update snap behavior** - Use `snap-center` instead of `snap-start` for proper centering behavior with spacers
+
+### Visual Representation
+
+```text
+Before:
+[padding][Card1][gap][Card2-peeking-cut-off]
+
+After:
+[spacer][Card1][gap][Card2-extends-to-edge]
+                              ...scroll...
+[Card2-extends-to-edge][gap][Card3][spacer]
+```
+
+### Code Changes Summary
+
+```tsx
+const VideoTestimonials = () => (
+  <div className="w-screen md:w-[440px] overflow-hidden md:ml-auto -ml-4 md:mx-0">
+    <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scroll-smooth md:pl-0" ...>
+      {/* Left spacer - mobile only */}
+      <div className="flex-shrink-0 w-4 md:hidden" />
+      
+      {videoTestimonials.map((item, index) => (
+        <div key={index} className="flex-shrink-0 snap-center ...">
+          {/* Card content */}
+        </div>
+      ))}
+      
+      {/* Right spacer - mobile only */}
+      <div className="flex-shrink-0 w-4 md:hidden" />
+    </div>
+  </div>
+);
+```
+
+This approach ensures:
+- First card has left padding via spacer
+- Last card has right padding via spacer
+- All peeking cards extend to their respective screen edges
+- Desktop layout remains unchanged
