@@ -33,14 +33,14 @@ const credibilityMarkers = [
 
 const videoTestimonials = [
   {
-    // Placeholder YouTube video - replace with actual testimonial video
-    videoId: "dQw4w9WgXcQ",
+    // Placeholder video - replace with actual testimonial video URL
+    videoSrc: "",
     patientName: "Priya Sharma",
     condition: "PCOS Recovery Journey",
   },
   {
-    // Second placeholder video - replace with actual testimonial video
-    videoId: "dQw4w9WgXcQ",
+    // Placeholder video - replace with actual testimonial video URL
+    videoSrc: "",
     patientName: "Rajesh Kumar",
     condition: "Joint Pain Recovery",
   },
@@ -69,29 +69,35 @@ const CredibilityMarkers = () => (
 );
 
 const VideoTestimonials = () => (
-  <div className="w-full md:w-[440px] overflow-hidden md:ml-auto">
-    <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 w-max">
+  <div className="w-[calc(100vw-2rem)] md:w-[440px] overflow-hidden md:ml-auto -mx-4 px-4 md:mx-0 md:px-0">
+    <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scroll-smooth" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
       {videoTestimonials.map((video, index) => (
         <div
           key={index}
           className="flex-shrink-0 snap-start flex flex-col items-center"
         >
-          <div className="relative w-[280px] md:w-[360px] aspect-[9/16] rounded-xl overflow-hidden shadow-2xl">
-            <iframe
-              src={`https://www.youtube.com/embed/${video.videoId}?rel=0&modestbranding=1`}
-              title={`${video.patientName} Testimonial Video`}
-              className="absolute inset-0 w-full h-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
-          <div className="mt-4 text-center">
-            <p className="font-heading text-lg md:text-xl text-primary-foreground">
-              {video.patientName}
-            </p>
-            <p className="text-sm text-primary-foreground/80">
-              {video.condition}
-            </p>
+          <div className="relative w-[70vw] md:w-[360px] aspect-[9/16] rounded-xl overflow-hidden shadow-2xl bg-black/20">
+            {video.videoSrc ? (
+              <video
+                src={video.videoSrc}
+                className="absolute inset-0 w-full h-full object-cover"
+                controls
+                playsInline
+              />
+            ) : (
+              <div className="absolute inset-0 w-full h-full bg-black/40 flex items-center justify-center">
+                <span className="text-primary-foreground/60 text-sm">Video placeholder</span>
+              </div>
+            )}
+            {/* Name and condition overlay */}
+            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+              <p className="font-heading text-lg text-white font-semibold">
+                {video.patientName}
+              </p>
+              <p className="text-sm text-white/80">
+                {video.condition}
+              </p>
+            </div>
           </div>
         </div>
       ))}
