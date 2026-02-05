@@ -64,10 +64,7 @@ export const ClinicsGrid = () => {
 
             {/* Mobile: CTA on top, icons below */}
             <div className="flex flex-col gap-2 md:hidden">
-              <Button variant="ghost" size="sm" className="w-full justify-between text-primary hover:text-accent hover:bg-primary/5 p-0 h-auto" onClick={() => console.log(`Request consultation at ${clinic.id}`)}>
-                <span className="text-xs text-left leading-tight">Request<br />Consultation</span>
-                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              
               <div className="flex items-center gap-2">
                 <button className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors" onClick={() => console.log(`Call ${clinic.areaName} clinic`)} aria-label="Call clinic">
                   <Phone className="h-4 w-4 text-primary" />
