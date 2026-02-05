@@ -48,11 +48,13 @@ const CredibilityMarkers = () => <div className="grid grid-cols-3 gap-3 md:gap-4
   })}
   </div>;
 const VideoTestimonials = () => <div className="w-screen md:w-[440px] overflow-hidden md:ml-auto -ml-4 md:mx-0">
-    <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scroll-smooth pl-4 md:pl-0 pr-0" style={{
+    <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scroll-smooth md:pl-0 pr-0" style={{
     scrollbarWidth: 'none',
     msOverflowStyle: 'none'
   }}>
-      {videoTestimonials.map((item, index) => <div key={index} className="flex-shrink-0 snap-start flex flex-col items-center">
+      {/* Left spacer - mobile only */}
+      <div className="flex-shrink-0 w-4 md:hidden" />
+      {videoTestimonials.map((item, index) => <div key={index} className="flex-shrink-0 snap-center flex flex-col items-center">
           <div className="relative w-[70vw] md:w-[360px] aspect-[9/16] rounded-xl overflow-hidden shadow-2xl bg-black/20">
             {item.type === "video" ? <>
                 {item.videoSrc ? <video src={item.videoSrc} className="absolute inset-0 w-full h-full object-cover" controls playsInline /> : <div className="absolute inset-0 w-full h-full bg-black/40 flex items-center justify-center">
@@ -81,6 +83,8 @@ const VideoTestimonials = () => <div className="w-screen md:w-[440px] overflow-h
               </div>}
           </div>
         </div>)}
+      {/* Right spacer - mobile only */}
+      <div className="flex-shrink-0 w-4 md:hidden" />
     </div>
   </div>;
 export const HeroWithVideoE = () => {
