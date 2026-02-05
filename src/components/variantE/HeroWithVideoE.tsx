@@ -48,6 +48,7 @@ const CredibilityMarkers = () => <div className="grid grid-cols-3 gap-3 md:gap-4
   })}
   </div>;
 const VideoTestimonials = () => <div className="w-[calc(100vw-2rem)] md:w-[440px] overflow-hidden md:ml-auto -mx-4 px-4 md:mx-0 md:px-0">
+    <div className="flex flex-col">
     <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scroll-smooth" style={{
     scrollbarWidth: 'none',
     msOverflowStyle: 'none'
@@ -85,6 +86,13 @@ const VideoTestimonials = () => <div className="w-[calc(100vw-2rem)] md:w-[440px
             )}
           </div>
         </div>)}
+    </div>
+      <a 
+        href="#testimonials" 
+        className="text-primary-foreground hover:text-primary-foreground/80 underline underline-offset-4 text-sm md:text-base font-medium mt-2 inline-block"
+      >
+        Read all Testimonials
+      </a>
     </div>
   </div>;
 export const HeroWithVideoE = () => {
