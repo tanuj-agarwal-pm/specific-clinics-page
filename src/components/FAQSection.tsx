@@ -26,7 +26,7 @@ const faqs = [
 
 export const FAQSection = () => {
   return (
-    <div className="mt-16">
+    <div>
       <div className="text-center mb-8">
         <h3 className="text-2xl md:text-3xl font-heading text-foreground mb-2">
           Frequently Asked Questions
