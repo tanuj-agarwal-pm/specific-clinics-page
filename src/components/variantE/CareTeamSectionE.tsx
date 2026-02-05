@@ -1,8 +1,7 @@
  import { useState } from "react";
- import { ChevronLeft, ChevronRight, GraduationCap, Award } from "lucide-react";
+import { ChevronLeft, ChevronRight, ChevronRight as ArrowRight, Award } from "lucide-react";
  import { Card } from "@/components/ui/card";
  import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
- import { Button } from "@/components/ui/button";
 import careTeamBg from "@/assets/care-team-bg.jpg";
  
  const doctors = [{
@@ -68,48 +67,26 @@ import careTeamBg from "@/assets/care-team-bg.jpg";
          {/* Doctors Carousel */}
          <div className="mb-8">
            <div className="relative max-w-2xl mx-auto">
-             <Card className="p-8 shadow-[var(--shadow-card)]">
-               <div className="flex flex-col md:flex-row items-center gap-6">
+              <Card 
+                className="p-4 shadow-[var(--shadow-card)] cursor-pointer hover:shadow-lg transition-shadow"
+                onClick={() => setSelectedDoctor(currentDoctor)}
+              >
+                <div className="flex items-center gap-4">
                  <img
                    src={doctors[currentDoctor].image}
                    alt={doctors[currentDoctor].name}
-                   className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary"
+                    className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border-2 border-primary flex-shrink-0"
                  />
-                 <div className="flex-1 text-center md:text-left">
-                   <h4 className="text-2xl font-heading text-foreground mb-2">
+                  <div className="flex-1 min-w-0">
+                    <h4 className="text-lg md:text-xl font-heading text-foreground">
                      {doctors[currentDoctor].name}
                    </h4>
-                   <div className="flex items-center justify-center md:justify-start gap-2 text-muted-foreground mb-3">
-                     <GraduationCap className="w-4 h-4" />
-                     <span>{doctors[currentDoctor].qualification}</span>
-                   </div>
-                   <p className="text-foreground font-medium mb-2">
-                     {doctors[currentDoctor].specialization}
-                   </p>
-                   <div className="flex items-center justify-center md:justify-start gap-2 text-muted-foreground mb-4">
+                    <div className="flex items-center gap-2 text-muted-foreground mt-1">
                      <Award className="w-4 h-4" />
-                     <span>{doctors[currentDoctor].experience} of experience</span>
-                   </div>
-                   <div className="flex gap-2 w-full md:w-auto">
-                     <Button
-                       onClick={() => setSelectedDoctor(currentDoctor)}
-                       variant="outline"
-                       className="flex-1 md:flex-none"
-                     >
-                       View Profile
-                     </Button>
-                     <Button
-                       onClick={() =>
-                         document.getElementById('contact-form')?.scrollIntoView({
-                           behavior: 'smooth'
-                         })
-                       }
-                       className="flex-1 md:flex-none"
-                     >
-                       Consult
-                     </Button>
+                      <span className="text-sm">{doctors[currentDoctor].experience}</span>
                    </div>
                  </div>
+                  <ArrowRight className="w-5 h-5 text-muted-foreground flex-shrink-0" />
                </div>
              </Card>
  
