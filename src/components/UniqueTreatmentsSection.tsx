@@ -49,6 +49,9 @@
          >
            What Makes Our Treatments Unique
          </h2>
+         <p className="text-sm md:text-base text-muted-foreground mb-6 text-center md:text-left max-w-2xl">
+           Our proprietary treatments curated as per classical texts utilise authentic products to ensure maximum benefits.
+         </p>
          <div className="relative overflow-hidden">
            <div className="flex gap-6 animate-scroll-fast" style={{ willChange: 'transform' }}>
              <div className="flex gap-6">
