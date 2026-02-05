@@ -15,7 +15,7 @@ const credibilityMarkers = [{
 }, {
   icon: Heart,
   value: "300+",
-  label: "Vaidyas Dedicated to Your Care"
+  label: "Vaidyas and Therapists dedicated to your care"
 }];
 const videoTestimonials = [{
   type: "video" as const,
