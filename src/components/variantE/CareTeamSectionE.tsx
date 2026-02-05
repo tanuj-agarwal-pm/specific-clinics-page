@@ -1,5 +1,5 @@
- import { useState } from "react";
-import { ChevronLeft, ChevronRight, ChevronRight as ArrowRight, Award } from "lucide-react";
+import { useState, useRef } from "react";
+import { ChevronRight as ArrowRight, Award } from "lucide-react";
  import { Card } from "@/components/ui/card";
  import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import careTeamBg from "@/assets/care-team-bg.jpg";
@@ -31,15 +31,8 @@ import careTeamBg from "@/assets/care-team-bg.jpg";
  }];
  
  export const CareTeamSectionE = () => {
-   const [currentDoctor, setCurrentDoctor] = useState(0);
    const [selectedDoctor, setSelectedDoctor] = useState<number | null>(null);
- 
-   const nextDoctor = () => {
-     setCurrentDoctor(prev => (prev + 1) % doctors.length);
-   };
-   const prevDoctor = () => {
-     setCurrentDoctor(prev => (prev - 1 + doctors.length) % doctors.length);
-   };
+   const scrollRef = useRef<HTMLDivElement>(null);
  
    return (
     <section className="relative py-16 md:py-24 px-4 overflow-hidden">
@@ -65,60 +58,36 @@ import careTeamBg from "@/assets/care-team-bg.jpg";
          </div>
  
          {/* Doctors Carousel */}
-         <div className="mb-8">
-           <div className="relative max-w-2xl mx-auto">
-              <Card 
-                className="p-4 shadow-[var(--shadow-card)] cursor-pointer hover:shadow-lg transition-shadow"
-                onClick={() => setSelectedDoctor(currentDoctor)}
-              >
-                <div className="flex items-center gap-4">
+         <div 
+           ref={scrollRef}
+           className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide -mx-4 px-4"
+           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+         >
+           {doctors.map((doctor, index) => (
+             <Card 
+               key={index}
+               className="p-4 shadow-[var(--shadow-card)] cursor-pointer hover:shadow-lg transition-shadow snap-start flex-shrink-0 w-[75vw] md:w-[320px]"
+               onClick={() => setSelectedDoctor(index)}
+             >
+               <div className="flex items-center gap-4 h-[72px]">
                  <img
-                   src={doctors[currentDoctor].image}
-                   alt={doctors[currentDoctor].name}
-                    className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border-2 border-primary flex-shrink-0"
+                   src={doctor.image}
+                   alt={doctor.name}
+                   className="w-16 h-16 rounded-full object-cover border-2 border-primary flex-shrink-0"
                  />
-                  <div className="flex-1 min-w-0">
-                    <h4 className="text-lg md:text-xl font-heading text-foreground">
-                     {doctors[currentDoctor].name}
+                 <div className="flex-1 min-w-0 flex flex-col justify-between h-full py-1">
+                   <h4 className="text-base md:text-lg font-heading text-foreground line-clamp-2 leading-tight">
+                     {doctor.name}
                    </h4>
-                    <div className="flex items-center gap-2 text-muted-foreground mt-1">
-                     <Award className="w-4 h-4" />
-                      <span className="text-sm">{doctors[currentDoctor].experience}</span>
+                   <div className="flex items-center gap-2 text-muted-foreground">
+                     <Award className="w-4 h-4 flex-shrink-0" />
+                     <span className="text-sm truncate">{doctor.experience}</span>
                    </div>
                  </div>
-                  <ArrowRight className="w-5 h-5 text-muted-foreground flex-shrink-0" />
+                 <ArrowRight className="w-5 h-5 text-muted-foreground flex-shrink-0" />
                </div>
              </Card>
- 
-             <button
-               onClick={prevDoctor}
-               className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 p-2 rounded-full bg-primary text-primary-foreground hover:bg-accent transition-all shadow-lg"
-               aria-label="Previous doctor"
-             >
-               <ChevronLeft className="w-6 h-6" />
-             </button>
- 
-             <button
-               onClick={nextDoctor}
-               className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 p-2 rounded-full bg-primary text-primary-foreground hover:bg-accent transition-all shadow-lg"
-               aria-label="Next doctor"
-             >
-               <ChevronRight className="w-6 h-6" />
-             </button>
-           </div>
- 
-           <div className="flex justify-center gap-2 mt-6">
-             {doctors.map((_, index) => (
-               <button
-                 key={index}
-                 onClick={() => setCurrentDoctor(index)}
-                 className={`w-2 h-2 rounded-full transition-all ${
-                   currentDoctor === index ? 'bg-primary w-6' : 'bg-muted-foreground/30'
-                 }`}
-                 aria-label={`Go to doctor ${index + 1}`}
-               />
-             ))}
-           </div>
+           ))}
          </div>
        </div>
  
