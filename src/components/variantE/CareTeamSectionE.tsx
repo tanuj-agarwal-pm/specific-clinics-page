@@ -128,15 +128,15 @@ import careTeamBg from "@/assets/care-team-bg.jpg";
           className="w-full h-full object-cover"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-background/85" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/40" />
       </div>
 
       <div className="container mx-auto max-w-7xl relative z-10">
          <div className="text-center mb-12">
-           <h2 className="text-3xl md:text-5xl font-heading text-foreground mb-4">
+           <h2 className="text-3xl md:text-5xl font-heading text-white mb-4">
              Our Expert Care Team
            </h2>
-           <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
+           <p className="text-white/80 text-base md:text-lg max-w-2xl mx-auto">
              Expert vaidyas dedicated to your healing journey - right from your first consultation
            </p>
          </div>
@@ -181,7 +181,7 @@ import careTeamBg from "@/assets/care-team-bg.jpg";
                key={index}
                onClick={() => scrollToDoctor(index)}
                className={`h-2 rounded-full transition-all ${
-                 activeIndex === index ? 'bg-primary w-6' : 'bg-muted-foreground/30 w-2'
+                activeIndex === index ? 'bg-white w-6' : 'bg-white/40 w-2'
                }`}
                aria-label={`Go to doctor ${index + 1}`}
              />
