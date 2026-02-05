@@ -47,8 +47,8 @@ const CredibilityMarkers = () => <div className="grid grid-cols-3 gap-3 md:gap-4
         </div>;
   })}
   </div>;
-const VideoTestimonials = () => <div className="w-[calc(100vw-2rem)] md:w-[440px] overflow-hidden md:ml-auto -mx-4 px-4 md:mx-0 md:px-0">
-    <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scroll-smooth" style={{
+const VideoTestimonials = () => <div className="w-screen md:w-[440px] overflow-hidden md:ml-auto -ml-4 md:mx-0">
+    <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scroll-smooth pl-4 md:pl-0 pr-0" style={{
     scrollbarWidth: 'none',
     msOverflowStyle: 'none'
   }}>
