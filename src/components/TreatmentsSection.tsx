@@ -1,38 +1,4 @@
-import { Droplets, Flower2, Heart, Sparkles, Leaf, Wind, Stethoscope, Flame, HandHeart, Activity, Check } from "lucide-react";
-import treatmentBg from "@/assets/hero-treatment.jpg";
-
-const treatments = [
-  {
-    icon: Heart,
-    title: "Shirodhara",
-    description: "A classical Ayurvedic therapy where a continuous oscillating stream of warm herbal oil is gently poured over the forehead to calm the nervous system, ease stress, and restore deep mental balance.",
-  },
-  {
-    icon: Flower2,
-    title: "Abhyanga",
-    description: "Traditional Ayurvedic oil therapy that uses rhythmic, grounded strokes (massage) to calm the nervous system, enhance mind–body connection, and support mental clarity and relaxation.",
-  },
-  {
-    icon: Sparkles,
-    title: "Udwartana",
-    description: "An authentic dry herbal powder massage that stimulates circulation, exfoliates the skin, and supports healthy metabolism and lymphatic flow.",
-  },
-  {
-    icon: Wind,
-    title: "Swedana",
-    description: "Classical Ayurvedic therapy that gently induces therapeutic sweating to open the channels, release stiffness, and prepare the body for deeper detoxification.",
-  },
-  {
-    icon: Droplets,
-    title: "Kayaseka",
-    description: "A traditional Ayurvedic oil-bath therapy that applies steady, flowing warmth to relax muscles, improve circulation, and restore balance to the body's systems.",
-  },
-  {
-    icon: Leaf,
-    title: "Panchakarma",
-    description: "A comprehensive classical Ayurvedic healing program that combines preparatory, cleansing, and restorative treatments to correct imbalances at the root and promote long-term wellness.",
-  },
-];
+import { Stethoscope, Flame, HandHeart, Activity, Check } from "lucide-react";
 
 const uniqueFeatures = [
   {
@@ -66,59 +32,17 @@ export const TreatmentsSection = () => {
   return (
     <section 
       aria-labelledby="treatments-heading" 
-      className="relative pt-12 md:pt-16 pb-16 md:pb-24 bg-background overflow-hidden"
+      className="relative py-12 md:py-16 bg-background overflow-hidden"
     >
-      {/* Background Image - Absolute positioned on the right */}
-      <div className="absolute top-0 md:top-16 bottom-0 right-0 w-full md:w-[52%] pointer-events-none">
-        <img
-          src={treatmentBg}
-          alt="Ayurvedic therapy session showing traditional treatment methods"
-          loading="lazy"
-          decoding="async"
-          className="w-full h-full object-cover rounded-s-2xl md:rounded-none md:rounded-l-2xl shadow-2xl"
-        />
-        <div className="absolute inset-0 bg-gradient-to-l from-background/30 via-background/50 to-background/95 md:to-background/0" />
-      </div>
-
       {/* Content */}
-      <div className="relative z-10 container mx-auto max-w-7xl px-4">
-        <div className="max-w-md md:max-w-lg">
+      <div className="container mx-auto max-w-7xl px-4">
+        <div className="overflow-hidden">
           <h2 
-            id="treatments-heading" 
-            className="text-3xl md:text-5xl font-heading text-foreground mb-4 text-center md:text-left"
+            id="treatments-heading"
+            className="text-xl md:text-2xl font-heading text-foreground mb-6 text-center md:text-left"
           >
-            Most Popular Treatments
-          </h2>
-          <p className="text-base md:text-lg text-primary md:text-muted-foreground leading-relaxed mb-8 max-w-sm md:max-w-md text-center md:text-left mx-auto md:mx-0">
-            Your care is shaped by our highly experienced team of doctors and therapists who work together to ensure you walk out feeling healed.
-          </p>
-        </div>
-
-        {/* Treatment Grid - 2x3 Matrix */}
-        <div className="grid grid-cols-2 gap-3 md:gap-4 max-w-md">
-          {treatments.map((treatment) => {
-            const Icon = treatment.icon;
-            return (
-              <div
-                key={treatment.title}
-                className="bg-card border border-border rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow flex items-center gap-3"
-              >
-                <div className="flex-shrink-0 inline-flex h-9 w-9 items-center justify-center rounded-full bg-secondary text-primary">
-                  <Icon className="h-4 w-4" strokeWidth={1.5} />
-                </div>
-                <h3 className="text-sm md:text-base font-heading text-foreground">
-                  {treatment.title}
-                </h3>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* What Makes Us Unique - Animated Scroll */}
-        <div className="mt-16 overflow-hidden">
-          <h3 className="text-xl md:text-2xl font-heading text-foreground mb-6 max-w-md">
             What Makes Our Treatments Unique
-          </h3>
+          </h2>
           <div className="relative -z-10">
             <div className="flex gap-6 animate-scroll-fast" style={{ willChange: 'transform' }}>
               <div className="flex gap-6">
