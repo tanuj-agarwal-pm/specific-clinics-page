@@ -94,7 +94,7 @@ export const ContactSection = () => {
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-heading text-foreground mb-4">Get a Callback   </h2>
-          <p className="text-muted-foreground text-base md:text-lg">Holistic healing made convenient</p>
+          <p className="text-muted-foreground text-base md:text-lg">No spam, no marketing!</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 items-start">
