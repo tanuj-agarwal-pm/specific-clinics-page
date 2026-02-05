@@ -92,13 +92,13 @@ export const ConditionsSectionVariantA = () => {
           </p>
           
           {/* Tab Chips */}
-          <div className="flex justify-center gap-3 mb-8">
+          <div className="inline-flex justify-center gap-2 p-1.5 bg-muted/50 rounded-full border border-border">
             <button
               onClick={() => { setActiveTab("conditions"); setShowAll(false); }}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                 activeTab === "conditions"
                   ? "bg-primary text-primary-foreground"
-                  : "bg-muted text-muted-foreground hover:bg-muted/80"
+                  : "text-muted-foreground hover:text-foreground"
               }`}
             >
               Conditions We Support
@@ -108,7 +108,7 @@ export const ConditionsSectionVariantA = () => {
               className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                 activeTab === "therapies"
                   ? "bg-primary text-primary-foreground"
-                  : "bg-muted text-muted-foreground hover:bg-muted/80"
+                  : "text-muted-foreground hover:text-foreground"
               }`}
             >
               Therapies & Massages
@@ -116,7 +116,7 @@ export const ConditionsSectionVariantA = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
+        <div key={activeTab} className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 animate-fade-in">
           {currentItems.map((item, index) => {
           const isHiddenOnMobile = index >= 4 && !showAll;
           const Icon = item.icon;
