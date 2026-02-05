@@ -174,8 +174,16 @@ export const ContactSection = () => {
           </div>
         </div>
 
+      </div>
+    </section>
+
+    {/* Clinics Section */}
+    <section className="py-16 md:py-24 px-4 bg-primary/5">
+      <div className="container mx-auto max-w-7xl">
+        <ClinicsGrid />
+
         {/* Other Cities - Full Width */}
-        <div className="mt-12 p-8 bg-primary/5 rounded-lg border-2 border-primary/20">
+        <div className="mt-12 p-8 bg-card rounded-lg border-2 border-primary/20">
           <p className="text-lg md:text-xl font-semibold text-foreground mb-3 text-center">
             Not in Bengaluru? We are also present in:
           </p>
@@ -186,13 +194,6 @@ export const ContactSection = () => {
             <a href="tel:+1234567890" className="text-primary hover:text-accent font-semibold transition-colors underline">Call</a> or <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-accent font-semibold transition-colors underline">WhatsApp</a> to book an appointment in any of these cities
           </p>
         </div>
-      </div>
-    </section>
-
-    {/* Clinics Section */}
-    <section className="py-16 md:py-24 px-4 bg-primary/5">
-      <div className="container mx-auto max-w-7xl">
-        <ClinicsGrid />
       </div>
     </section>
   </>;
