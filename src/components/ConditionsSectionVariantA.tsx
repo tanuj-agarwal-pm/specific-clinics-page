@@ -45,27 +45,33 @@ const conditions = [{
 const therapies = [{
   icon: Heart,
   title: "Shirodhara",
-  description: "A classical Ayurvedic therapy where a continuous oscillating stream of warm herbal oil is gently poured over the forehead to calm the nervous system."
+  description: "A classical Ayurvedic therapy where a continuous oscillating stream of warm herbal oil is gently poured over the forehead to calm the nervous system.",
+  benefit: "Relieves stress & anxiety"
 }, {
   icon: Flower2,
   title: "Abhyanga",
-  description: "Traditional Ayurvedic oil therapy that uses rhythmic, grounded strokes to calm the nervous system and enhance mind–body connection."
+  description: "Traditional Ayurvedic oil therapy that uses rhythmic, grounded strokes to calm the nervous system and enhance mind–body connection.",
+  benefit: "Improves circulation & relaxation"
 }, {
   icon: Sparkles,
   title: "Udwartana",
-  description: "An authentic dry herbal powder massage that stimulates circulation, exfoliates the skin, and supports healthy metabolism."
+  description: "An authentic dry herbal powder massage that stimulates circulation, exfoliates the skin, and supports healthy metabolism.",
+  benefit: "Boosts metabolism & skin glow"
 }, {
   icon: Wind,
   title: "Swedana",
-  description: "Classical Ayurvedic therapy that gently induces therapeutic sweating to open the channels and release stiffness."
+  description: "Classical Ayurvedic therapy that gently induces therapeutic sweating to open the channels and release stiffness.",
+  benefit: "Releases toxins & stiffness"
 }, {
   icon: Droplets,
   title: "Kayaseka",
-  description: "A traditional Ayurvedic oil-bath therapy that applies steady, flowing warmth to relax muscles and improve circulation."
+  description: "A traditional Ayurvedic oil-bath therapy that applies steady, flowing warmth to relax muscles and improve circulation.",
+  benefit: "Eases muscle tension"
 }, {
   icon: Leaf,
   title: "Panchakarma",
-  description: "A comprehensive classical Ayurvedic healing program that combines preparatory, cleansing, and restorative treatments."
+  description: "A comprehensive classical Ayurvedic healing program that combines preparatory, cleansing, and restorative treatments.",
+  benefit: "Deep detox & rejuvenation"
 }];
 export const ConditionsSectionVariantA = () => {
   const [showAll, setShowAll] = useState(false);
@@ -107,6 +113,11 @@ export const ConditionsSectionVariantA = () => {
                 <h3 className="text-sm md:text-lg font-heading text-accent md:mb-2">
                   {item.title}
                 </h3>
+                {'benefit' in item && (item as { benefit?: string }).benefit && (
+                  <p className="text-xs text-primary font-medium md:hidden">
+                    {(item as { benefit?: string }).benefit}
+                  </p>
+                )}
                 <p className="text-muted-foreground text-sm leading-relaxed hidden md:block">
                   {item.description}
                 </p>
