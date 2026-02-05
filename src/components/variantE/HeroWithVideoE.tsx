@@ -99,7 +99,7 @@ export const HeroWithVideoE = () => {
             <Button onClick={scrollToForm} size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-lg text-base w-full py-6 hover-scale">
               Request Doctor Appointment
             </Button>
-            <Button onClick={scrollToForm} size="lg" variant="outline" className="bg-white/10 text-primary-foreground border-primary-foreground/20 hover:bg-white/20 text-base w-full py-6">
+            <Button onClick={scrollToForm} size="lg" variant="outline" className="bg-white/10 text-primary-foreground border-primary-foreground/20 hover:bg-white/20 text-base w-full py-6 mt-3">
               Book an Ayurvedic Massage
             </Button>
           </div>
