@@ -43,7 +43,7 @@ export const TreatmentsSection = () => {
           >
             What Makes Our Treatments Unique
           </h2>
-          <div className="relative -z-10">
+          <div className="relative">
             <div className="flex gap-6 animate-scroll-fast" style={{ willChange: 'transform' }}>
               <div className="flex gap-6">
                 {uniqueFeatures.map((feature, index) => {
