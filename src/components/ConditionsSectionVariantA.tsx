@@ -44,7 +44,7 @@ export const ConditionsSectionVariantA = () => {
   return <section className="py-16 md:py-24 px-4 bg-background">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-heading text-foreground mb-4 whitespace-nowrap">Conditions We Treat</h2>
+          <h2 className="text-3xl md:text-5xl font-heading text-foreground mb-4 whitespace-nowrap">Conditions We Support</h2>
           
         </div>
 
