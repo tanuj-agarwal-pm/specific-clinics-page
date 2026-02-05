@@ -1,48 +1,101 @@
 
+# Plan: Add Expandable Clinic Selection with Indiranagar Default
 
-## Dynamic Section Ordering Based on Active Tab
+## Overview
+Add an interactive clinic selection feature where one clinic is always expanded showing full details (address, doctor info, action buttons), while others appear as compact tiles in a grid. Clicking any tile expands it and collapses the previously selected one.
 
-### Overview
-Reorder the VariantE page sections so that:
-- **"Ayurveda as a lifestyle choice"** appears first (after hero)
-- When **"Conditions We Support"** tab is active: Expert Care Team follows, then What Makes Our Treatments Unique
-- When **"Therapies & Massages"** tab is active: What Makes Our Treatments Unique follows, then Expert Care Team
-
-### Technical Approach
-
-**1. Lift State to Parent Component**
-The `activeTab` state currently lives inside `ConditionsSectionVariantA`. I'll modify it to accept an optional callback prop (`onTabChange`) so the parent page can track which tab is active.
-
-**2. Update ConditionsSectionVariantA**
-- Add an optional `onTabChange?: (tab: "conditions" | "therapies") => void` prop
-- Call this callback whenever the tab changes
-- Keep backward compatibility (works without the prop for other variants)
-
-**3. Update VariantE Page**
-- Add local state to track the active tab: `useState<"conditions" | "therapies">("conditions")`
-- Pass the callback to `ConditionsSectionVariantA`
-- Conditionally render sections based on active tab:
+## Visual Layout
 
 ```text
-Hero
-  |
-Ayurveda as a lifestyle choice (with tabs)
-  |
-  +-- If "conditions" tab:
-  |     Expert Care Team
-  |     What Makes Our Treatments Unique
-  |
-  +-- If "therapies" tab:
-        What Makes Our Treatments Unique
-        Expert Care Team
-  |
-Contact Section
++--------------------------------------------------+
+|           Find us in Bengaluru                   |
+|     Find authentic Ayurvedic care near you       |
++--------------------------------------------------+
+|                                                  |
+|  +--------------------------------------------+  |
+|  |  EXPANDED CLINIC CARD (Indiranagar)        |  |
+|  |  ----------------------------------------  |  |
+|  |  Indiranagar                               |  |
+|  |  12th Main Road, Near Sony World Signal    |  |
+|  |                                            |  |
+|  |  [Doctor Photo]  Dr. Anjali Sharma         |  |
+|  |                  BAMS, MD (Ayurveda)       |  |
+|  |                  Panchakarma Specialist    |  |
+|  |                                            |  |
+|  |  [Maps]  [Call]  [Book Visit - Primary]    |  |
+|  +--------------------------------------------+  |
+|                                                  |
+|  +----------+  +----------+  +----------+        |
+|  | Sarjapur |  | Shivaji  |  | HSR      |        |
+|  | (brief)  |  | Nagar    |  | Layout   |        |
+|  +----------+  +----------+  +----------+        |
+|  +----------+  +----------+  +----------+        |
+|  | Jayanagar|  | White-   |  | Korama-  |        |
+|  | (brief)  |  | field    |  | ngala    |        |
+|  +----------+  +----------+  +----------+        |
++--------------------------------------------------+
 ```
 
-### Files to Modify
-1. `src/components/ConditionsSectionVariantA.tsx` - Add optional `onTabChange` prop
-2. `src/pages/VariantE.tsx` - Manage state and conditionally render sections
+## Data Changes
 
-### Result
-The page will dynamically reorder sections based on which tab the user selects, creating a contextually relevant flow.
+Add Indiranagar as a 7th clinic with enhanced doctor details:
 
+| Field | Value |
+|-------|-------|
+| id | indiranagar |
+| areaName | Indiranagar |
+| address | 12th Main Road, Near Sony World Signal |
+| doctorName | Dr. Anjali Sharma |
+| doctorQualifications | BAMS, MD (Ayurveda) |
+| doctorSpecialization | Panchakarma & Detox Specialist |
+| doctorImage | Placeholder image URL |
+
+## Implementation Steps
+
+### 1. Update Clinic Data Structure
+Extend the `Clinic` interface to include additional doctor details needed for the expanded view:
+- `doctorQualifications`: string
+- `doctorSpecialization`: string  
+- `doctorImage`: string (optional)
+
+### 2. Add Indiranagar Clinic
+Insert Indiranagar as a new clinic entry with full doctor details.
+
+### 3. Add Selection State
+Introduce `useState` to track which clinic is currently selected/expanded. Default to "indiranagar".
+
+### 4. Create Expanded Clinic Card Component
+Build a larger card component that displays:
+- Clinic name (prominent heading)
+- Full address
+- Doctor photo, name, qualifications, and specialization
+- Three action buttons: Maps icon, Call icon, and "Book Visit" primary button
+
+### 5. Modify Grid Layout
+- Render the expanded card above the grid
+- Filter out the selected clinic from the grid (so it only appears in expanded form)
+- Keep the 2x3 grid for remaining 6 clinics
+
+### 6. Add Click Handlers
+When a user clicks any collapsed clinic tile:
+- Update the selected clinic state to that clinic's ID
+- The expanded card will automatically show the new selection
+- The previous selection moves back to the grid
+
+---
+
+## Technical Details
+
+### File to Modify
+- `src/components/ClinicsGrid.tsx`
+
+### Key Implementation Patterns
+- Use `useState<string>('indiranagar')` for tracking selected clinic
+- Filter clinics array: expanded card shows `selectedClinic`, grid shows all others
+- Smooth transition using existing Tailwind classes
+- Consistent styling with existing card design
+
+### Action Buttons Behavior
+- **Maps button**: Opens Google Maps with clinic address
+- **Call button**: Initiates phone call (tel: link)
+- **Book Visit button**: Primary CTA (console.log for now, same as existing "Request Consultation")
