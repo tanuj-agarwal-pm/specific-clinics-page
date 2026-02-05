@@ -191,7 +191,7 @@ import careTeamBg from "@/assets/care-team-bg.jpg";
  
        {/* Doctor Profile Dialog */}
        <Dialog open={selectedDoctor !== null} onOpenChange={() => setSelectedDoctor(null)}>
-         <DialogContent className="max-w-2xl">
+         <DialogContent className="max-w-2xl mx-4 sm:mx-auto">
            {selectedDoctor !== null && (
              <>
                <DialogHeader>
@@ -200,22 +200,22 @@ import careTeamBg from "@/assets/care-team-bg.jpg";
                    {doctors[selectedDoctor].qualification}
                  </DialogDescription>
                </DialogHeader>
-               <div className="space-y-4 pt-4">
+               <div className="space-y-4 pt-4 px-1 sm:px-0">
                  <div className="flex items-center gap-4">
                    <img
                      src={doctors[selectedDoctor].image}
                      alt={doctors[selectedDoctor].name}
-                     className="w-24 h-24 rounded-full object-cover border-4 border-primary"
+                     className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-4 border-primary flex-shrink-0"
                    />
                    <div>
-                     <p className="text-foreground font-medium text-lg mb-1">
+                     <p className="text-foreground font-medium text-base sm:text-lg mb-1">
                        {doctors[selectedDoctor].specialization}
                      </p>
-                     <div className="flex items-center gap-2 text-muted-foreground">
+                     <div className="flex items-center gap-2 text-muted-foreground text-sm sm:text-base">
                        <Award className="w-4 h-4" />
                        <span>{doctors[selectedDoctor].experience} of experience</span>
                      </div>
-                     <p className="text-muted-foreground text-sm mt-1">
+                     <p className="text-muted-foreground text-xs sm:text-sm mt-1">
                        Practicing since {doctors[selectedDoctor].practicingSince}
                      </p>
                    </div>
