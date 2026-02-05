@@ -1,4 +1,5 @@
-import { Bone, Apple, Leaf, Gauge, HeartPulse, HeartHandshake, Baby, Wind, Moon, Droplets } from "lucide-react";
+import { useState } from "react";
+import { Bone, Apple, Leaf, Gauge, HeartPulse, HeartHandshake, Baby, Wind, Moon, Droplets, ChevronDown, ChevronUp } from "lucide-react";
 const conditions = [{
   icon: Leaf,
   title: "Skin and Hair",
@@ -41,6 +42,8 @@ const conditions = [{
   description: "Treatments that help strengthen lung function, address congestion, and boost immune resilience while addressing concerns like allergies, recurrent infections, and seasonal respiratory issues."
 }];
 export const ConditionsSectionVariantA = () => {
+  const [showAll, setShowAll] = useState(false);
+
   return <section className="py-16 md:py-24 px-4 bg-background">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12">
@@ -50,8 +53,12 @@ export const ConditionsSectionVariantA = () => {
 
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
           {conditions.map((condition, index) => {
+          const isHiddenOnMobile = index >= 4 && !showAll;
           const Icon = condition.icon;
-          return <div key={index} className="bg-card rounded-lg p-3 md:p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-border flex flex-col items-center text-center md:items-start md:text-left">
+          return <div 
+              key={index} 
+              className={`bg-card rounded-lg p-3 md:p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-border flex flex-col items-center text-center md:items-start md:text-left ${isHiddenOnMobile ? 'hidden md:flex' : 'flex'}`}
+            >
                 <div className="bg-accent/10 text-accent w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mb-2 md:mb-4">
                   <Icon className="w-6 h-6 md:w-8 md:h-8" />
                 </div>
@@ -63,6 +70,26 @@ export const ConditionsSectionVariantA = () => {
                 </p>
               </div>;
         })}
+        </div>
+
+        {/* See all / See less chip - mobile only */}
+        <div className="flex justify-center mt-6 md:hidden">
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium hover:bg-accent/20 transition-colors"
+          >
+            {showAll ? (
+              <>
+                See less
+                <ChevronUp className="w-4 h-4" />
+              </>
+            ) : (
+              <>
+                See all conditions
+                <ChevronDown className="w-4 h-4" />
+              </>
+            )}
+          </button>
         </div>
       </div>
     </section>;
