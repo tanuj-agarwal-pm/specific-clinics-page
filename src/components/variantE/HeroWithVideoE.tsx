@@ -131,13 +131,9 @@ export const HeroWithVideoE = () => {
         {/* Desktop Layout */}
         <div className="hidden md:grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           <div className="animate-fade-in">
-            <div className="mb-6 h-[180px] lg:h-[200px]">
-              <h1 className="text-5xl lg:text-6xl font-heading text-primary-foreground leading-tight">
-                <span className="font-light opacity-90 text-3xl lg:text-4xl">Are you struggling with</span>
-                <br />
-                <span key={currentConditionIndex} className="text-primary-foreground animate-text-fade-in inline-block font-extrabold">
-                  {conditions[currentConditionIndex]}
-                </span>
+            <div className="mb-6">
+              <h1 className="text-4xl lg:text-5xl font-heading text-primary-foreground leading-tight">
+                Looking to reset or struggling with a health concern?
               </h1>
             </div>
             <p className="text-xl text-primary-foreground/95 mb-8">
