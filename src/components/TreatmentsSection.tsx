@@ -32,18 +32,18 @@ export const TreatmentsSection = () => {
   return (
     <section 
       aria-labelledby="treatments-heading" 
-      className="relative py-12 md:py-16 bg-background overflow-hidden"
+      className="relative py-12 md:py-16 bg-secondary/30 overflow-hidden"
     >
       {/* Content */}
       <div className="container mx-auto max-w-7xl px-4">
-        <div className="overflow-hidden">
+        <div>
           <h2 
             id="treatments-heading"
             className="text-xl md:text-2xl font-heading text-foreground mb-6 text-center md:text-left"
           >
             What Makes Our Treatments Unique
           </h2>
-          <div className="relative">
+          <div className="relative overflow-hidden">
             <div className="flex gap-6 animate-scroll-fast" style={{ willChange: 'transform' }}>
               <div className="flex gap-6">
                 {uniqueFeatures.map((feature, index) => {
