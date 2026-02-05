@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Bone, Apple, Leaf, Gauge, HeartPulse, HeartHandshake, Baby, Wind, Moon, Droplets, ChevronDown, ChevronUp } from "lucide-react";
+import { Heart, Flower2, Sparkles } from "lucide-react";
+
 const conditions = [{
   icon: Leaf,
   title: "Skin and Hair",
@@ -41,45 +43,109 @@ const conditions = [{
   title: "Respiratory and General Immunity",
   description: "Treatments that help strengthen lung function, address congestion, and boost immune resilience while addressing concerns like allergies, recurrent infections, and seasonal respiratory issues."
 }];
+
+const therapies = [
+  {
+    icon: Heart,
+    title: "Shirodhara",
+    description: "A classical Ayurvedic therapy where a continuous oscillating stream of warm herbal oil is gently poured over the forehead to calm the nervous system."
+  },
+  {
+    icon: Flower2,
+    title: "Abhyanga",
+    description: "Traditional Ayurvedic oil therapy that uses rhythmic, grounded strokes to calm the nervous system and enhance mind–body connection."
+  },
+  {
+    icon: Sparkles,
+    title: "Udwartana",
+    description: "An authentic dry herbal powder massage that stimulates circulation, exfoliates the skin, and supports healthy metabolism."
+  },
+  {
+    icon: Wind,
+    title: "Swedana",
+    description: "Classical Ayurvedic therapy that gently induces therapeutic sweating to open the channels and release stiffness."
+  },
+  {
+    icon: Droplets,
+    title: "Kayaseka",
+    description: "A traditional Ayurvedic oil-bath therapy that applies steady, flowing warmth to relax muscles and improve circulation."
+  },
+  {
+    icon: Leaf,
+    title: "Panchakarma",
+    description: "A comprehensive classical Ayurvedic healing program that combines preparatory, cleansing, and restorative treatments."
+  },
+];
+
 export const ConditionsSectionVariantA = () => {
   const [showAll, setShowAll] = useState(false);
+  const [activeTab, setActiveTab] = useState<"conditions" | "therapies">("conditions");
+
+  const currentItems = activeTab === "conditions" ? conditions : therapies;
+
   return <section className="py-16 md:py-24 px-4 bg-background">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-heading text-foreground mb-4 text-center">Ayurveda as a lifestyle choice       </h2>
+          <h2 className="text-3xl md:text-5xl font-heading text-foreground mb-4 text-center">Ayurveda as a lifestyle choice</h2>
+          <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto mb-8">
+            Whether you are looking to deal with a health concern, or just looking at enhancing your current state, Kerala Ayurveda clinics have an answer for you
+          </p>
           
+          {/* Tab Chips */}
+          <div className="flex justify-center gap-3 mb-8">
+            <button
+              onClick={() => { setActiveTab("conditions"); setShowAll(false); }}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                activeTab === "conditions"
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-muted text-muted-foreground hover:bg-muted/80"
+              }`}
+            >
+              Conditions We Support
+            </button>
+            <button
+              onClick={() => { setActiveTab("therapies"); setShowAll(false); }}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                activeTab === "therapies"
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-muted text-muted-foreground hover:bg-muted/80"
+              }`}
+            >
+              Therapies & Massages
+            </button>
+          </div>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
-          {conditions.map((condition, index) => {
+          {currentItems.map((item, index) => {
           const isHiddenOnMobile = index >= 4 && !showAll;
-          const Icon = condition.icon;
+          const Icon = item.icon;
           return <div key={index} className={`bg-card rounded-lg p-3 md:p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-border flex flex-col items-center text-center md:items-start md:text-left ${isHiddenOnMobile ? 'hidden md:flex' : 'flex'}`}>
                 <div className="bg-accent/10 text-accent w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mb-2 md:mb-4">
                   <Icon className="w-6 h-6 md:w-8 md:h-8" />
                 </div>
                 <h3 className="text-sm md:text-lg font-heading text-accent md:mb-2">
-                  {condition.title}
+                  {item.title}
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed hidden md:block">
-                  {condition.description}
+                  {item.description}
                 </p>
               </div>;
         })}
         </div>
 
-        {/* See all / See less chip - mobile only */}
-        <div className="flex justify-center mt-6 md:hidden">
+        {/* See all / See less chip - mobile only, show when more than 4 items */}
+        {currentItems.length > 4 && <div className="flex justify-center mt-6 md:hidden">
           <button onClick={() => setShowAll(!showAll)} className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium hover:bg-accent/20 transition-colors">
             {showAll ? <>
                 See less
                 <ChevronUp className="w-4 h-4" />
               </> : <>
-                See all conditions
+                See all {activeTab === "conditions" ? "conditions" : "therapies"}
                 <ChevronDown className="w-4 h-4" />
               </>}
           </button>
-        </div>
+        </div>}
       </div>
     </section>;
 };
