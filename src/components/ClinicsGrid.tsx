@@ -78,7 +78,7 @@ export const ClinicsGrid = () => {
    const selectedClinic = clinics.find(c => c.id === selectedClinicId)!;
    const otherClinics = clinics.filter(c => c.id !== selectedClinicId);
  
-  return <div className="mt-16">
+  return <div>
       <div className="text-center mb-8">
         <h3 className="text-2xl md:text-3xl font-heading text-foreground mb-2">
           Find us in Bengaluru      
