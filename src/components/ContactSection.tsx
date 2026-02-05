@@ -99,7 +99,7 @@ export const ContactSection = () => {
       </div>
     </section>
 
-    <section id="contact-form" className="py-16 md:py-24 px-4 bg-background">
+    <section id="contact-form" className="py-16 md:py-24 px-4 bg-card">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-heading text-foreground mb-4">Get a Callback   </h2>
@@ -243,7 +243,7 @@ export const ContactSection = () => {
     </section>
 
     {/* Clinics Section */}
-    <section className="py-16 md:py-24 px-4 bg-card">
+    <section className="py-16 md:py-24 px-4 bg-primary/5">
       <div className="container mx-auto max-w-7xl">
         <ClinicsGrid />
       </div>
