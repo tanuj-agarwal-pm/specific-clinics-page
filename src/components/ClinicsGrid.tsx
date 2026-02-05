@@ -42,7 +42,7 @@ export const ClinicsGrid = () => {
   return <div className="mt-16">
       <div className="text-center mb-8">
         <h3 className="text-2xl md:text-3xl font-heading text-foreground mb-2">
-          Other locations in Bangalore   
+          Find us in Bengaluru      
         </h3>
         <p className="text-muted-foreground">
           Find authentic Ayurvedic care near you
@@ -64,28 +64,15 @@ export const ClinicsGrid = () => {
 
             {/* Mobile: CTA on top, icons below */}
             <div className="flex flex-col gap-2 md:hidden">
-              <Button 
-                variant="ghost" 
-                size="sm" 
-                className="w-full justify-between text-primary hover:text-accent hover:bg-primary/5 p-0 h-auto" 
-                onClick={() => console.log(`Request consultation at ${clinic.id}`)}
-              >
-                <span className="text-xs text-left leading-tight">Request<br/>Consultation</span>
+              <Button variant="ghost" size="sm" className="w-full justify-between text-primary hover:text-accent hover:bg-primary/5 p-0 h-auto" onClick={() => console.log(`Request consultation at ${clinic.id}`)}>
+                <span className="text-xs text-left leading-tight">Request<br />Consultation</span>
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
               <div className="flex items-center gap-2">
-                <button 
-                  className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
-                  onClick={() => console.log(`Call ${clinic.areaName} clinic`)}
-                  aria-label="Call clinic"
-                >
+                <button className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors" onClick={() => console.log(`Call ${clinic.areaName} clinic`)} aria-label="Call clinic">
                   <Phone className="h-4 w-4 text-primary" />
                 </button>
-                <button 
-                  className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
-                  onClick={() => console.log(`Open maps for ${clinic.areaName}`)}
-                  aria-label="Open in maps"
-                >
+                <button className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors" onClick={() => console.log(`Open maps for ${clinic.areaName}`)} aria-label="Open in maps">
                   <Map className="h-4 w-4 text-primary" />
                 </button>
               </div>
@@ -94,27 +81,14 @@ export const ClinicsGrid = () => {
             {/* Desktop: Icons left, CTA right */}
             <div className="hidden md:flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <button 
-                  className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
-                  onClick={() => console.log(`Call ${clinic.areaName} clinic`)}
-                  aria-label="Call clinic"
-                >
+                <button className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors" onClick={() => console.log(`Call ${clinic.areaName} clinic`)} aria-label="Call clinic">
                   <Phone className="h-4 w-4 text-primary" />
                 </button>
-                <button 
-                  className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
-                  onClick={() => console.log(`Open maps for ${clinic.areaName}`)}
-                  aria-label="Open in maps"
-                >
+                <button className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors" onClick={() => console.log(`Open maps for ${clinic.areaName}`)} aria-label="Open in maps">
                   <Map className="h-4 w-4 text-primary" />
                 </button>
               </div>
-              <Button 
-                variant="ghost" 
-                size="sm" 
-                className="text-primary hover:text-accent hover:bg-primary/5 p-0 h-auto gap-1" 
-                onClick={() => console.log(`Request consultation at ${clinic.id}`)}
-              >
+              <Button variant="ghost" size="sm" className="text-primary hover:text-accent hover:bg-primary/5 p-0 h-auto gap-1" onClick={() => console.log(`Request consultation at ${clinic.id}`)}>
                 <span className="text-sm">Request Consultation</span>
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
