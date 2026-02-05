@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { HeroWithVideoE } from "@/components/variantE/HeroWithVideoE";
 import { StickyHeader } from "@/components/StickyHeader";
 import { ConditionsSectionVariantA } from "@/components/ConditionsSectionVariantA";
@@ -6,13 +7,24 @@ import { CareTeamSectionE } from "@/components/variantE/CareTeamSectionE";
 import { ContactSection } from "@/components/ContactSection";
 
 const VariantE = () => {
+  const [activeTab, setActiveTab] = useState<"conditions" | "therapies">("conditions");
+
   return (
     <main className="min-h-screen">
       <StickyHeader />
       <HeroWithVideoE />
-      <CareTeamSectionE />
-      <ConditionsSectionVariantA />
-       <UniqueTreatmentsSection />
+      <ConditionsSectionVariantA onTabChange={setActiveTab} />
+      {activeTab === "conditions" ? (
+        <>
+          <CareTeamSectionE />
+          <UniqueTreatmentsSection />
+        </>
+      ) : (
+        <>
+          <UniqueTreatmentsSection />
+          <CareTeamSectionE />
+        </>
+      )}
       <ContactSection />
     </main>
   );
