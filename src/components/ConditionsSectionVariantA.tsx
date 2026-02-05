@@ -114,7 +114,7 @@ export const ConditionsSectionVariantA = () => {
                   {item.title}
                 </h3>
                 {'benefit' in item && (item as { benefit?: string }).benefit && (
-                  <p className="text-xs text-primary font-normal md:hidden">
+                  <p className="text-xs text-primary font-light md:hidden">
                     {(item as { benefit?: string }).benefit}
                   </p>
                 )}
