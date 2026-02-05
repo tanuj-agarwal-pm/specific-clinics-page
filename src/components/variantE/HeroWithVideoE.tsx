@@ -11,11 +11,11 @@ const credibilityMarkers = [{
 }, {
   icon: Users,
   value: "10 Lacs+",
-  label: "Patient treated and massages done"
+  label: "patients treated and massages done"
 }, {
   icon: Heart,
   value: "300+",
-  label: "Vaidyas and Therapists dedicated to your care"
+  label: "vaidyas and therapists dedicated to your care"
 }];
 const videoTestimonials = [{
   type: "video" as const,
