@@ -197,6 +197,19 @@ All colors MUST be HSL.
   animation: text-fade-in 0.4s ease-out forwards;
 }
 
+@keyframes border-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 2px hsl(165 43% 21% / 0.2);
+  }
+  50% {
+    box-shadow: 0 0 0 2px hsl(165 43% 21% / 0.8), 0 0 8px 2px hsl(165 43% 21% / 0.4);
+  }
+}
+
+.animate-border-glow {
+  animation: border-glow 1.5s ease-in-out 3;
+}
+
 @layer utilities {
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
