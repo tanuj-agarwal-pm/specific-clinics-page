@@ -95,7 +95,7 @@ export const ContactSection = () => {
     <section id="contact-form" className="py-16 md:py-24 px-4 bg-background">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-heading text-foreground mb-4">Experience Kerala - right in Indiranagar</h2>
+          <h2 className="text-3xl md:text-5xl font-heading text-foreground mb-4">Get a Callback   </h2>
           <p className="text-muted-foreground text-base md:text-lg">Holistic healing made convenient</p>
         </div>
 
@@ -104,8 +104,8 @@ export const ContactSection = () => {
           <div>
             <div className="h-[400px] lg:h-[600px] rounded-lg overflow-hidden shadow-[var(--shadow-card)] border border-border">
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.0!2d76.2673!3d9.9312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwNTUnNTIuMyJOIDc2wrAxNicwMi4zIkU!5e0!3m2!1sen!2sin!4v1234567890" width="100%" height="100%" style={{
-              border: 0
-            }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Kerala Ayurveda Clinic Location" />
+                border: 0
+              }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Kerala Ayurveda Clinic Location" />
             </div>
           </div>
 
@@ -127,10 +127,10 @@ export const ContactSection = () => {
                 </label>
                 <div className="flex gap-2">
                   <Select value={formData.countryCode} onValueChange={value => setFormData({
-                  ...formData,
-                  countryCode: value,
-                  phone: ""
-                })}>
+                    ...formData,
+                    countryCode: value,
+                    phone: ""
+                  })}>
                     <SelectTrigger className="w-[110px]">
                       <SelectValue />
                     </SelectTrigger>
@@ -158,9 +158,9 @@ export const ContactSection = () => {
                     </PopoverTrigger>
                     <PopoverContent className="w-auto p-0" align="start">
                       <Calendar mode="single" selected={formData.date} onSelect={date => setFormData({
-                      ...formData,
-                      date
-                    })} disabled={date => date < new Date(new Date().setHours(0, 0, 0, 0))} initialFocus className={cn("p-3 pointer-events-auto")} />
+                        ...formData,
+                        date
+                      })} disabled={date => date < new Date(new Date().setHours(0, 0, 0, 0))} initialFocus className={cn("p-3 pointer-events-auto")} />
                     </PopoverContent>
                   </Popover>
                 </div>
@@ -169,9 +169,9 @@ export const ContactSection = () => {
                     Preferred Time
                   </label>
                   <Select value={formData.time} onValueChange={value => setFormData({
-                  ...formData,
-                  time: value
-                })}>
+                    ...formData,
+                    time: value
+                  })}>
                     <SelectTrigger className={cn("w-full justify-start text-left font-normal [&>svg.lucide-chevron-down]:hidden", !formData.time && "text-muted-foreground")}>
                       <Clock className="mr-2 h-4 w-4" />
                       <SelectValue placeholder="Select a time" />
@@ -190,9 +190,9 @@ export const ContactSection = () => {
                   Preferred Clinic
                 </label>
                 <Select value={formData.clinic} onValueChange={value => setFormData({
-                ...formData,
-                clinic: value
-              })}>
+                  ...formData,
+                  clinic: value
+                })}>
                   <SelectTrigger className="w-full">
                     <SelectValue placeholder="Select a clinic" />
                   </SelectTrigger>
