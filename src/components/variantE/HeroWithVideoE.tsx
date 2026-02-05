@@ -46,6 +46,59 @@ const videoTestimonials = [
   },
 ];
 
+const CredibilityMarkers = () => (
+  <div className="grid grid-cols-3 gap-3 md:gap-4">
+    {credibilityMarkers.map((marker, index) => {
+      const Icon = marker.icon;
+      return (
+        <div
+          key={index}
+          className="bg-primary-foreground/10 backdrop-blur-sm rounded-lg p-3 md:p-4 text-center border border-primary-foreground/20"
+        >
+          <Icon className="w-5 h-5 md:w-6 md:h-6 text-primary-foreground mx-auto mb-2" />
+          <p className="text-lg md:text-2xl font-heading text-primary-foreground font-bold">
+            {marker.value}
+          </p>
+          <p className="text-xs md:text-sm text-primary-foreground/80 leading-tight">
+            {marker.label}
+          </p>
+        </div>
+      );
+    })}
+  </div>
+);
+
+const VideoTestimonials = () => (
+  <div className="w-full md:w-[440px] overflow-hidden md:ml-auto">
+    <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 w-max">
+      {videoTestimonials.map((video, index) => (
+        <div
+          key={index}
+          className="flex-shrink-0 snap-start flex flex-col items-center"
+        >
+          <div className="relative w-[280px] md:w-[360px] aspect-[9/16] rounded-xl overflow-hidden shadow-2xl">
+            <iframe
+              src={`https://www.youtube.com/embed/${video.videoId}?rel=0&modestbranding=1`}
+              title={`${video.patientName} Testimonial Video`}
+              className="absolute inset-0 w-full h-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+          <div className="mt-4 text-center">
+            <p className="font-heading text-lg md:text-xl text-primary-foreground">
+              {video.patientName}
+            </p>
+            <p className="text-sm text-primary-foreground/80">
+              {video.condition}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
 export const HeroWithVideoE = () => {
   const [showContactOptions, setShowContactOptions] = useState(false);
   const [currentConditionIndex, setCurrentConditionIndex] = useState(0);
@@ -77,12 +130,39 @@ export const HeroWithVideoE = () => {
       </div>
 
       <div className="container mx-auto max-w-7xl px-4 h-full relative z-10">
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-          {/* Left Side - Hero Content */}
+        {/* Mobile Layout */}
+        <div className="md:hidden flex flex-col gap-6 animate-fade-in">
+          <div>
+            <h1 className="text-3xl font-heading text-primary-foreground leading-tight mb-4">
+              Looking to reset or struggling with a health concern?
+            </h1>
+            <p className="text-base text-primary-foreground/95 mb-6">
+              Get personalised and natural intervention for all your health and wellness needs
+            </p>
+            <Button
+              onClick={scrollToForm}
+              size="lg"
+              className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-lg text-base w-full py-6 hover-scale"
+            >
+              Request Doctor Consultation
+            </Button>
+          </div>
+
+          <VideoTestimonials />
+          <CredibilityMarkers />
+
+          <ContactOptionsModal
+            open={showContactOptions}
+            onOpenChange={setShowContactOptions}
+          />
+        </div>
+
+        {/* Desktop Layout */}
+        <div className="hidden md:grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           <div className="animate-fade-in">
-            <div className="mb-6 h-[160px] md:h-[180px] lg:h-[200px]">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading text-primary-foreground leading-tight">
-                <span className="font-light opacity-90 text-2xl md:text-3xl lg:text-4xl">Are you struggling with</span>
+            <div className="mb-6 h-[180px] lg:h-[200px]">
+              <h1 className="text-5xl lg:text-6xl font-heading text-primary-foreground leading-tight">
+                <span className="font-light opacity-90 text-3xl lg:text-4xl">Are you struggling with</span>
                 <br />
                 <span
                   key={currentConditionIndex}
@@ -92,7 +172,7 @@ export const HeroWithVideoE = () => {
                 </span>
               </h1>
             </div>
-            <p className="text-lg md:text-xl text-primary-foreground/95 mb-8">
+            <p className="text-xl text-primary-foreground/95 mb-8">
               Traditional healing wisdom meets personalized care for your
               complete wellness journey.
             </p>
@@ -100,7 +180,7 @@ export const HeroWithVideoE = () => {
               <Button
                 onClick={() => setShowContactOptions(true)}
                 size="lg"
-                className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-lg text-base md:text-lg px-8 py-6 hover-scale"
+                className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-lg text-lg px-8 py-6 hover-scale"
               >
                 Talk to Us
               </Button>
@@ -108,32 +188,13 @@ export const HeroWithVideoE = () => {
                 onClick={scrollToForm}
                 size="lg"
                 variant="outline"
-                className="bg-white/10 text-primary-foreground border-primary-foreground/20 hover:bg-white/20 text-base md:text-lg px-8 py-6"
+                className="bg-white/10 text-primary-foreground border-primary-foreground/20 hover:bg-white/20 text-lg px-8 py-6"
               >
                 Request Consultation
               </Button>
             </div>
 
-            {/* Credibility Markers */}
-            <div className="grid grid-cols-3 gap-3 md:gap-4">
-              {credibilityMarkers.map((marker, index) => {
-                const Icon = marker.icon;
-                return (
-                  <div
-                    key={index}
-                    className="bg-primary-foreground/10 backdrop-blur-sm rounded-lg p-3 md:p-4 text-center border border-primary-foreground/20"
-                  >
-                    <Icon className="w-5 h-5 md:w-6 md:h-6 text-primary-foreground mx-auto mb-2" />
-                    <p className="text-lg md:text-2xl font-heading text-primary-foreground font-bold">
-                      {marker.value}
-                    </p>
-                    <p className="text-xs md:text-sm text-primary-foreground/80 leading-tight">
-                      {marker.label}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
+            <CredibilityMarkers />
 
             <ContactOptionsModal
               open={showContactOptions}
@@ -141,35 +202,7 @@ export const HeroWithVideoE = () => {
             />
           </div>
 
-          {/* Right Side - Video Testimonials with Horizontal Scroll */}
-          <div className="w-[340px] md:w-[440px] overflow-hidden ml-auto">
-            <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 w-max">
-              {videoTestimonials.map((video, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 snap-start flex flex-col items-center"
-                >
-                  <div className="relative w-[300px] md:w-[360px] aspect-[9/16] rounded-xl overflow-hidden shadow-2xl">
-                    <iframe
-                      src={`https://www.youtube.com/embed/${video.videoId}?rel=0&modestbranding=1`}
-                      title={`${video.patientName} Testimonial Video`}
-                      className="absolute inset-0 w-full h-full"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    />
-                  </div>
-                  <div className="mt-4 text-center">
-                    <p className="font-heading text-lg md:text-xl text-primary-foreground">
-                      {video.patientName}
-                    </p>
-                    <p className="text-sm text-primary-foreground/80">
-                      {video.condition}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <VideoTestimonials />
         </div>
       </div>
     </section>
