@@ -1,5 +1,5 @@
  import { useState } from "react";
- import { Phone, Map, MapPin, User } from "lucide-react";
+ import { Phone, MapPin, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
  
 interface Clinic {
@@ -117,23 +117,21 @@ export const ClinicsGrid = () => {
            {/* Action Buttons */}
            <div className="flex flex-row md:flex-col gap-3 md:w-auto w-full">
              <button 
-               className="flex-1 md:flex-none h-11 px-4 rounded-lg bg-muted flex items-center justify-center gap-2 hover:bg-muted/80 transition-colors"
+               className="h-11 w-11 rounded-lg bg-muted flex items-center justify-center hover:bg-muted/80 transition-colors"
                onClick={() => openMaps(selectedClinic.address, selectedClinic.areaName)}
                aria-label="Open in maps"
              >
-               <Map className="h-5 w-5 text-primary" />
-               <span className="text-sm font-medium">Maps</span>
+               <MapPin className="h-5 w-5 text-primary" />
              </button>
              <button 
-               className="flex-1 md:flex-none h-11 px-4 rounded-lg bg-muted flex items-center justify-center gap-2 hover:bg-muted/80 transition-colors"
+               className="h-11 w-11 rounded-lg bg-muted flex items-center justify-center hover:bg-muted/80 transition-colors"
                onClick={handleCall}
                aria-label="Call clinic"
              >
                <Phone className="h-5 w-5 text-primary" />
-               <span className="text-sm font-medium">Call</span>
              </button>
              <Button 
-               className="flex-1 md:flex-none h-11"
+               className="flex-1 md:flex-none h-11 px-6"
                onClick={() => console.log(`Book visit at ${selectedClinic.id}`)}
              >
                Book Visit
