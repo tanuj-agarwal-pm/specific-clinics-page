@@ -33,21 +33,21 @@
    return (
      <section 
        aria-labelledby="unique-treatments-heading" 
-      className="relative py-16 md:py-24 px-4 overflow-hidden"
+      className="relative py-16 md:py-24 overflow-hidden"
      >
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
           src={uniqueTreatmentsBg}
           alt="Ayurvedic treatment in progress"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover scale-110"
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/40" />
       </div>
        
       <div className="container mx-auto max-w-7xl relative z-10">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 px-4">
           <h2 
             id="unique-treatments-heading"
             className="text-3xl md:text-5xl font-heading text-white mb-4"
@@ -59,7 +59,7 @@
           </p>
         </div>
 
-         <div className="relative overflow-hidden">
+         <div className="relative overflow-hidden w-full">
            <div className="flex gap-6 animate-scroll-fast" style={{ willChange: 'transform' }}>
              <div className="flex gap-6">
                {uniqueFeatures.map((feature, index) => {
