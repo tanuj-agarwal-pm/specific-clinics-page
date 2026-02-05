@@ -32,6 +32,9 @@ const videoTestimonials = [{
   patientName: "Meera Patel",
   condition: "Digestive Health",
   quote: "The holistic approach to treating my gut issues was life-changing. I feel healthier and more energetic than I have in years."
+}, {
+  type: "link" as const,
+  linkText: "Read more transformation experiences and stories"
 }];
 const CredibilityMarkers = () => <div className="grid grid-cols-3 gap-3 md:gap-4">
     {credibilityMarkers.map((marker, index) => {
@@ -48,14 +51,22 @@ const CredibilityMarkers = () => <div className="grid grid-cols-3 gap-3 md:gap-4
   })}
   </div>;
 const VideoTestimonials = () => <div className="w-[calc(100vw-2rem)] md:w-[440px] overflow-hidden md:ml-auto -mx-4 px-4 md:mx-0 md:px-0">
-    <div className="flex flex-col">
     <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scroll-smooth" style={{
     scrollbarWidth: 'none',
     msOverflowStyle: 'none'
   }}>
       {videoTestimonials.map((item, index) => <div key={index} className="flex-shrink-0 snap-start flex flex-col items-center">
           <div className="relative w-[70vw] md:w-[360px] aspect-[9/16] rounded-xl overflow-hidden shadow-2xl bg-black/20">
-            {item.type === "video" ? (
+            {item.type === "link" ? (
+              <a 
+                href="#testimonials" 
+                className="absolute inset-0 w-full h-full bg-primary/90 flex items-center justify-center p-8 text-center hover:bg-primary/95 transition-colors"
+              >
+                <span className="text-primary-foreground text-xl md:text-2xl font-heading leading-relaxed underline underline-offset-4">
+                  {item.linkText}
+                </span>
+              </a>
+            ) : item.type === "video" ? (
               <>
                 {item.videoSrc ? <video src={item.videoSrc} className="absolute inset-0 w-full h-full object-cover" controls playsInline /> : <div className="absolute inset-0 w-full h-full bg-black/40 flex items-center justify-center">
                     <span className="text-primary-foreground/60 text-sm">Video placeholder</span>
@@ -86,13 +97,6 @@ const VideoTestimonials = () => <div className="w-[calc(100vw-2rem)] md:w-[440px
             )}
           </div>
         </div>)}
-    </div>
-      <a 
-        href="#testimonials" 
-        className="text-primary-foreground hover:text-primary-foreground/80 underline underline-offset-4 text-sm md:text-base font-medium mt-2 inline-block"
-      >
-        Read all Testimonials
-      </a>
     </div>
   </div>;
 export const HeroWithVideoE = () => {
