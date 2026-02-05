@@ -1,7 +1,7 @@
 import { HeroWithVideoE } from "@/components/variantE/HeroWithVideoE";
 import { StickyHeader } from "@/components/StickyHeader";
 import { ConditionsSectionVariantA } from "@/components/ConditionsSectionVariantA";
-import { CareTeamSectionVariantA } from "@/components/CareTeamSectionVariantA";
+import { CareTeamSectionE } from "@/components/variantE/CareTeamSectionE";
 import { TreatmentsSection } from "@/components/TreatmentsSection";
 import { ApproachSectionVariantA } from "@/components/ApproachSectionVariantA";
 import { ContactSection } from "@/components/ContactSection";
@@ -12,7 +12,7 @@ const VariantE = () => {
       <StickyHeader />
       <HeroWithVideoE />
       <ConditionsSectionVariantA />
-      <CareTeamSectionVariantA />
+      <CareTeamSectionE />
       <ApproachSectionVariantA />
       <TreatmentsSection />
       <ContactSection />
