@@ -99,13 +99,6 @@ export const ContactSection = () => {
       </div>
     </section>
 
-    {/* Clinics Section */}
-    <section className="py-16 md:py-24 px-4 bg-card">
-      <div className="container mx-auto max-w-7xl">
-        <ClinicsGrid />
-      </div>
-    </section>
-
     <section id="contact-form" className="py-16 md:py-24 px-4 bg-background">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12">
@@ -246,6 +239,13 @@ export const ContactSection = () => {
             <a href="tel:+1234567890" className="text-primary hover:text-accent font-semibold transition-colors underline">Call</a> or <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-accent font-semibold transition-colors underline">WhatsApp</a> to book an appointment in any of these cities
           </p>
         </div>
+      </div>
+    </section>
+
+    {/* Clinics Section */}
+    <section className="py-16 md:py-24 px-4 bg-card">
+      <div className="container mx-auto max-w-7xl">
+        <ClinicsGrid />
       </div>
     </section>
   </>;
