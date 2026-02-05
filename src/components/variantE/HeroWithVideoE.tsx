@@ -11,7 +11,7 @@ const credibilityMarkers = [{
 }, {
   icon: Users,
   value: "10 Lacs+",
-  label: "Patients Treated & Massages Delivered"
+  label: "Patients Treated and Massages Done"
 }, {
   icon: Heart,
   value: "300+",
