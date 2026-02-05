@@ -94,7 +94,7 @@ export const HeroWithVideoE = () => {
               Looking to reset or struggling with a health concern?
             </h1>
             <p className="text-base text-primary-foreground/95 mb-6">
-              Get personalised and natural intervention for all your health and wellness needs
+              Get personalised and natural Ayurvedic intervention for all your health and wellness needs
             </p>
             <Button onClick={scrollToForm} size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-lg text-base w-full py-6 hover-scale">
               Request Appointment
