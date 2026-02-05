@@ -69,15 +69,15 @@ const VideoTestimonials = () => <div className="w-[calc(100vw-2rem)] md:w-[440px
                 </div>
               </>
             ) : (
-              <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-primary/80 to-primary flex flex-col justify-center p-6">
-                <p className="text-primary-foreground text-base md:text-lg leading-relaxed mb-6 italic">
+              <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-amber-50 to-amber-100 flex flex-col justify-center p-6">
+                <p className="text-foreground text-base md:text-lg leading-relaxed mb-6 italic">
                   "{item.quote}"
                 </p>
                 <div className="mt-auto">
-                  <p className="font-heading text-lg text-primary-foreground font-semibold">
+                  <p className="font-heading text-lg text-foreground font-semibold">
                     {item.patientName}
                   </p>
-                  <p className="text-sm text-primary-foreground/80">
+                  <p className="text-sm text-muted-foreground">
                     {item.condition}
                   </p>
                 </div>
