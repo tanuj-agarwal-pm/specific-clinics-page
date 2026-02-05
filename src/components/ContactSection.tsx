@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Calendar as CalendarIcon, Clock, PhoneIncoming } from "lucide-react";
 import { ClinicsGrid } from "@/components/ClinicsGrid";
-import { FAQSection } from "@/components/FAQSection";
+ import { FAQSection } from "@/components/FAQSection";
 import { format } from "date-fns";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -92,6 +92,13 @@ export const ContactSection = () => {
     }
   };
   return <>
+    {/* FAQ Section */}
+    <section className="py-16 md:py-24 px-4 bg-background">
+      <div className="container mx-auto max-w-7xl">
+        <FAQSection />
+      </div>
+    </section>
+
     {/* Clinics Section */}
     <section className="py-16 md:py-24 px-4 bg-card">
       <div className="container mx-auto max-w-7xl">
@@ -239,13 +246,6 @@ export const ContactSection = () => {
             <a href="tel:+1234567890" className="text-primary hover:text-accent font-semibold transition-colors underline">Call</a> or <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-accent font-semibold transition-colors underline">WhatsApp</a> to book an appointment in any of these cities
           </p>
         </div>
-      </div>
-    </section>
-
-    {/* FAQ Section */}
-    <section className="py-16 md:py-24 px-4 bg-background">
-      <div className="container mx-auto max-w-7xl">
-        <FAQSection />
       </div>
     </section>
   </>;
