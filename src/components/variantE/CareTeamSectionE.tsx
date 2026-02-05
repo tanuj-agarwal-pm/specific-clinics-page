@@ -3,6 +3,7 @@
  import { Card } from "@/components/ui/card";
  import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
  import { Button } from "@/components/ui/button";
+import careTeamBg from "@/assets/care-team-bg.jpg";
  
  const doctors = [{
    name: "Dr. Sreelakshmiraj M",
@@ -42,8 +43,19 @@
    };
  
    return (
-     <section className="py-16 md:py-24 px-4 bg-card">
-       <div className="container mx-auto max-w-7xl">
+    <section className="relative py-16 md:py-24 px-4 overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img
+          src={careTeamBg}
+          alt="Team of expert Ayurvedic doctors"
+          className="w-full h-full object-cover"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-background/85" />
+      </div>
+
+      <div className="container mx-auto max-w-7xl relative z-10">
          <div className="text-center mb-12">
            <h2 className="text-3xl md:text-5xl font-heading text-foreground mb-4">
              Our Expert Care Team
