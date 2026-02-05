@@ -110,11 +110,11 @@ export const ConditionsSectionVariantA = () => {
                 <div className="bg-accent/10 text-accent w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mb-2 md:mb-4">
                   <Icon className="w-6 h-6 md:w-8 md:h-8" />
                 </div>
-                <h3 className="text-sm md:text-lg font-heading text-accent md:mb-2">
+                <h3 className="text-sm md:text-lg font-heading font-bold text-accent md:mb-2">
                   {item.title}
                 </h3>
                 {'benefit' in item && (item as { benefit?: string }).benefit && (
-                  <p className="text-xs text-primary font-medium md:hidden">
+                  <p className="text-xs text-primary font-normal md:hidden">
                     {(item as { benefit?: string }).benefit}
                   </p>
                 )}
