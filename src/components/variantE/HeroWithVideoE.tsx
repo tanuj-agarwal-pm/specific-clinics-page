@@ -18,15 +18,20 @@ const credibilityMarkers = [{
   label: "Vaidyas Dedicated to Your Care"
 }];
 const videoTestimonials = [{
-  // Placeholder video - replace with actual testimonial video URL
+  type: "video" as const,
   videoSrc: "",
   patientName: "Priya Sharma",
   condition: "PCOS Recovery Journey"
 }, {
-  // Placeholder video - replace with actual testimonial video URL
-  videoSrc: "",
+  type: "text" as const,
   patientName: "Rajesh Kumar",
-  condition: "Joint Pain Recovery"
+  condition: "Joint Pain Recovery",
+  quote: "After years of joint pain, I found relief through Ayurvedic treatments. The personalized care and natural approach made all the difference in my recovery journey."
+}, {
+  type: "text" as const,
+  patientName: "Meera Patel",
+  condition: "Digestive Health",
+  quote: "The holistic approach to treating my gut issues was life-changing. I feel healthier and more energetic than I have in years."
 }];
 const CredibilityMarkers = () => <div className="grid grid-cols-3 gap-3 md:gap-4">
     {credibilityMarkers.map((marker, index) => {
@@ -47,20 +52,37 @@ const VideoTestimonials = () => <div className="w-[calc(100vw-2rem)] md:w-[440px
     scrollbarWidth: 'none',
     msOverflowStyle: 'none'
   }}>
-      {videoTestimonials.map((video, index) => <div key={index} className="flex-shrink-0 snap-start flex flex-col items-center">
+      {videoTestimonials.map((item, index) => <div key={index} className="flex-shrink-0 snap-start flex flex-col items-center">
           <div className="relative w-[70vw] md:w-[360px] aspect-[9/16] rounded-xl overflow-hidden shadow-2xl bg-black/20">
-            {video.videoSrc ? <video src={video.videoSrc} className="absolute inset-0 w-full h-full object-cover" controls playsInline /> : <div className="absolute inset-0 w-full h-full bg-black/40 flex items-center justify-center">
-                <span className="text-primary-foreground/60 text-sm">Video placeholder</span>
-              </div>}
-            {/* Name and condition overlay */}
-            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-              <p className="font-heading text-lg text-white font-semibold">
-                {video.patientName}
-              </p>
-              <p className="text-sm text-white/80">
-                {video.condition}
-              </p>
-            </div>
+            {item.type === "video" ? (
+              <>
+                {item.videoSrc ? <video src={item.videoSrc} className="absolute inset-0 w-full h-full object-cover" controls playsInline /> : <div className="absolute inset-0 w-full h-full bg-black/40 flex items-center justify-center">
+                    <span className="text-primary-foreground/60 text-sm">Video placeholder</span>
+                  </div>}
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                  <p className="font-heading text-lg text-white font-semibold">
+                    {item.patientName}
+                  </p>
+                  <p className="text-sm text-white/80">
+                    {item.condition}
+                  </p>
+                </div>
+              </>
+            ) : (
+              <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-primary/80 to-primary flex flex-col justify-center p-6">
+                <p className="text-primary-foreground text-base md:text-lg leading-relaxed mb-6 italic">
+                  "{item.quote}"
+                </p>
+                <div className="mt-auto">
+                  <p className="font-heading text-lg text-primary-foreground font-semibold">
+                    {item.patientName}
+                  </p>
+                  <p className="text-sm text-primary-foreground/80">
+                    {item.condition}
+                  </p>
+                </div>
+              </div>
+            )}
           </div>
         </div>)}
     </div>
