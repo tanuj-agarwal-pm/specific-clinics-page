@@ -33,25 +33,32 @@
    return (
      <section 
        aria-labelledby="unique-treatments-heading" 
-       className="relative py-12 md:py-16 overflow-hidden"
+      className="relative py-16 md:py-24 px-4 overflow-hidden"
      >
-       {/* Background image with overlay */}
-       <div 
-         className="absolute inset-0 bg-cover bg-center"
-         style={{ backgroundImage: `url(${uniqueTreatmentsBg})` }}
-       />
-       <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/75" />
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img
+          src={uniqueTreatmentsBg}
+          alt="Ayurvedic treatment in progress"
+          className="w-full h-full object-cover"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/40" />
+      </div>
        
-       <div className="container mx-auto max-w-7xl px-4 relative z-10">
-         <h2 
-           id="unique-treatments-heading"
-           className="text-xl md:text-2xl font-heading text-foreground mb-6 text-center md:text-left"
-         >
-           What Makes Our Treatments Unique
-         </h2>
-         <p className="text-sm md:text-base text-muted-foreground mb-6 text-center md:text-left max-w-2xl">
-           Our proprietary treatments curated as per classical texts utilise authentic products to ensure maximum benefits.
-         </p>
+      <div className="container mx-auto max-w-7xl relative z-10">
+        <div className="text-center mb-12">
+          <h2 
+            id="unique-treatments-heading"
+            className="text-3xl md:text-5xl font-heading text-white mb-4"
+          >
+            What Makes Our Treatments Unique
+          </h2>
+          <p className="text-white/80 text-base md:text-lg max-w-2xl mx-auto">
+            Our proprietary treatments curated as per classical texts utilise authentic products to ensure maximum benefits.
+          </p>
+        </div>
+
          <div className="relative overflow-hidden">
            <div className="flex gap-6 animate-scroll-fast" style={{ willChange: 'transform' }}>
              <div className="flex gap-6">
@@ -60,13 +67,13 @@
                  return (
                    <div
                      key={`g1-${index}`}
-                     className="flex-shrink-0 w-64 bg-card/50 border border-border/50 rounded-lg px-5 py-4 backdrop-blur-sm"
+                    className="flex-shrink-0 w-64 bg-white/10 border border-white/20 rounded-lg px-5 py-4 backdrop-blur-sm"
                    >
                      <div className="flex items-start gap-3">
-                       <div className={`flex-shrink-0 mt-0.5 text-primary ${feature.animation}`}>
+                      <div className={`flex-shrink-0 mt-0.5 text-white ${feature.animation}`}>
                          <Icon className="h-5 w-5" strokeWidth={1.5} />
                        </div>
-                       <p className="text-sm text-foreground leading-relaxed">
+                      <p className="text-sm text-white/90 leading-relaxed">
                          {feature.text}
                        </p>
                      </div>
@@ -80,13 +87,13 @@
                  return (
                    <div
                      key={`g2-${index}`}
-                     className="flex-shrink-0 w-64 bg-card/50 border border-border/50 rounded-lg px-5 py-4 backdrop-blur-sm"
+                    className="flex-shrink-0 w-64 bg-white/10 border border-white/20 rounded-lg px-5 py-4 backdrop-blur-sm"
                    >
                      <div className="flex items-start gap-3">
-                       <div className={`flex-shrink-0 mt-0.5 text-primary ${feature.animation}`}>
+                      <div className={`flex-shrink-0 mt-0.5 text-white ${feature.animation}`}>
                          <Icon className="h-5 w-5" strokeWidth={1.5} />
                        </div>
-                       <p className="text-sm text-foreground leading-relaxed">
+                      <p className="text-sm text-white/90 leading-relaxed">
                          {feature.text}
                        </p>
                      </div>
