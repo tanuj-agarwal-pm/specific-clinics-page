@@ -99,10 +99,10 @@ export const ConditionsSectionVariantA = ({ onTabChange }: ConditionsSectionVari
           
           {/* Tab Chips */}
           <div className="inline-flex justify-center gap-2 p-1.5 bg-muted/50 rounded-full border border-border">
-            <button onClick={() => handleTabChange("conditions")} className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeTab === "conditions" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground animate-[pulse_1.5s_ease-in-out_3]"}`}>
+            <button onClick={() => handleTabChange("conditions")} className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeTab === "conditions" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground animate-gentle-glow"}`}>
               Conditions We Support
             </button>
-            <button onClick={() => handleTabChange("therapies")} className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeTab === "therapies" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground animate-[pulse_1.5s_ease-in-out_3]"}`}>
+            <button onClick={() => handleTabChange("therapies")} className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeTab === "therapies" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground animate-gentle-glow"}`}>
               Therapies & Massages
             </button>
           </div>
