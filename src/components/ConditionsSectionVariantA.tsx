@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { Bone, Apple, Leaf, Gauge, HeartPulse, HeartHandshake, Baby, Wind, Moon, Droplets, ChevronDown, ChevronUp } from "lucide-react";
 import { Heart, Flower2, Sparkles } from "lucide-react";
+
+interface ConditionsSectionVariantAProps {
+  onTabChange?: (tab: "conditions" | "therapies") => void;
+}
+
 const conditions = [{
   icon: Leaf,
   title: "Skin and Hair",
@@ -73,10 +78,17 @@ const therapies = [{
   description: "A comprehensive classical Ayurvedic healing program that combines preparatory, cleansing, and restorative treatments.",
   benefit: "Deep detox & rejuvenation"
 }];
-export const ConditionsSectionVariantA = () => {
+export const ConditionsSectionVariantA = ({ onTabChange }: ConditionsSectionVariantAProps) => {
   const [showAll, setShowAll] = useState(false);
   const [activeTab, setActiveTab] = useState<"conditions" | "therapies">("conditions");
   const currentItems = activeTab === "conditions" ? conditions : therapies;
+
+  const handleTabChange = (tab: "conditions" | "therapies") => {
+    setActiveTab(tab);
+    setShowAll(false);
+    onTabChange?.(tab);
+  };
+
   return <section className="py-16 md:py-24 px-4 bg-background">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12">
@@ -87,16 +99,10 @@ export const ConditionsSectionVariantA = () => {
           
           {/* Tab Chips */}
           <div className="inline-flex justify-center gap-2 p-1.5 bg-muted/50 rounded-full border border-border">
-            <button onClick={() => {
-            setActiveTab("conditions");
-            setShowAll(false);
-          }} className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeTab === "conditions" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}>
+            <button onClick={() => handleTabChange("conditions")} className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeTab === "conditions" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}>
               Conditions We Support
             </button>
-            <button onClick={() => {
-            setActiveTab("therapies");
-            setShowAll(false);
-          }} className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeTab === "therapies" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}>
+            <button onClick={() => handleTabChange("therapies")} className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeTab === "therapies" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}>
               Therapies & Massages
             </button>
           </div>
