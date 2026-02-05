@@ -98,11 +98,11 @@ export const ConditionsSectionVariantA = ({ onTabChange }: ConditionsSectionVari
           </p>
           
           {/* Tab Chips */}
-          <div className="inline-flex justify-center gap-2 p-1.5 bg-muted/50 rounded-full border border-border animate-[pulse_2s_ease-in-out_3] shadow-[0_0_0_0_hsl(var(--primary)/0.4)]">
-            <button onClick={() => handleTabChange("conditions")} className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeTab === "conditions" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}>
+          <div className="inline-flex justify-center gap-2 p-1.5 bg-muted/50 rounded-full border border-border">
+            <button onClick={() => handleTabChange("conditions")} className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeTab === "conditions" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground animate-[pulse_1.5s_ease-in-out_3]"}`}>
               Conditions We Support
             </button>
-            <button onClick={() => handleTabChange("therapies")} className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeTab === "therapies" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}>
+            <button onClick={() => handleTabChange("therapies")} className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeTab === "therapies" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground animate-[pulse_1.5s_ease-in-out_3]"}`}>
               Therapies & Massages
             </button>
           </div>
