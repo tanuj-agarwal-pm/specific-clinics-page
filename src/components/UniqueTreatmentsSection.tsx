@@ -1,4 +1,5 @@
  import { Stethoscope, Flame, HandHeart, Activity, Check } from "lucide-react";
+ import uniqueTreatmentsBg from "@/assets/unique-treatments-bg.jpg";
  
  const uniqueFeatures = [
    {
@@ -32,9 +33,16 @@
    return (
      <section 
        aria-labelledby="unique-treatments-heading" 
-       className="relative py-12 md:py-16 bg-secondary/30 overflow-hidden"
+       className="relative py-12 md:py-16 overflow-hidden"
      >
-       <div className="container mx-auto max-w-7xl px-4">
+       {/* Background image with overlay */}
+       <div 
+         className="absolute inset-0 bg-cover bg-center"
+         style={{ backgroundImage: `url(${uniqueTreatmentsBg})` }}
+       />
+       <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/75" />
+       
+       <div className="container mx-auto max-w-7xl px-4 relative z-10">
          <h2 
            id="unique-treatments-heading"
            className="text-xl md:text-2xl font-heading text-foreground mb-6 text-center md:text-left"
