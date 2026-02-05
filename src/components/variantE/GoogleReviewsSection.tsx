@@ -1,4 +1,4 @@
- import { useState } from "react";
+ import { useState, useRef, useEffect } from "react";
  import { Star } from "lucide-react";
  
  const reviews = [
@@ -26,6 +26,35 @@
  
  export const GoogleReviewsSection = () => {
    const [expandedReview, setExpandedReview] = useState<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      const scrollLeft = container.scrollLeft;
+      const cardWidth = container.firstElementChild?.clientWidth || 280;
+      const gap = 16; // gap-4 = 1rem = 16px
+      const index = Math.round(scrollLeft / (cardWidth + gap));
+      setActiveIndex(Math.min(index, reviews.length - 1));
+    };
+
+    container.addEventListener("scroll", handleScroll, { passive: true });
+    return () => container.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToIndex = (index: number) => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+    const cardWidth = container.firstElementChild?.clientWidth || 280;
+    const gap = 16;
+    container.scrollTo({
+      left: index * (cardWidth + gap),
+      behavior: "smooth",
+    });
+  };
  
    return (
      <section className="py-16 md:py-24 px-4 bg-background">
@@ -39,7 +68,10 @@
          </div>
  
          {/* Reviews Grid */}
-        <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-6 md:overflow-visible md:pb-0">
+        <div
+          ref={scrollContainerRef}
+          className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-6 md:overflow-visible md:pb-0 scrollbar-hide"
+        >
            {reviews.map((review, index) => {
              const isExpanded = expandedReview === index;
              const shouldTruncate = review.text.length > 120;
@@ -119,6 +151,22 @@
              );
            })}
          </div>
+
+        {/* Dot Indicators - Mobile Only */}
+        <div className="flex justify-center gap-2 mt-4 md:hidden">
+          {reviews.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => scrollToIndex(index)}
+              className={`w-2 h-2 rounded-full transition-all ${
+                activeIndex === index
+                  ? "bg-primary w-6"
+                  : "bg-muted-foreground/30"
+              }`}
+              aria-label={`Go to review ${index + 1}`}
+            />
+          ))}
+        </div>
        </div>
      </section>
    );
