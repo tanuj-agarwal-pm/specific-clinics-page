@@ -7,7 +7,7 @@ import heroTreatment from "@/assets/hero-treatment.jpg";
 const credibilityMarkers = [{
   icon: Award,
   value: "80+",
-  label: "Years of Excellence in Care"
+  label: "years of excellence in authentic care"
 }, {
   icon: Users,
   value: "10 Lacs+",
