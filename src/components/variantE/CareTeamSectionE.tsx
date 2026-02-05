@@ -189,48 +189,48 @@ import careTeamBg from "@/assets/care-team-bg.jpg";
          </div>
        </div>
  
-       {/* Doctor Profile Dialog */}
-       <Dialog open={selectedDoctor !== null} onOpenChange={() => setSelectedDoctor(null)}>
-         <DialogContent className="max-w-2xl mx-4 sm:mx-auto">
-           {selectedDoctor !== null && (
-             <>
-               <DialogHeader>
-                 <DialogTitle className="text-2xl">{doctors[selectedDoctor].name}</DialogTitle>
-                 <DialogDescription className="text-base">
-                   {doctors[selectedDoctor].qualification}
-                 </DialogDescription>
-               </DialogHeader>
-               <div className="space-y-4 pt-4 px-1 sm:px-0">
-                 <div className="flex items-center gap-4">
-                   <img
-                     src={doctors[selectedDoctor].image}
-                     alt={doctors[selectedDoctor].name}
-                     className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-4 border-primary flex-shrink-0"
-                   />
-                   <div>
-                     <p className="text-foreground font-medium text-base sm:text-lg mb-1">
-                       {doctors[selectedDoctor].specialization}
-                     </p>
-                     <div className="flex items-center gap-2 text-muted-foreground text-sm sm:text-base">
-                       <Award className="w-4 h-4" />
-                       <span>{doctors[selectedDoctor].experience} of experience</span>
-                     </div>
-                     <p className="text-muted-foreground text-xs sm:text-sm mt-1">
-                       Practicing since {doctors[selectedDoctor].practicingSince}
-                     </p>
-                   </div>
-                 </div>
-                 <div>
-                   <h4 className="font-heading text-lg mb-2">About</h4>
-                   <p className="text-muted-foreground leading-relaxed">
-                     {doctors[selectedDoctor].description}
-                   </p>
-                 </div>
-               </div>
-             </>
-           )}
-         </DialogContent>
-       </Dialog>
-     </section>
+        {/* Doctor Profile Dialog */}
+        <Dialog open={selectedDoctor !== null} onOpenChange={() => setSelectedDoctor(null)}>
+          <DialogContent className="max-w-2xl w-[calc(100vw-2rem)] mx-auto max-h-[85vh] overflow-y-auto">
+            {selectedDoctor !== null && (
+              <div className="flex flex-col items-center text-center">
+                <DialogHeader className="w-full">
+                  <DialogTitle className="text-xl sm:text-2xl text-center">{doctors[selectedDoctor].name}</DialogTitle>
+                  <DialogDescription className="text-sm sm:text-base text-center">
+                    {doctors[selectedDoctor].qualification}
+                  </DialogDescription>
+                </DialogHeader>
+                <div className="space-y-4 pt-4 w-full">
+                  <div className="flex flex-col items-center gap-3">
+                    <img
+                      src={doctors[selectedDoctor].image}
+                      alt={doctors[selectedDoctor].name}
+                      className="w-24 h-24 rounded-full object-cover border-4 border-primary"
+                    />
+                    <div className="text-center">
+                      <p className="text-foreground font-medium text-base sm:text-lg mb-1">
+                        {doctors[selectedDoctor].specialization}
+                      </p>
+                      <div className="flex items-center justify-center gap-2 text-muted-foreground text-sm sm:text-base">
+                        <Award className="w-4 h-4" />
+                        <span>{doctors[selectedDoctor].experience} of experience</span>
+                      </div>
+                      <p className="text-muted-foreground text-xs sm:text-sm mt-1">
+                        Practicing since {doctors[selectedDoctor].practicingSince}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <h4 className="font-heading text-lg mb-2">About</h4>
+                    <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
+                      {doctors[selectedDoctor].description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </DialogContent>
+        </Dialog>
+      </section>
    );
  };
