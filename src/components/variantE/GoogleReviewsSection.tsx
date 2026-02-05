@@ -39,7 +39,7 @@
          </div>
  
          {/* Reviews Grid */}
-         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-6 md:overflow-visible md:pb-0">
            {reviews.map((review, index) => {
              const isExpanded = expandedReview === index;
              const shouldTruncate = review.text.length > 120;
@@ -50,7 +50,7 @@
              return (
                <div
                  key={index}
-                 className="bg-card rounded-xl p-5 md:p-6 shadow-sm border border-border flex flex-col"
+                className="bg-card rounded-xl p-5 md:p-6 shadow-sm border border-border flex flex-col min-w-[280px] w-[80vw] flex-shrink-0 snap-center md:min-w-0 md:w-auto md:flex-shrink"
                >
                  {/* Star Rating */}
                  <div className="flex gap-0.5 mb-3">
