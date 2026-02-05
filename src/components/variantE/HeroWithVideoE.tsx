@@ -54,8 +54,7 @@ const VideoTestimonials = () => <div className="w-[calc(100vw-2rem)] md:w-[440px
   }}>
       {videoTestimonials.map((item, index) => <div key={index} className="flex-shrink-0 snap-start flex flex-col items-center">
           <div className="relative w-[70vw] md:w-[360px] aspect-[9/16] rounded-xl overflow-hidden shadow-2xl bg-black/20">
-            {item.type === "video" ? (
-              <>
+            {item.type === "video" ? <>
                 {item.videoSrc ? <video src={item.videoSrc} className="absolute inset-0 w-full h-full object-cover" controls playsInline /> : <div className="absolute inset-0 w-full h-full bg-black/40 flex items-center justify-center">
                     <span className="text-primary-foreground/60 text-sm">Video placeholder</span>
                   </div>}
@@ -67,9 +66,7 @@ const VideoTestimonials = () => <div className="w-[calc(100vw-2rem)] md:w-[440px
                     {item.condition}
                   </p>
                 </div>
-              </>
-            ) : (
-              <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-amber-50 to-amber-100 flex flex-col justify-center p-6">
+              </> : <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-amber-50 to-amber-100 flex flex-col justify-center p-6">
                 <p className="text-foreground text-base md:text-lg leading-relaxed mb-6 italic">
                   "{item.quote}"
                 </p>
@@ -81,8 +78,7 @@ const VideoTestimonials = () => <div className="w-[calc(100vw-2rem)] md:w-[440px
                     {item.condition}
                   </p>
                 </div>
-              </div>
-            )}
+              </div>}
           </div>
         </div>)}
     </div>
@@ -119,7 +115,7 @@ export const HeroWithVideoE = () => {
               Get personalised and natural Ayurvedic intervention for all your health and wellness needs
             </p>
             <Button onClick={scrollToForm} size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-lg text-base w-full py-6 hover-scale">
-              Request Doctor Appointment
+              Request Doctor Consultation
             </Button>
             <Button onClick={scrollToForm} size="lg" variant="outline" className="bg-white/10 text-primary-foreground border-primary-foreground/20 hover:bg-white/20 text-base w-full py-6 mt-3">
               Book an Ayurvedic Massage
