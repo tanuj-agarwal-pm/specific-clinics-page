@@ -97,7 +97,10 @@ export const HeroWithVideoE = () => {
               Get personalised and natural Ayurvedic intervention for all your health and wellness needs
             </p>
             <Button onClick={scrollToForm} size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-lg text-base w-full py-6 hover-scale">
-              Request Appointment
+              Request Doctor Appointment
+            </Button>
+            <Button onClick={scrollToForm} size="lg" variant="outline" className="bg-white/10 text-primary-foreground border-primary-foreground/20 hover:bg-white/20 text-base w-full py-6">
+              Book an Ayurvedic Massage
             </Button>
           </div>
 
@@ -124,11 +127,11 @@ export const HeroWithVideoE = () => {
               complete wellness journey.
             </p>
             <div className="flex flex-wrap gap-4 mb-8">
-              <Button onClick={() => setShowContactOptions(true)} size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-lg text-lg px-8 py-6 hover-scale">
-                Talk to Us
+              <Button onClick={scrollToForm} size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-lg text-lg px-8 py-6 hover-scale">
+                Request Doctor Appointment
               </Button>
-              <Button onClick={scrollToForm} size="lg" variant="outline" className="bg-white/10 text-primary-foreground border-primary-foreground/20 hover:bg-white/20 text-lg px-8 py-6">
-                Request Consultation
+              <Button onClick={() => setShowContactOptions(true)} size="lg" variant="outline" className="bg-white/10 text-primary-foreground border-primary-foreground/20 hover:bg-white/20 text-lg px-8 py-6">
+                Book an Ayurvedic Massage
               </Button>
             </div>
 
