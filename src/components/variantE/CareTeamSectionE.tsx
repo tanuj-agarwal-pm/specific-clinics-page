@@ -28,6 +28,62 @@ import careTeamBg from "@/assets/care-team-bg.jpg";
    practicingSince: "2013",
    image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=400&fit=crop",
    description: "Dr. Priya Nair focuses on rejuvenation therapies and lifestyle medicine, helping patients achieve optimal health through personalized Ayurvedic treatments and holistic wellness programs."
+}, {
+  name: "Dr. Arun Krishnan",
+  qualification: "BAMS, MD",
+  specialization: "Panchakarma Therapy",
+  experience: "15 years",
+  practicingSince: "2010",
+  image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=400&h=400&fit=crop",
+  description: "Dr. Arun Krishnan is a Panchakarma specialist with extensive experience in detoxification and purification therapies for chronic conditions."
+}, {
+  name: "Dr. Meera Sundaram",
+  qualification: "BAMS",
+  specialization: "Pediatric Ayurveda",
+  experience: "8 years",
+  practicingSince: "2017",
+  image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop",
+  description: "Dr. Meera Sundaram specializes in pediatric Ayurveda, providing gentle and effective treatments for children's health conditions."
+}, {
+  name: "Dr. Venkatesh Rao",
+  qualification: "BAMS, PhD",
+  specialization: "Neurological Disorders",
+  experience: "18 years",
+  practicingSince: "2007",
+  image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&h=400&fit=crop",
+  description: "Dr. Venkatesh Rao brings expertise in treating neurological disorders through traditional Ayurvedic methods and specialized therapies."
+}, {
+  name: "Dr. Lakshmi Menon",
+  qualification: "BAMS, MS",
+  specialization: "Skin & Hair Care",
+  experience: "10 years",
+  practicingSince: "2015",
+  image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=400&fit=crop",
+  description: "Dr. Lakshmi Menon specializes in Ayurvedic dermatology, treating skin conditions and hair problems with herbal remedies."
+}, {
+  name: "Dr. Suresh Pillai",
+  qualification: "BAMS",
+  specialization: "Digestive Health",
+  experience: "14 years",
+  practicingSince: "2011",
+  image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop",
+  description: "Dr. Suresh Pillai focuses on digestive health and gut-related disorders, using traditional Ayurvedic treatments for lasting relief."
+}, {
+  name: "Dr. Anjali Sharma",
+  qualification: "BAMS, MD",
+  specialization: "Respiratory Disorders",
+  experience: "11 years",
+  practicingSince: "2014",
+  image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop",
+  description: "Dr. Anjali Sharma treats respiratory conditions including asthma, allergies, and chronic bronchitis through Ayurvedic therapies."
+}, {
+  name: "Dr. Karthik Nambiar",
+  qualification: "BAMS, PhD",
+  specialization: "Joint & Bone Health",
+  experience: "16 years",
+  practicingSince: "2009",
+  image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=400&h=400&fit=crop",
+  description: "Dr. Karthik Nambiar specializes in musculoskeletal disorders, providing relief from joint pain, arthritis, and bone-related conditions."
  }];
  
  export const CareTeamSectionE = () => {
