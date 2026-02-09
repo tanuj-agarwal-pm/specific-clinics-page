@@ -155,11 +155,11 @@ import careTeamBg from "@/assets/care-team-bg.jpg";
                 className="p-5 shadow-[var(--shadow-card)] cursor-pointer hover:shadow-lg transition-shadow snap-center flex-shrink-0 w-[80vw] md:w-[340px]"
                 onClick={() => setSelectedDoctor(index)}
               >
-                <div className="flex items-center gap-4 h-[88px]">
+                <div className="flex items-center gap-4 h-[112px]">
                   <img
                     src={doctor.image}
                     alt={doctor.name}
-                    className="w-20 h-20 rounded-full object-cover border-2 border-primary flex-shrink-0"
+                    className="w-24 h-24 rounded-full object-cover border-2 border-primary flex-shrink-0"
                   />
                   <div className="flex-1 min-w-0 flex flex-col justify-between h-full py-1">
                     <h4 className="text-base md:text-lg font-heading text-foreground line-clamp-2 leading-tight">
