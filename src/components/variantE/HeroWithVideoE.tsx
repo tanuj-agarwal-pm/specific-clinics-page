@@ -36,15 +36,17 @@ const videoTestimonials = [{
 const CredibilityMarkers = () => <div className="grid grid-cols-3 gap-3 md:gap-4">
     {credibilityMarkers.map((marker, index) => {
     const Icon = marker.icon;
-    return <div key={index} className="bg-background/90 backdrop-blur-sm rounded-2xl p-4 md:p-5 text-center shadow-lg">
-          <p className="text-3xl md:text-4xl font-heading text-foreground font-bold leading-none">
-            {marker.value}
-          </p>
-          <p className="text-xs md:text-sm text-muted-foreground mt-1 font-medium">
-            {marker.label}
-          </p>
-          <div className="mt-2 inline-flex items-center justify-center w-8 h-8 rounded-full bg-muted">
-            <Icon className="w-4 h-4 text-primary" />
+    return <div key={index} className="relative pb-5">
+          <div className="bg-background/90 backdrop-blur-sm rounded-2xl p-5 md:p-6 text-center shadow-lg">
+            <p className="text-4xl md:text-5xl font-heading text-foreground font-bold leading-none">
+              {marker.value}
+            </p>
+            <p className="text-sm md:text-base text-muted-foreground mt-2 font-medium">
+              {marker.label}
+            </p>
+          </div>
+          <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-background shadow-md flex items-center justify-center">
+            <Icon className="w-5 h-5 text-primary" />
           </div>
         </div>;
   })}
