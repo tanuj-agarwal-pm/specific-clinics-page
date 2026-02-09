@@ -10,7 +10,7 @@ const credibilityMarkers = [{
   label: "Years of Excellence"
 }, {
   icon: Users,
-  value: "10 Lacs+",
+  value: "10L+",
   label: "Patients Treated"
 }, {
   icon: Heart,
