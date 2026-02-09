@@ -165,7 +165,7 @@ import careTeamBg from "@/assets/care-team-bg.jpg";
                      <p className="text-sm text-muted-foreground line-clamp-2 leading-snug">{doctor.specialization}</p>
                      <div className="flex items-center gap-2 text-muted-foreground">
                        <Award className="w-4 h-4 flex-shrink-0" />
-                       <span className="text-sm">{doctor.experience} of experience</span>
+                       <span className="text-sm">{doctor.experience}</span>
                      </div>
                    </div>
                  </div>
