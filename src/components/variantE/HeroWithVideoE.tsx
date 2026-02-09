@@ -57,7 +57,7 @@ const VideoTestimonials = () => <div className="w-screen md:w-[440px] overflow-h
     msOverflowStyle: 'none'
   }}>
       {/* Left spacer - mobile only */}
-      <div className="flex-shrink-0 w-4 md:hidden" />
+      <div className="flex-shrink-0 w-0 md:hidden" />
       {videoTestimonials.map((item, index) => <div key={index} className="flex-shrink-0 snap-center flex flex-col items-center">
           <div className="relative w-[70vw] md:w-[360px] aspect-[9/16] rounded-xl overflow-hidden shadow-2xl bg-black/20">
             {item.type === "video" ? <>
