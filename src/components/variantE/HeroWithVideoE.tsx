@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ContactOptionsModal } from "@/components/ContactOptionsModal";
-import { Award, Users, Heart } from "lucide-react";
+import { Award, Users, Stethoscope } from "lucide-react";
 const conditions = ["skin and hair issues?", "gut issues?", "joint and muscle pain?", "diabetes or high cholesterol?", "PCOD/ PCOS?", "respiratory issues?"];
 import heroTreatment from "@/assets/hero-treatment.jpg";
 const credibilityMarkers = [{
@@ -13,7 +13,7 @@ const credibilityMarkers = [{
   value: "10L+",
   label: "Patients Treated"
 }, {
-  icon: Heart,
+  icon: Stethoscope,
   value: "300+",
   label: "Expert Vaidyas"
 }];
