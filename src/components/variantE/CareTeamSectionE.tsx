@@ -152,7 +152,7 @@ import careTeamBg from "@/assets/care-team-bg.jpg";
            {doctors.map((doctor, index) => (
               <Card 
                 key={index}
-                className="p-5 shadow-[var(--shadow-card)] cursor-pointer hover:shadow-lg transition-shadow snap-center flex-shrink-0 w-[80vw] md:w-[340px]"
+                className="p-5 shadow-[var(--shadow-card)] cursor-pointer hover:shadow-lg transition-shadow snap-center flex-shrink-0 w-[85vw] md:w-[380px]"
                 onClick={() => setSelectedDoctor(index)}
               >
                 <div className="flex items-center gap-4 h-[88px]">
