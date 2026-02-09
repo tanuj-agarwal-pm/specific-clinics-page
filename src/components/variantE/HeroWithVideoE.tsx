@@ -7,15 +7,15 @@ import heroTreatment from "@/assets/hero-treatment.jpg";
 const credibilityMarkers = [{
   icon: Award,
   value: "80+",
-  label: "years of excellence in authentic care"
+  label: "Years of Excellence"
 }, {
   icon: Users,
   value: "10 Lacs+",
-  label: "patients treated and massages done"
+  label: "Patients Treated"
 }, {
   icon: Heart,
   value: "300+",
-  label: "vaidyas and therapists dedicated to your care"
+  label: "Expert Vaidyas"
 }];
 const videoTestimonials = [{
   type: "video" as const,
@@ -36,12 +36,11 @@ const videoTestimonials = [{
 const CredibilityMarkers = () => <div className="grid grid-cols-3 gap-3 md:gap-4">
     {credibilityMarkers.map((marker, index) => {
     const Icon = marker.icon;
-    return <div key={index} className="bg-primary-foreground/10 backdrop-blur-sm rounded-lg p-3 md:p-4 text-center border border-primary-foreground/20">
-          <Icon className="w-5 h-5 md:w-6 md:h-6 text-primary-foreground mx-auto mb-2" />
-          <p className="text-lg md:text-2xl font-heading text-primary-foreground font-bold">
+    return <div key={index} className="bg-primary-foreground/15 backdrop-blur-sm rounded-xl p-4 md:p-5 text-center border border-primary-foreground/30">
+          <p className="text-2xl md:text-3xl font-heading text-primary-foreground font-bold leading-none">
             {marker.value}
           </p>
-          <p className="text-xs md:text-sm text-primary-foreground/80 leading-tight">
+          <p className="text-xs md:text-sm text-primary-foreground/90 mt-1 font-medium">
             {marker.label}
           </p>
         </div>;
