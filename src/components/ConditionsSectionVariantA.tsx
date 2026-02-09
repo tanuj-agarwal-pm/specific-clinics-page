@@ -112,7 +112,7 @@ export const ConditionsSectionVariantA = ({ onTabChange }: ConditionsSectionVari
           {currentItems.map((item, index) => {
           const isHiddenOnMobile = index >= 4 && !showAll;
           const Icon = item.icon;
-          return <div key={index} className={`bg-card rounded-lg p-3 md:p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-border flex flex-col items-center text-center md:items-start md:text-left ${isHiddenOnMobile ? 'hidden md:flex' : 'flex'}`}>
+          return <div key={index} className={`bg-card rounded-lg p-3 md:p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-border flex flex-col items-center text-center md:items-start md:text-left min-h-[120px] md:min-h-0 ${isHiddenOnMobile ? 'hidden md:flex' : 'flex'}`}>
                 <div className="bg-accent/10 text-accent w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mb-2 md:mb-4">
                   <Icon className="w-6 h-6 md:w-8 md:h-8" />
                 </div>
