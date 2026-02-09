@@ -38,7 +38,7 @@ const CredibilityMarkers = () => <div className="grid grid-cols-3 gap-3 md:gap-4
     const Icon = marker.icon;
     return <div key={index} className="relative pb-5">
           <div className="bg-background/90 backdrop-blur-sm rounded-2xl p-5 md:p-6 text-center shadow-lg">
-            <p className="text-4xl md:text-5xl font-heading text-foreground font-bold leading-none">
+            <p className="text-3xl md:text-5xl font-heading text-foreground font-bold leading-none">
               {marker.value}
             </p>
             <p className="text-sm md:text-base text-muted-foreground mt-2 font-medium">
