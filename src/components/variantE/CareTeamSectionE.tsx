@@ -162,17 +162,19 @@ import careTeamBg from "@/assets/care-team-bg.jpg";
                      className="w-24 h-24 rounded-full object-cover border-2 border-primary flex-shrink-0"
                    />
                    <div className="flex-1 min-w-0 flex flex-col gap-1">
-                     <p className="text-sm text-muted-foreground truncate">{doctor.specialization}</p>
+                     <p className="text-sm text-muted-foreground line-clamp-2 leading-snug">{doctor.specialization}</p>
                      <div className="flex items-center gap-2 text-muted-foreground">
                        <Award className="w-4 h-4 flex-shrink-0" />
-                       <span className="text-sm truncate">{doctor.experience}</span>
+                       <span className="text-sm">{doctor.experience} of experience</span>
                      </div>
                    </div>
+                 </div>
+                 <div className="flex items-center justify-between mt-3 w-full">
+                   <h4 className="text-base md:text-lg font-heading text-foreground">
+                     {doctor.name}
+                   </h4>
                    <ArrowRight className="w-5 h-5 text-muted-foreground flex-shrink-0" />
                  </div>
-                 <h4 className="text-base md:text-lg font-heading text-foreground mt-3 w-full">
-                   {doctor.name}
-                 </h4>
               </Card>
            ))}
            {/* Right spacer - mobile only */}
